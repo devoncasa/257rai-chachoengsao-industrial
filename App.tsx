@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { translations } from './constants';
 import { Language, TranslationSet } from './types';
+import { Lightbox } from './Lightbox';
 
 interface HeaderProps {
   t: TranslationSet;
@@ -16,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange }) => {
     { key: 'navEcosystem', href: '#ecosystem' },
     { key: 'navInfrastructure', href: '#infrastructure' },
     { key: 'navInvestment', href: '#investment' },
+    { key: 'navPrice', href: '#price' },
     { key: 'navContact', href: '#contact' },
   ];
 
@@ -71,6 +73,7 @@ const Section: React.FC<{id: string, title: string, children: React.ReactNode}> 
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>(Language.EN);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
   const t = translations[lang];
 
   useEffect(() => {
@@ -78,20 +81,67 @@ const App: React.FC = () => {
     document.documentElement.lang = lang;
   }, [t, lang]);
 
+  const images = [
+      { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-001.jpeg", altKey: "imgPlaceholder1" },
+      { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-002.jpeg", altKey: "imgPlaceholder2" },
+      { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-003.jpeg", altKey: "imgPlaceholder3" },
+      { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-004.jpeg", altKey: "imgPlaceholder4" },
+  ];
+
+  const lightboxImages = images.map(img => ({
+    src: img.src,
+    caption: t[img.altKey],
+  }));
+
   return (
     <div className="bg-stone-50 text-stone-800">
       <Header t={t} currentLang={lang} onLangChange={setLang} />
-      <main className="container mx-auto px-6 py-12">
+      <main className="w-full lg:w-3/5 mx-auto px-6 py-12">
         <Section id="overview" title={t.titleOverview}>
-            <p className="text-stone-700 leading-relaxed">{t.textOverview}</p>
+            <div className="space-y-4">
+              {t.textOverview.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="text-stone-700 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
         </Section>
         
         <section className="mb-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="image-placeholder aspect-video rounded-lg shadow-sm bg-stone-200 border-2 border-dashed border-stone-300 flex items-center justify-center text-stone-500 font-medium">{t.imgPlaceholder1}</div>
-            <div className="image-placeholder aspect-video rounded-lg shadow-sm bg-stone-200 border-2 border-dashed border-stone-300 flex items-center justify-center text-stone-500 font-medium">{t.imgPlaceholder2}</div>
-            <div className="image-placeholder aspect-video rounded-lg shadow-sm bg-stone-200 border-2 border-dashed border-stone-300 flex items-center justify-center text-stone-500 font-medium">{t.imgPlaceholder3}</div>
-            <div className="image-placeholder aspect-video rounded-lg shadow-sm bg-stone-200 border-2 border-dashed border-stone-300 flex items-center justify-center text-stone-500 font-medium">{t.imgPlaceholder4}</div>
+            {images.map((image, index) => (
+                <div key={index} className="group overflow-hidden rounded-lg shadow-md cursor-pointer" onClick={() => setActiveImageIndex(index)}>
+                    <img 
+                        src={image.src} 
+                        alt={t[image.altKey]} 
+                        className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                    />
+                    <p className="text-center text-sm text-stone-600 mt-2 p-2 font-medium bg-white">{t[image.altKey]}</p>
+                </div>
+            ))}
         </section>
+
+        {activeImageIndex !== null && (
+          <Lightbox
+            images={lightboxImages}
+            startIndex={activeImageIndex}
+            onClose={() => setActiveImageIndex(null)}
+            t={t}
+          />
+        )}
+
+        <div className="text-center mb-28">
+            <a 
+              href="https://maps.app.goo.gl/w3rbjKfWmFMmLvBc7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 font-semibold py-3 px-6 rounded-lg hover:bg-amber-200 transition-colors shadow-sm text-base"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              {t.viewOnMap}
+            </a>
+        </div>
 
         <Section id="asset" title={t.titleAsset}>
              <div className="space-y-8 text-stone-700 leading-relaxed">
@@ -119,19 +169,6 @@ const App: React.FC = () => {
                 <div>
                     <h3 className="text-xl font-semibold mb-2 text-amber-800">{t.subtitleLocation1}</h3>
                     <p>{t.textLocation1}</p>
-                    <div className="mt-4">
-                      <a 
-                        href="https://maps.app.goo.gl/w3rbjKfWmFMmLvBc7" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-lg hover:bg-amber-200 transition-colors shadow-sm"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        {t.viewOnMap}
-                      </a>
-                    </div>
                 </div>
                  <div>
                     <h3 className="text-xl font-semibold mb-2 text-amber-800">{t.subtitleLocation2}</h3>
@@ -253,38 +290,57 @@ const App: React.FC = () => {
             </div>
         </Section>
 
-        <Section id="contact" title={t.titleContact}>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-                <p className="text-stone-700 leading-relaxed mb-6">{t.textContact}</p>
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-stone-700">{t.formName}</label>
-                            <input type="text" id="name" className="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 transition"/>
-                        </div>
-                        <div>
-                            <label htmlFor="company" className="block text-sm font-medium text-stone-700">{t.formCompany}</label>
-                            <input type="text" id="company" className="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 transition"/>
-                        </div>
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-stone-700">{t.formEmail}</label>
-                            <input type="email" id="email" className="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 transition"/>
-                        </div>
-                         <div>
-                            <label htmlFor="phone" className="block text-sm font-medium text-stone-700">{t.formPhone}</label>
-                            <input type="tel" id="phone" className="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 transition"/>
-                        </div>
+        <Section id="price" title={t.titlePrice}>
+            <div className="bg-amber-50/60 border border-amber-200/80 rounded-lg p-8 text-center max-w-3xl mx-auto shadow-lg backdrop-blur-sm">
+                <p className="text-lg text-stone-700 mb-6">{t.textPrice}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left my-8">
+                    <div className="bg-white/50 p-4 rounded-md border border-stone-200">
+                        <label className="text-sm font-semibold text-stone-600 block">{t.pricePerRai}</label>
+                        <p className="text-2xl font-bold text-amber-800">1,800,000 THB</p>
                     </div>
-                    <div className="mt-6">
-                        <label htmlFor="message" className="block text-sm font-medium text-stone-700">{t.formMessage}</label>
-                        <textarea id="message" rows={4} className="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 transition"></textarea>
+                    <div className="bg-white/50 p-4 rounded-md border border-stone-200">
+                        <label className="text-sm font-semibold text-stone-600 block">{t.totalArea}</label>
+                        <p className="text-2xl font-bold text-amber-800">257 Rai</p>
                     </div>
-                    <div className="mt-6 text-right">
-                        <button type="submit" className="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-amber-700 hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 transition-all transform hover:scale-105">{t.formSubmit}</button>
-                    </div>
-                </form>
+                </div>
+                <div className="border-t border-amber-200/80 my-6"></div>
+                <div className="bg-white p-6 rounded-lg border border-stone-200">
+                    <label className="text-md font-bold text-stone-800 block text-center">{t.totalPrice}</label>
+                    <p className="text-4xl font-extrabold text-amber-900 text-center mt-2">462,600,000 THB</p>
+                </div>
+                <p className="text-sm text-stone-600 mt-6 font-medium">{t.priceNote}</p>
             </div>
         </Section>
+
+
+        <section id="contact" className="mb-12 scroll-mt-24">
+             <div className="text-center pt-12 border-t border-stone-200">
+                <h3 className="text-3xl font-bold text-stone-800 mb-6">{t.contactTitle}</h3>
+                <div className="mt-6 flex flex-col items-center justify-center gap-y-4 md:flex-row md:gap-x-8 text-stone-700 font-medium">
+                    <div className="flex items-center gap-4">
+                        <a href="tel:+66818519922" aria-label="Call" className="group">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-stone-500 group-hover:text-amber-600 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.758a10.024 10.024 0 006.96 6.96l.758-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/66818519922" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="group">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-stone-500 group-hover:text-amber-600 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.847 6.062l-1.011 3.697 3.803-1.002z"/>
+                            </svg>
+                        </a>
+                        <span className="text-lg">+66(0)818519922 (WeChat available)</span>
+                    </div>
+                    <div className="hidden h-6 w-px bg-stone-300 md:block"></div>
+                    <a href="mailto:k.laohasiri@gmail.com" className="flex items-center gap-2 hover:text-amber-700 transition-colors duration-200 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-stone-500 group-hover:text-amber-600 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        <span>k.laohasiri@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </section>
       </main>
     </div>
   );
