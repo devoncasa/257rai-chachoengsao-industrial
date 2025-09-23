@@ -2,7 +2,7 @@
 import { Translations, Language, TranslationSet } from './types';
 
 const enTranslations: TranslationSet = {
-  pageTitle: "Investment Proposal: 257-Rai Prime Industrial Land",
+  pageTitle: "Siam Estate Hub",
   metaDescription: "Explore a prime investment opportunity: a 257-rai industrial land plot in Prachinburi, Thailand. Strategically located on Highway 304, near major industrial parks and logistics hubs. Ideal for manufacturing, logistics, and supply chain development in Southeast Asia.",
   metaKeywords: "industrial land Thailand, Prachinburi investment, Highway 304 property, Thailand manufacturing base, logistics hub Southeast Asia, EEC Thailand, BOI Thailand, land for sale Prachinburi, industrial real estate",
   logo: "Prime 304 Industrial Land",
@@ -251,7 +251,7 @@ const enTranslations: TranslationSet = {
 };
 
 const thTranslations: TranslationSet = {
-  pageTitle: "ข้อเสนอการลงทุน: ที่ดินอุตสาหกรรมศักยภาพสูง 257 ไร่",
+  pageTitle: "สยาม เอสเตท ฮับ",
   metaDescription: "สำรวจโอกาสการลงทุนในที่ดินอุตสาหกรรมแปลงใหญ่ขนาด 257 ไร่ในจังหวัดปราจีนบุรี ประเทศไทย ตั้งอยู่บนทำเลยุทธศาสตร์ทางหลวงหมายเลข 304 ใกล้นิคมอุตสาหกรรมและศูนย์กลางโลจิสติกส์ที่สำคัญ เหมาะสำหรับเป็นฐานการผลิต โลจิสติกส์ และการพัฒนาซัพพลายเชนในเอเชียตะวันออกเฉียงใต้",
   metaKeywords: "ที่ดินอุตสาหกรรม, การลงทุนในประเทศไทย, อสังหาริมทรัพย์ปราจีนบุรี, ฐานการผลิตประเทศไทย, ศูนย์กลางโลจิสติกส์, EEC ประเทศไทย, BOI ประเทศไทย, ที่ดินปราจีนบุรี, อสังหาริมทรัพย์เพื่อการอุตสาหกรรม",
   logo: "ที่ดินอุตสาหกรรม 304",
@@ -500,7 +500,7 @@ const thTranslations: TranslationSet = {
 };
 
 const zhTranslations: TranslationSet = {
-  pageTitle: "投资提案：257莱优质工业用地",
+  pageTitle: "暹罗地产中心",
   metaDescription: "探索位于泰国巴真府的257莱优质工业用地的黄金投资机会。该地块地理位置优越，位于304国道旁，靠近主要工业园区和物流枢纽。是您在东南亚建立制造业、物流和供应链的理想选择。",
   metaKeywords: "泰国工业用地, 巴真府投资, 304国道地产, 泰国制造业基地, 东南亚物流枢纽, 泰国东部经济走廊EEC, 泰国投资促进委员会BOI, 巴真府待售土地, 工业房地产",
   logo: "304工业用地",
