@@ -239,6 +239,9 @@ const enTranslations: TranslationSet = {
   },
 
   contactTitle: "Contact Details",
+  contactPhoneTitle: "Call & Chat",
+  contactEmailTitle: "Email",
+  contactWeChatNote: "(WeChat available)",
   titlePrice: "Investment Conditions & Price",
   textPrice: "The investment conditions for this prime industrial asset are as follows:",
   pricePerRai: "Price per Rai:",
@@ -488,6 +491,9 @@ const thTranslations: TranslationSet = {
   },
 
   contactTitle: "รายละเอียดการติดต่อ",
+  contactPhoneTitle: "โทรและแชท",
+  contactEmailTitle: "อีเมล",
+  contactWeChatNote: "(มี WeChat)",
   titlePrice: "เงื่อนไขการลงทุนและราคาเสนอขาย",
   textPrice: "เงื่อนไขการลงทุนสำหรับสินทรัพย์อุตสาหกรรมที่สำคัญนี้มีดังต่อไปนี้:",
   pricePerRai: "ราคาต่อไร่:",
@@ -737,6 +743,9 @@ const zhTranslations: TranslationSet = {
   },
 
   contactTitle: "联系方式",
+  contactPhoneTitle: "电话与聊天",
+  contactEmailTitle: "电子邮件",
+  contactWeChatNote: "(提供微信)",
   titlePrice: "投资条件与售价",
   textPrice: "此优质工业资产的投资条件如下：",
   pricePerRai: "每莱价格：",
