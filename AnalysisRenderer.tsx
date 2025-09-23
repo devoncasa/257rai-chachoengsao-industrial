@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 type ContentItem =
@@ -20,32 +21,66 @@ type ContentItem =
 
 interface AnalysisRendererProps {
   content: ContentItem[];
+  tooltipDefinitions: { [key: string]: string };
 }
 
-const renderContentItem = (item: ContentItem, index: number) => {
+// Tooltip Component (self-contained)
+const Tooltip: React.FC<{ term: string, definition: string }> = ({ term, definition }) => (
+  <span className="relative group inline-block">
+    <span className="text-blue-600 font-semibold border-b-2 border-dotted border-blue-400 cursor-help">{term}</span>
+    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-slate-800 text-white text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible z-10">
+      {definition}
+      <svg className="absolute text-slate-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255">
+        <polygon className="fill-current" points="0,0 127.5,127.5 255,0"/>
+      </svg>
+    </span>
+  </span>
+);
+
+// Helper function to render text with tooltips
+const renderTextWithTooltips = (text: string, definitions: { [key: string]: string }) => {
+    if (!definitions || !text) return text;
+
+    // Sort terms by length, descending, to match longer terms first (e.g., "Quality FDI" before "FDI")
+    const terms = Object.keys(definitions).sort((a, b) => b.length - a.length);
+    
+    // Create a regex that matches any of the terms as whole words, escaping special characters
+    const regex = new RegExp(`\\b(${terms.map(term => term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})\\b`, 'g');
+    
+    const parts = text.split(regex);
+
+    return parts.map((part, i) => {
+        if (terms.includes(part)) {
+            return <Tooltip key={`${part}-${i}`} term={part} definition={definitions[part]} />;
+        }
+        return part;
+    });
+};
+
+const renderContentItem = (item: ContentItem, index: number, tooltipDefinitions: { [key: string]: string }) => {
   switch (item.type) {
     case 'paragraph':
       let className = "text-slate-700 leading-relaxed";
       if (item.style === 'italic') className += ' italic';
       if (item.style === 'bold') className += ' font-semibold';
-      return <p key={index} className={className}>{item.text}</p>;
+      return <p key={index} className={className}>{renderTextWithTooltips(item.text, tooltipDefinitions)}</p>;
     case 'heading4':
-      return <h4 key={index} className="text-xl font-semibold text-blue-800 mt-6 mb-2 pt-4 border-t border-sky-200/60">{item.text}</h4>;
+      return <h4 key={index} className="text-xl font-semibold text-blue-800 mt-6 mb-2 pt-4 border-t border-sky-200/60">{renderTextWithTooltips(item.text, tooltipDefinitions)}</h4>;
     case 'heading5':
-      return <h5 key={index} className="text-lg font-semibold text-slate-800 mt-4 mb-2">{item.text}</h5>;
+      return <h5 key={index} className="text-lg font-semibold text-slate-800 mt-4 mb-2">{renderTextWithTooltips(item.text, tooltipDefinitions)}</h5>;
     case 'list':
       return (
         <ul key={index} className="list-disc list-inside space-y-2 my-4 pl-4">
-          {item.items.map((li, i) => <li key={i} className="text-slate-700">{li}</li>)}
+          {item.items.map((li, i) => <li key={i} className="text-slate-700">{renderTextWithTooltips(li, tooltipDefinitions)}</li>)}
         </ul>
       );
     case 'subheading_with_list':
         return (
             <div key={index}>
-                <h5 className="text-lg font-semibold text-slate-800 mt-4 mb-2">{item.title}</h5>
-                <p className="text-slate-700 leading-relaxed mb-2">{item.intro}</p>
+                <h5 className="text-lg font-semibold text-slate-800 mt-4 mb-2">{renderTextWithTooltips(item.title, tooltipDefinitions)}</h5>
+                <p className="text-slate-700 leading-relaxed mb-2">{renderTextWithTooltips(item.intro, tooltipDefinitions)}</p>
                 <ul className="list-disc list-inside space-y-2 my-4 pl-4">
-                    {item.items.map((li, i) => <li key={i} className="text-slate-700">{li}</li>)}
+                    {item.items.map((li, i) => <li key={i} className="text-slate-700">{renderTextWithTooltips(li, tooltipDefinitions)}</li>)}
                 </ul>
             </div>
         );
@@ -80,11 +115,11 @@ const renderContentItem = (item: ContentItem, index: number) => {
   }
 };
 
-export const AnalysisRenderer: React.FC<AnalysisRendererProps> = ({ content }) => {
+export const AnalysisRenderer: React.FC<AnalysisRendererProps> = ({ content, tooltipDefinitions }) => {
   if (!content) return null;
   return (
     <div className="space-y-4">
-      {content.map(renderContentItem)}
+      {content.map((item, index) => renderContentItem(item, index, tooltipDefinitions))}
     </div>
   );
 };

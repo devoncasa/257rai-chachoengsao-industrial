@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { translations } from './constants';
 import { Language, TranslationSet } from './types';
@@ -86,14 +87,14 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange, navItems,
 };
 
 const Section: React.FC<{id: string, title: string, children: React.ReactNode}> = ({id, title, children}) => (
-    <section id={id} className="mb-28 scroll-mt-24">
+    <section id={id} className="scroll-mt-24">
         <h2 className="text-3xl font-bold text-blue-900 mb-8">{title}</h2>
         {children}
     </section>
 );
 
 interface AccordionItemProps {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   isOpen: boolean;
   onClick: () => void;
@@ -259,30 +260,7 @@ const App: React.FC = () => {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      <main className="w-full lg:w-3/5 mx-auto px-6 py-12">
-        <Section id="overview" title={t.titleOverview}>
-            <div className="space-y-4">
-              {t.textOverview.split('\n\n').map((paragraph: string, index: number) => (
-                <p key={index} className="text-slate-700 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-        </Section>
-        
-        <section className="mb-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {images.slice(0, 4).map((image, index) => (
-                <div key={index} className="group overflow-hidden rounded-lg shadow-md cursor-pointer" onClick={() => setActiveImageIndex(index)}>
-                    <img 
-                        src={image.src} 
-                        alt={t[image.altKey]} 
-                        className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                    />
-                    <p className="text-center text-sm text-slate-600 mt-2 p-2 font-medium bg-white">{t[image.altKey]}</p>
-                </div>
-            ))}
-        </section>
-
+      <main className="w-full">
         {activeImageIndex !== null && (
           <Lightbox
             images={lightboxImages}
@@ -291,276 +269,338 @@ const App: React.FC = () => {
             t={t}
           />
         )}
+        
+        <div className="bg-white py-12 md:py-20">
+            <div className="w-full lg:w-3/5 mx-auto px-6">
+                <Section id="overview" title={t.titleOverview}>
+                    <div className="space-y-4">
+                      {t.textOverview.split('\n\n').map((paragraph: string, index: number) => (
+                        <p key={index} className="text-slate-700 leading-relaxed">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                </Section>
+                
+                <section className="my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {images.slice(0, 4).map((image, index) => (
+                        <div key={index} className="group overflow-hidden rounded-lg shadow-md cursor-pointer" onClick={() => setActiveImageIndex(index)}>
+                            <img 
+                                src={image.src} 
+                                alt={t[image.altKey]} 
+                                className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                            />
+                            <p className="text-center text-sm text-slate-600 mt-2 p-2 font-medium bg-white">{t[image.altKey]}</p>
+                        </div>
+                    ))}
+                </section>
 
-        <div className="text-center mb-28">
-            <a 
-              href="https://maps.app.goo.gl/w3rbjKfWmFMmLvBc7" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-sky-100 text-blue-800 font-semibold py-3 px-6 rounded-lg hover:bg-sky-200 transition-colors shadow-sm text-base"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              {t.viewOnMap}
-            </a>
+                <div className="text-center">
+                    <a 
+                      href="https://maps.app.goo.gl/w3rbjKfWmFMmLvBc7" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-sky-100 text-blue-800 font-semibold py-3 px-6 rounded-lg hover:bg-sky-200 transition-colors shadow-sm text-base"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                      {t.viewOnMap}
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <Section id="asset" title={t.titleAsset}>
-             <div className="space-y-8 text-slate-700 leading-relaxed">
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset1}</h3>
-                    <p>{t.textAsset1}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset2}</h3>
-                    <p>{t.textAsset2}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset3}</h3>
-                    <p>{t.textAsset3}</p>
-                </div>
-                 <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset4}</h3>
-                    <p>{t.textAsset4}</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-blue-800 pt-4 border-t border-sky-200/80">{t.subtitleAsset5}</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-4">
-                      <div 
-                        className="group overflow-hidden rounded-lg shadow-md cursor-pointer" 
-                        onClick={() => setActiveImageIndex(4)}
-                      >
-                          <img 
-                              src={images[4].src} 
-                              alt={t[images[4].altKey]} 
-                              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                           <p className="text-center text-sm text-slate-600 mt-2 p-2 font-medium bg-white">{t[images[4].altKey]}</p>
+        <div className="bg-sky-100 py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="asset" title={t.titleAsset}>
+                 <div className="space-y-8 text-slate-700 leading-relaxed">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset1}</h3>
+                        <p>{t.textAsset1}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset2}</h3>
+                        <p>{t.textAsset2}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset3}</h3>
+                        <p>{t.textAsset3}</p>
+                    </div>
+                     <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleAsset4}</h3>
+                        <p>{t.textAsset4}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-blue-800 pt-4 border-t border-sky-200/80">{t.subtitleAsset5}</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-4">
+                          <div 
+                            className="group overflow-hidden rounded-lg shadow-md cursor-pointer" 
+                            onClick={() => setActiveImageIndex(4)}
+                          >
+                              <img 
+                                  src={images[4].src} 
+                                  alt={t[images[4].altKey]} 
+                                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                              />
+                               <p className="text-center text-sm text-slate-600 mt-2 p-2 font-medium bg-white">{t[images[4].altKey]}</p>
+                          </div>
+                          <div className="bg-sky-50/50 p-6 rounded-lg border border-sky-200 space-y-4">
+                            <p>{t.textAsset5_p1}</p>
+                            <h4 className="text-lg font-bold text-slate-800">{t.textAsset5_title}</h4>
+                            <ul className="space-y-3">
+                                <li className="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <strong className="font-semibold text-slate-700">{t.textAsset5_li1_title}:</strong> {t.textAsset5_li1_text}
+                                    </div>
+                                </li>
+                                <li className="flex items-start">
+                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <strong className="font-semibold text-slate-700">{t.textAsset5_li2_title}:</strong> {t.textAsset5_li2_text}
+                                    </div>
+                                </li>
+                                <li className="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <strong className="font-semibold text-slate-700">{t.textAsset5_li3_title}:</strong> {t.textAsset5_li3_text}
+                                    </div>
+                                </li>
+                            </ul>
+                            <p className="font-semibold italic pt-2">{t.textAsset5_p2}</p>
+                          </div>
                       </div>
-                      <div className="bg-sky-50/50 p-6 rounded-lg border border-sky-100 space-y-4">
-                        <p>{t.textAsset5_p1}</p>
-                        <h4 className="text-lg font-bold text-slate-800">{t.textAsset5_title}</h4>
-                        <ul className="space-y-3">
-                            <li className="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <div>
-                                    <strong className="font-semibold text-slate-700">{t.textAsset5_li1_title}:</strong> {t.textAsset5_li1_text}
-                                </div>
-                            </li>
-                            <li className="flex items-start">
-                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <div>
-                                    <strong className="font-semibold text-slate-700">{t.textAsset5_li2_title}:</strong> {t.textAsset5_li2_text}
-                                </div>
-                            </li>
-                            <li className="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-sky-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <div>
-                                    <strong className="font-semibold text-slate-700">{t.textAsset5_li3_title}:</strong> {t.textAsset5_li3_text}
-                                </div>
-                            </li>
-                        </ul>
-                        <p className="font-semibold italic pt-2">{t.textAsset5_p2}</p>
-                      </div>
+                    </div>
+                </div>
+            </Section>
+          </div>
+        </div>
+        
+        <div className="bg-white py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="business-potential" title={t.titleBusinessPotential}>
+              <div className="space-y-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-blue-800/90 mb-6 pb-2 border-b-2 border-sky-200">{t.group1Title}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <BusinessPotentialCard title={t.group1_item1_title} concept={t.group1_item1_concept} rationale={t.group1_item1_rationale} t={t} />
+                    <BusinessPotentialCard title={t.group1_item2_title} concept={t.group1_item2_concept} rationale={t.group1_item2_rationale} t={t} />
+                    <BusinessPotentialCard title={t.group1_item3_title} concept={t.group1_item3_concept} rationale={t.group1_item3_rationale} t={t} />
                   </div>
                 </div>
-            </div>
-        </Section>
-        
-        <Section id="business-potential" title={t.titleBusinessPotential}>
-          <div className="space-y-12">
-            <div>
-              <h3 className="text-2xl font-bold text-blue-800/90 mb-6 pb-2 border-b-2 border-sky-200">{t.group1Title}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <BusinessPotentialCard title={t.group1_item1_title} concept={t.group1_item1_concept} rationale={t.group1_item1_rationale} t={t} />
-                <BusinessPotentialCard title={t.group1_item2_title} concept={t.group1_item2_concept} rationale={t.group1_item2_rationale} t={t} />
-                <BusinessPotentialCard title={t.group1_item3_title} concept={t.group1_item3_concept} rationale={t.group1_item3_rationale} t={t} />
+                <div>
+                  <h3 className="text-2xl font-bold text-blue-800/90 mb-6 pb-2 border-b-2 border-sky-200">{t.group2Title}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <BusinessPotentialCard title={t.group2_item1_title} concept={t.group2_item1_concept} rationale={t.group2_item1_rationale} t={t} />
+                     <BusinessPotentialCard title={t.group2_item2_title} concept={t.group2_item2_concept} rationale={t.group2_item2_rationale} t={t} />
+                     <BusinessPotentialCard title={t.group2_item3_title} concept={t.group2_item3_concept} rationale={t.group2_item3_rationale} t={t} />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-blue-800/90 mb-6 pb-2 border-b-2 border-sky-200">{t.group2Title}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 <BusinessPotentialCard title={t.group2_item1_title} concept={t.group2_item1_concept} rationale={t.group2_item1_rationale} t={t} />
-                 <BusinessPotentialCard title={t.group2_item2_title} concept={t.group2_item2_concept} rationale={t.group2_item2_rationale} t={t} />
-                 <BusinessPotentialCard title={t.group2_item3_title} concept={t.group2_item3_concept} rationale={t.group2_item3_rationale} t={t} />
-              </div>
-            </div>
+            </Section>
           </div>
-        </Section>
+        </div>
 
-        <Section id="location" title={t.titleLocation}>
-            <div className="space-y-8 text-slate-700 leading-relaxed">
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation1}</h3>
-                    <p>{t.textLocation1}</p>
-                </div>
-                 <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation2}</h3>
-                    <p>{t.textLocation2}</p>
-                </div>
-                 <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation3}</h3>
-                    <p>{t.textLocation3}</p>
-                </div>
-                <div className="overflow-x-auto mt-8 bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-semibold mb-4 text-blue-800">{t.titleConnMatrix}</h3>
-                    <table className="w-full border-collapse text-slate-800">
-                        <thead>
-                            <tr className="bg-sky-100">
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colDest}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colDist}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colTime}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colImp}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200">
-                                <td className="border border-slate-200 p-3">{t.dest1}</td>
-                                <td className="border border-slate-200 p-3">~140</td>
-                                <td className="border border-slate-200 p-3">{t.time1}</td>
-                                <td className="border border-slate-200 p-3">{t.imp1}</td>
-                            </tr>
-                            <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200">
-                                <td className="border border-slate-200 p-3">{t.dest2}</td>
-                                <td className="border border-slate-200 p-3">~150</td>
-                                <td className="border border-slate-200 p-3">{t.time2}</td>
-                                <td className="border border-slate-200 p-3">{t.imp2}</td>
-                            </tr>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200">
-                                <td className="border border-slate-200 p-3">{t.dest3}</td>
-                                <td className="border border-slate-200 p-3">~160</td>
-                                <td className="border border-slate-200 p-3">{t.time3}</td>
-                                <td className="border border-slate-200 p-3">{t.imp3}</td>
-                            </tr>
-                             <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200">
-                                <td className="border border-slate-200 p-3">{t.dest4}</td>
-                                <td className="border border-slate-200 p-3">~139</td>
-                                <td className="border border-slate-200 p-3">{t.time4}</td>
-                                <td className="border border-slate-200 p-3">{t.imp4}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </Section>
-        
-        <Section id="ecosystem" title={t.titleEcosystem}>
-            <div className="space-y-8 text-slate-700 leading-relaxed">
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleEcosystem1}</h3>
-                    <p>{t.textEcosystem1}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleEcosystem2}</h3>
-                    <p>{t.textEcosystem2}</p>
-                </div>
-                <div className="overflow-x-auto mt-8 bg-white p-6 rounded-lg shadow-md">
-                     <h3 className="text-xl font-semibold mb-4 text-blue-800">{t.titleMultiNat}</h3>
-                    <table className="w-full border-collapse text-slate-800">
-                        <thead>
-                            <tr className="bg-sky-100">
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colComp}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colNat}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colInd}</th>
-                                <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colProd}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Toshiba Semiconductor</td><td className="border border-slate-200 p-3">{t.nat1}</td><td className="border border-slate-200 p-3">{t.ind1}</td><td className="border border-slate-200 p-3">{t.prod1}</td></tr>
-                            <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Canon Prachinburi</td><td className="border border-slate-200 p-3">{t.nat2}</td><td className="border border-slate-200 p-3">{t.ind2}</td><td className="border border-slate-200 p-3">{t.prod2}</td></tr>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Toyotetsu (Thailand)</td><td className="border border-slate-200 p-3">{t.nat3}</td><td className="border border-slate-200 p-3">{t.ind3}</td><td className="border border-slate-200 p-3">{t.prod3}</td></tr>
-                            <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Siam Aisin Co., Ltd.</td><td className="border border-slate-200 p-3">{t.nat4}</td><td className="border border-slate-200 p-3">{t.ind4}</td><td className="border border-slate-200 p-3">{t.prod4}</td></tr>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Hitachi Global Storage</td><td className="border border-slate-200 p-3">{t.nat5}</td><td className="border border-slate-200 p-3">{t.ind5}</td><td className="border border-slate-200 p-3">{t.prod5}</td></tr>
-                            <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Emerson Electric</td><td className="border border-slate-200 p-3">{t.nat6}</td><td className="border border-slate-200 p-3">{t.ind6}</td><td className="border border-slate-200 p-3">{t.prod6}</td></tr>
-                            <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Sumisho Global Logistics</td><td className="border border-slate-200 p-3">{t.nat7}</td><td className="border border-slate-200 p-3">{t.ind7}</td><td className="border border-slate-200 p-3">{t.prod7}</td></tr>
-                            <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Sunshine Biotech Int'l</td><td className="border border-slate-200 p-3">{t.nat8}</td><td className="border border-slate-200 p-3">{t.ind8}</td><td className="border border-slate-200 p-3">{t.prod8}</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </Section>
-        
-        <Section id="infrastructure" title={t.titleInfrastructure}>
-            <div className="space-y-8 text-slate-700 leading-relaxed">
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra1}</h3>
-                    <p>{t.textInfra1}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra2}</h3>
-                    <p>{t.textInfra2}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra3}</h3>
-                    <p>{t.textInfra3}</p>
-                </div>
-            </div>
-        </Section>
-
-        <Section id="investment" title={t.titleInvestment}>
-             <div className="space-y-8 text-slate-700 leading-relaxed">
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest1}</h3>
-                    <p>{t.textInvest1}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest2}</h3>
-                    <p>{t.textInvest2}</p>
-                </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest3}</h3>
-                    <p>{t.textInvest3}</p>
-                </div>
-            </div>
-        </Section>
-
-        <Section id="analysis" title={t.analysis.title}>
-            <div className="rounded-lg shadow-md overflow-hidden border border-slate-200">
-                {analysisSections.map((section, index) => (
-                    <AccordionItem 
-                        key={index}
-                        title={section.title} 
-                        isOpen={openAccordionIndex === index} 
-                        onClick={() => handleAccordionClick(index)}
-                    >
-                        <AnalysisRenderer content={section.content} />
-                    </AccordionItem>
-                ))}
-            </div>
-        </Section>
-
-        <section id="price" className="mb-28 scroll-mt-24">
-            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">{t.titlePrice}</h2>
-            <div className="bg-sky-100/60 border border-sky-200/80 rounded-lg p-8 text-center max-w-3xl mx-auto shadow-lg backdrop-blur-sm">
-                <p className="text-lg text-slate-700 mb-6">{t.textPrice}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left my-8">
-                    <div className="bg-white/50 p-4 rounded-md border border-slate-200">
-                        <label className="text-sm font-semibold text-slate-600 block">{t.pricePerRai}</label>
-                        <p className="text-2xl font-bold text-blue-800">1,800,000 THB</p>
+        <div className="bg-sky-100 py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="location" title={t.titleLocation}>
+                <div className="space-y-8 text-slate-700 leading-relaxed">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation1}</h3>
+                        <p>{t.textLocation1}</p>
                     </div>
-                    <div className="bg-white/50 p-4 rounded-md border border-slate-200">
-                        <label className="text-sm font-semibold text-slate-600 block">{t.totalArea}</label>
-                        <p className="text-2xl font-bold text-blue-800">257 Rai</p>
+                     <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation2}</h3>
+                        <p>{t.textLocation2}</p>
+                    </div>
+                     <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleLocation3}</h3>
+                        <p>{t.textLocation3}</p>
+                    </div>
+                    <div className="overflow-x-auto mt-8 bg-white p-6 rounded-lg shadow-md">
+                        <h3 className="text-xl font-semibold mb-4 text-blue-800">{t.titleConnMatrix}</h3>
+                        <table className="w-full border-collapse text-slate-800">
+                            <thead>
+                                <tr className="bg-sky-100">
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colDest}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colDist}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colTime}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colImp}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200">
+                                    <td className="border border-slate-200 p-3">{t.dest1}</td>
+                                    <td className="border border-slate-200 p-3">~140</td>
+                                    <td className="border border-slate-200 p-3">{t.time1}</td>
+                                    <td className="border border-slate-200 p-3">{t.imp1}</td>
+                                </tr>
+                                <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200">
+                                    <td className="border border-slate-200 p-3">{t.dest2}</td>
+                                    <td className="border border-slate-200 p-3">~150</td>
+                                    <td className="border border-slate-200 p-3">{t.time2}</td>
+                                    <td className="border border-slate-200 p-3">{t.imp2}</td>
+                                </tr>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200">
+                                    <td className="border border-slate-200 p-3">{t.dest3}</td>
+                                    <td className="border border-slate-200 p-3">~160</td>
+                                    <td className="border border-slate-200 p-3">{t.time3}</td>
+                                    <td className="border border-slate-200 p-3">{t.imp3}</td>
+                                </tr>
+                                 <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200">
+                                    <td className="border border-slate-200 p-3">{t.dest4}</td>
+                                    <td className="border border-slate-200 p-3">~139</td>
+                                    <td className="border border-slate-200 p-3">{t.time4}</td>
+                                    <td className="border border-slate-200 p-3">{t.imp4}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div className="border-t border-sky-200/80 my-6"></div>
-                <div className="bg-white p-6 rounded-lg border border-slate-200">
-                    <label className="text-md font-bold text-slate-800 block text-center">{t.totalPrice}</label>
-                    <p className="text-4xl font-extrabold text-blue-900 text-center mt-2">462,600,000 THB</p>
+            </Section>
+          </div>
+        </div>
+        
+        <div className="bg-white py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="ecosystem" title={t.titleEcosystem}>
+                <div className="space-y-8 text-slate-700 leading-relaxed">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleEcosystem1}</h3>
+                        <p>{t.textEcosystem1}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleEcosystem2}</h3>
+                        <p>{t.textEcosystem2}</p>
+                    </div>
+                    <div className="overflow-x-auto mt-8 bg-white p-6 rounded-lg shadow-md">
+                         <h3 className="text-xl font-semibold mb-4 text-blue-800">{t.titleMultiNat}</h3>
+                        <table className="w-full border-collapse text-slate-800">
+                            <thead>
+                                <tr className="bg-sky-100">
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colComp}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colNat}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colInd}</th>
+                                    <th className="border border-slate-200 p-3 text-left text-slate-800 font-semibold">{t.colProd}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Toshiba Semiconductor</td><td className="border border-slate-200 p-3">{t.nat1}</td><td className="border border-slate-200 p-3">{t.ind1}</td><td className="border border-slate-200 p-3">{t.prod1}</td></tr>
+                                <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Canon Prachinburi</td><td className="border border-slate-200 p-3">{t.nat2}</td><td className="border border-slate-200 p-3">{t.ind2}</td><td className="border border-slate-200 p-3">{t.prod2}</td></tr>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Toyotetsu (Thailand)</td><td className="border border-slate-200 p-3">{t.nat3}</td><td className="border border-slate-200 p-3">{t.ind3}</td><td className="border border-slate-200 p-3">{t.prod3}</td></tr>
+                                <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Siam Aisin Co., Ltd.</td><td className="border border-slate-200 p-3">{t.nat4}</td><td className="border border-slate-200 p-3">{t.ind4}</td><td className="border border-slate-200 p-3">{t.prod4}</td></tr>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Hitachi Global Storage</td><td className="border border-slate-200 p-3">{t.nat5}</td><td className="border border-slate-200 p-3">{t.ind5}</td><td className="border border-slate-200 p-3">{t.prod5}</td></tr>
+                                <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Emerson Electric</td><td className="border border-slate-200 p-3">{t.nat6}</td><td className="border border-slate-200 p-3">{t.ind6}</td><td className="border border-slate-200 p-3">{t.prod6}</td></tr>
+                                <tr className="hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Sumisho Global Logistics</td><td className="border border-slate-200 p-3">{t.nat7}</td><td className="border border-slate-200 p-3">{t.ind7}</td><td className="border border-slate-200 p-3">{t.prod7}</td></tr>
+                                <tr className="bg-sky-50 hover:bg-sky-100 transition-colors duration-200"><td className="border border-slate-200 p-3">Sunshine Biotech Int'l</td><td className="border border-slate-200 p-3">{t.nat8}</td><td className="border border-slate-200 p-3">{t.ind8}</td><td className="border border-slate-200 p-3">{t.prod8}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <p className="text-sm text-slate-600 mt-6 font-medium">{t.priceNote}</p>
-            </div>
-        </section>
+            </Section>
+          </div>
+        </div>
+        
+        <div className="bg-sky-100 py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="infrastructure" title={t.titleInfrastructure}>
+                <div className="space-y-8 text-slate-700 leading-relaxed">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra1}</h3>
+                        <p>{t.textInfra1}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra2}</h3>
+                        <p>{t.textInfra2}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInfra3}</h3>
+                        <p>{t.textInfra3}</p>
+                    </div>
+                </div>
+            </Section>
+          </div>
+        </div>
+
+        <div className="bg-white py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="investment" title={t.titleInvestment}>
+                 <div className="space-y-8 text-slate-700 leading-relaxed">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest1}</h3>
+                        <p>{t.textInvest1}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest2}</h3>
+                        <p>{t.textInvest2}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-2 text-blue-800">{t.subtitleInvest3}</h3>
+                        <p>{t.textInvest3}</p>
+                    </div>
+                </div>
+            </Section>
+          </div>
+        </div>
+
+        <div className="bg-sky-100 py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <Section id="analysis" title={t.analysis.title}>
+                <div className="rounded-lg shadow-md overflow-hidden border border-slate-200">
+                    {analysisSections.map((section, index) => (
+                        <AccordionItem 
+                            key={index}
+                            title={section.title} 
+                            isOpen={openAccordionIndex === index} 
+                            onClick={() => handleAccordionClick(index)}
+                        >
+                            <AnalysisRenderer 
+                                content={section.content} 
+                                tooltipDefinitions={t.tooltipDefinitions}
+                            />
+                        </AccordionItem>
+                    ))}
+                </div>
+            </Section>
+          </div>
+        </div>
+
+        <div className="bg-white py-12 md:py-20">
+          <div className="w-full lg:w-3/5 mx-auto px-6">
+            <section id="price" className="scroll-mt-24">
+                <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">{t.titlePrice}</h2>
+                <div className="bg-sky-100/60 border border-sky-200/80 rounded-lg p-8 text-center max-w-3xl mx-auto shadow-lg backdrop-blur-sm">
+                    <p className="text-lg text-slate-700 mb-6">{t.textPrice}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left my-8">
+                        <div className="bg-white/50 p-4 rounded-md border border-slate-200">
+                            <label className="text-sm font-semibold text-slate-600 block">{t.pricePerRai}</label>
+                            <p className="text-2xl font-bold text-blue-800">1,800,000 THB</p>
+                        </div>
+                        <div className="bg-white/50 p-4 rounded-md border border-slate-200">
+                            <label className="text-sm font-semibold text-slate-600 block">{t.totalArea}</label>
+                            <p className="text-2xl font-bold text-blue-800">257 Rai</p>
+                        </div>
+                    </div>
+                    <div className="border-t border-sky-200/80 my-6"></div>
+                    <div className="bg-white p-6 rounded-lg border border-slate-200">
+                        <label className="text-md font-bold text-slate-800 block text-center">{t.totalPrice}</label>
+                        <p className="text-4xl font-extrabold text-blue-900 text-center mt-2">462,600,000 THB</p>
+                    </div>
+                    <p className="text-sm text-slate-600 mt-6 font-medium">{t.priceNote}</p>
+                </div>
+            </section>
+          </div>
+        </div>
       </main>
 
-      <section id="contact" className="scroll-mt-24 bg-sky-100/60 py-20">
+      <section id="contact" className="scroll-mt-24 bg-sky-100 py-20">
         <div className="w-full lg:w-3/5 mx-auto px-6">
             <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">{t.contactTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
