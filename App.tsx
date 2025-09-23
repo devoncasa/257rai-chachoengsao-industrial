@@ -160,7 +160,7 @@ const navItems = [
 ];
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>(Language.EN);
+  const [lang, setLang] = useState<Language>(Language.TH);
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(0);
   const [activeSection, setActiveSection] = useState<string>('overview');
