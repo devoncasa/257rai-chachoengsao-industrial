@@ -1,4 +1,4 @@
-
+// Fix: Removed self-import of `Language` which was causing a declaration conflict.
 export enum Language {
   EN = 'en',
   TH = 'th',
@@ -6,7 +6,7 @@ export enum Language {
 }
 
 export type TranslationSet = {
-  [key: string]: string;
+  [key: string]: any; // Allow nested structures for cleaner data management
 };
 
 export type Translations = {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { translations } from './constants';
 import { Language, TranslationSet } from './types';
 import { Lightbox } from './Lightbox';
+import { AnalysisRenderer } from './AnalysisRenderer';
 
 interface HeaderProps {
   t: TranslationSet;
@@ -13,10 +14,12 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange }) => {
   const navItems = [
     { key: 'navOverview', href: '#overview' },
     { key: 'navAsset', href: '#asset' },
+    { key: 'navPotential', href: '#business-potential' },
     { key: 'navLocation', href: '#location' },
     { key: 'navEcosystem', href: '#ecosystem' },
     { key: 'navInfrastructure', href: '#infrastructure' },
     { key: 'navInvestment', href: '#investment' },
+    { key: 'navAnalysis', href: '#analysis' },
     { key: 'navPrice', href: '#price' },
     { key: 'navContact', href: '#contact' },
   ];
@@ -66,19 +69,85 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange }) => {
 
 const Section: React.FC<{id: string, title: string, children: React.ReactNode}> = ({id, title, children}) => (
     <section id={id} className="mb-28 scroll-mt-24">
-        <h2 className="text-3xl font-bold text-amber-900 mb-6">{title}</h2>
+        <h2 className="text-3xl font-bold text-amber-900 mb-8">{title}</h2>
         {children}
     </section>
 );
 
+interface AccordionItemProps {
+  title: string;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+const AccordionItem: React.FC<AccordionItemProps> = ({ title, children, isOpen, onClick }) => (
+  <div className="border-b border-stone-200">
+    <button
+      onClick={onClick}
+      className="w-full text-left p-4 bg-stone-50 hover:bg-stone-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-t-md"
+    >
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-semibold text-amber-800">{title}</h3>
+        <svg
+          className={`w-5 h-5 text-amber-700 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </button>
+    <div
+      className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+    >
+      <div className="overflow-hidden">
+        <div className="p-6 bg-white space-y-4 text-stone-700 leading-relaxed">
+          {children}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const BusinessPotentialCard: React.FC<{title: string; concept: string; rationale: string; t: TranslationSet}> = ({title, concept, rationale, t}) => (
+    <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-amber-500 flex flex-col h-full transform hover:-translate-y-1 transition-transform duration-300">
+        <h4 className="text-xl font-bold text-stone-800 mb-4">{title}</h4>
+        <div className="space-y-4 text-stone-700 text-sm">
+            <div>
+                <p className="font-semibold text-amber-700 mb-1">{t.conceptTitle}</p>
+                <p>{concept}</p>
+            </div>
+            <div className="border-t border-stone-200 pt-4">
+                <p className="font-semibold text-amber-700 mb-1">{t.rationaleTitle}</p>
+                <p>{rationale}</p>
+            </div>
+        </div>
+    </div>
+);
+
+
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>(Language.EN);
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(0);
   const t = translations[lang];
 
   useEffect(() => {
     document.title = t.pageTitle;
     document.documentElement.lang = lang;
+    
+    const descriptionTag = document.getElementById('meta-description');
+    if (descriptionTag) {
+        descriptionTag.setAttribute('content', t.metaDescription);
+    }
+
+    const keywordsTag = document.getElementById('meta-keywords');
+    if (keywordsTag) {
+        keywordsTag.setAttribute('content', t.metaKeywords);
+    }
   }, [t, lang]);
 
   const images = [
@@ -86,6 +155,7 @@ const App: React.FC = () => {
       { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-002.jpeg", altKey: "imgPlaceholder2" },
       { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-003.jpeg", altKey: "imgPlaceholder3" },
       { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/257-004.jpeg", altKey: "imgPlaceholder4" },
+      { src: "https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/2ndary-road.jpeg", altKey: "imgSecondaryRoad" },
   ];
 
   const lightboxImages = images.map(img => ({
@@ -93,13 +163,26 @@ const App: React.FC = () => {
     caption: t[img.altKey],
   }));
 
+  const handleAccordionClick = (index: number) => {
+    setOpenAccordionIndex(openAccordionIndex === index ? null : index);
+  };
+
+  const analysisSections = t.analysis ? [
+    t.analysis.executiveSummary,
+    t.analysis.section1,
+    t.analysis.section2,
+    t.analysis.section3,
+    t.analysis.section4,
+    t.analysis.section5,
+  ] : [];
+
   return (
     <div className="bg-stone-50 text-stone-800">
       <Header t={t} currentLang={lang} onLangChange={setLang} />
       <main className="w-full lg:w-3/5 mx-auto px-6 py-12">
         <Section id="overview" title={t.titleOverview}>
             <div className="space-y-4">
-              {t.textOverview.split('\n\n').map((paragraph, index) => (
+              {t.textOverview.split('\n\n').map((paragraph: string, index: number) => (
                 <p key={index} className="text-stone-700 leading-relaxed">
                   {paragraph}
                 </p>
@@ -108,7 +191,7 @@ const App: React.FC = () => {
         </Section>
         
         <section className="mb-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {images.map((image, index) => (
+            {images.slice(0, 4).map((image, index) => (
                 <div key={index} className="group overflow-hidden rounded-lg shadow-md cursor-pointer" onClick={() => setActiveImageIndex(index)}>
                     <img 
                         src={image.src} 
@@ -161,7 +244,75 @@ const App: React.FC = () => {
                     <h3 className="text-xl font-semibold mb-2 text-amber-800">{t.subtitleAsset4}</h3>
                     <p>{t.textAsset4}</p>
                 </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-amber-800 pt-4 border-t border-amber-200/80">{t.subtitleAsset5}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-4">
+                      <div 
+                        className="group overflow-hidden rounded-lg shadow-md cursor-pointer" 
+                        onClick={() => setActiveImageIndex(4)}
+                      >
+                          <img 
+                              src={images[4].src} 
+                              alt={t[images[4].altKey]} 
+                              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                           <p className="text-center text-sm text-stone-600 mt-2 p-2 font-medium bg-white">{t[images[4].altKey]}</p>
+                      </div>
+                      <div className="bg-amber-50/50 p-6 rounded-lg border border-amber-100 space-y-4">
+                        <p>{t.textAsset5_p1}</p>
+                        <h4 className="text-lg font-bold text-stone-800">{t.textAsset5_title}</h4>
+                        <ul className="space-y-3">
+                            <li className="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-amber-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <div>
+                                    <strong className="font-semibold text-stone-700">{t.textAsset5_li1_title}:</strong> {t.textAsset5_li1_text}
+                                </div>
+                            </li>
+                            <li className="flex items-start">
+                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-amber-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <div>
+                                    <strong className="font-semibold text-stone-700">{t.textAsset5_li2_title}:</strong> {t.textAsset5_li2_text}
+                                </div>
+                            </li>
+                            <li className="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 mt-1 text-amber-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <div>
+                                    <strong className="font-semibold text-stone-700">{t.textAsset5_li3_title}:</strong> {t.textAsset5_li3_text}
+                                </div>
+                            </li>
+                        </ul>
+                        <p className="font-semibold italic pt-2">{t.textAsset5_p2}</p>
+                      </div>
+                  </div>
+                </div>
             </div>
+        </Section>
+        
+        <Section id="business-potential" title={t.titleBusinessPotential}>
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-2xl font-bold text-amber-800/90 mb-6 pb-2 border-b-2 border-amber-200">{t.group1Title}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <BusinessPotentialCard title={t.group1_item1_title} concept={t.group1_item1_concept} rationale={t.group1_item1_rationale} t={t} />
+                <BusinessPotentialCard title={t.group1_item2_title} concept={t.group1_item2_concept} rationale={t.group1_item2_rationale} t={t} />
+                <BusinessPotentialCard title={t.group1_item3_title} concept={t.group1_item3_concept} rationale={t.group1_item3_rationale} t={t} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-amber-800/90 mb-6 pb-2 border-b-2 border-amber-200">{t.group2Title}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <BusinessPotentialCard title={t.group2_item1_title} concept={t.group2_item1_concept} rationale={t.group2_item1_rationale} t={t} />
+                 <BusinessPotentialCard title={t.group2_item2_title} concept={t.group2_item2_concept} rationale={t.group2_item2_rationale} t={t} />
+                 <BusinessPotentialCard title={t.group2_item3_title} concept={t.group2_item3_concept} rationale={t.group2_item3_rationale} t={t} />
+              </div>
+            </div>
+          </div>
         </Section>
 
         <Section id="location" title={t.titleLocation}>
@@ -287,6 +438,21 @@ const App: React.FC = () => {
                     <h3 className="text-xl font-semibold mb-2 text-amber-800">{t.subtitleInvest3}</h3>
                     <p>{t.textInvest3}</p>
                 </div>
+            </div>
+        </Section>
+
+        <Section id="analysis" title={t.analysis.title}>
+            <div className="rounded-lg shadow-md overflow-hidden border border-stone-200">
+                {analysisSections.map((section, index) => (
+                    <AccordionItem 
+                        key={index}
+                        title={section.title} 
+                        isOpen={openAccordionIndex === index} 
+                        onClick={() => handleAccordionClick(index)}
+                    >
+                        <AnalysisRenderer content={section.content} />
+                    </AccordionItem>
+                ))}
             </div>
         </Section>
 
