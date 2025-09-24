@@ -1,4 +1,5 @@
 
+
 import { Translations, Language, TranslationSet } from './types';
 
 const enTranslations: TranslationSet = {
@@ -29,9 +30,9 @@ const enTranslations: TranslationSet = {
   subtitleAsset2: "Unique Topography and Layout",
   textAsset2: "The land has a unique \"elephant\" shape, which is a strategic feature. The \"head and body\" section has 120 meters of direct frontage on Highway 304, serving as the main entrance to the larger ~230-rai area within. The \"tail\" section, a rectangular plot, connects to a secondary public road wide enough for two-way heavy truck traffic. This dual-access layout allows for efficient traffic management, separating logistics flows from employee access and enhancing security for the main internal area.",
   subtitleAsset3: "Development Potential",
-  textAsset3: "The plot is ideally suited for industrial or warehouse development, aligning perfectly with the character of the surrounding area, which hosts major industrial estates like 304 Industrial Park and Rojana Industrial Park. The area is zoned for industrial use (\"Purple Zone\"), making it highly probable that permits for factory or warehouse construction will be approved smoothly. Development possibilities include a single-user facility for a large corporation (e.g., automotive assembly, electronics manufacturing) or a multi-tenant industrial park catering to SMEs within the local supply chain.",
+  textAsset3: "This plot has the potential for diverse project developments that align with its 'Green Zone' (Rural and Agricultural) designation, while also perfectly supporting the surrounding industrial ecosystem. Instead of heavy industrial factories, this land is ideally suited to become a central hub for logistics and value-added agriculture. High-potential development possibilities include: 1) A large-scale distribution center and temperature-controlled warehouse (Cold Storage) to support e-commerce, retail, and the consolidation of agricultural products from the Northeast for export. 2) An agricultural processing plant or a food and beverage industry facility utilizing modern technology. 3) Community-support real estate projects, such as low-density residential developments for personnel from the industrial parks or a community mall to serve local purchasing power. This development approach not only complies with zoning regulations but also creates added value and meets the demands of the modern economy.",
   subtitleAsset4: "Zoning and Land Use Compliance",
-  textAsset4: "The location within an established industrial corridor, predominantly zoned Purple (industrial/warehouse), strongly indicates a high likelihood of approval for industrial development. While formal verification is a necessary step in due diligence, the surrounding environment provides strong evidence of feasibility, significantly reducing investment risk.",
+  textAsset4: "Although located within a strong industrial corridor, the property's designation within the Green Zone (Rural and Agricultural) presents a strategic opportunity for distinct and complementary development. Securing permits for projects such as warehouses, distribution centers, environmentally-friendly agricultural processing plants, or residential projects has a high probability of approval. This is because they align with the objectives of the land use plan and help fulfill the needs of the surrounding industrial community. This environment provides clear evidence for the feasibility of developing support-focused projects, significantly reducing investment risk.",
   subtitleAsset5: "Strategic Asset: Dedicated Logistics Gateway via Secondary Road",
   textAsset5_p1: "Beyond its frontage on National Highway 304, this land plot possesses another crucial strategic advantage: the 'elephant's tail' portion of the property features an extensive 495-meter frontage along a secondary public road. This road is wide enough for large trucks to pass each other comfortably, creating the potential to establish a 'Logistics Gateway' that is completely separate from the main entrance.",
   textAsset5_title: "Opportunities and Investment Rationale:",
@@ -208,7 +209,7 @@ const enTranslations: TranslationSet = {
           { type: 'paragraph', text: "A significant gap exists between official government land valuations and actual market asking prices, reflecting investor expectations about the future." },
           { type: 'list', items: [
               "Official Assessed Price (2023-2026): The Treasury Department sets prices for key roads like Highway 3079 at THB 1,250 - 16,500 per square wah.",
-              "Market Price (Q3 2025): Asking prices for land zoned for industry (purple zone) near the industrial estates are several times higher. For example, land adjacent to a factory in 304 IP is listed at THB 2.5 million per rai (THB 6,250/sq.wah), while nearby undeveloped land ranges from THB 700,000 to 1.8 million per rai."
+              "Market Price (Q3 2025): Asking prices for land zoned for industry (green zone) near the industrial estates are several times higher. For example, land adjacent to a factory in 304 IP is listed at THB 2.5 million per rai (THB 6,250/sq.wah), while nearby undeveloped land ranges from THB 700,000 to 1.8 million per rai."
           ] },
           { type: 'paragraph', text: "This gap indicates that the real estate market is forward-looking, having already priced in the future potential from the EEC and the rail project. We can see a tiered \"premium\":" },
           { type: 'list', items: [
@@ -294,9 +295,9 @@ const thTranslations: TranslationSet = {
   subtitleAsset2: "ลักษณะทางภูมิประเทศและการจัดวางที่เป็นเอกลักษณ์",
   textAsset2: "ที่ดินแปลงนี้มีรูปทรงที่เป็นเอกลักษณ์คล้าย 'ช้าง' ซึ่งถือเป็นจุดเด่นเชิงกลยุทธ์ ส่วน 'หัวและลำตัว' ของช้างมีหน้ากว้างติดทางหลวงแผ่นดินหมายเลข 304 โดยตรงเป็นระยะทางยาว 120 เมตร ทำหน้าที่เป็นทางเข้าหลักสู่ที่ดินผืนใหญ่ด้านในซึ่งมีขนาดประมาณ 230 ไร่ ในขณะที่ส่วน 'หาง' ซึ่งเป็นพื้นที่สี่เหลี่ยมผืนผ้า มีทางออกเชื่อมต่อกับถนนสาธารณะสายรองที่มีขนาดใหญ่เพียงพอสำหรับรถบรรทุกหนักสามารถสัญจรสวนกันได้สองเลน การจัดวางรูปแปลงลักษณะนี้ช่วยให้การจัดการจราจรมีประสิทธิภาพ สามารถแยกเส้นทางขนส่งสินค้าออกจากเส้นทางของพนักงาน และเพิ่มความปลอดภัยให้กับพื้นที่หลักภายใน",
   subtitleAsset3: "ศักยภาพในการพัฒนา",
-  textAsset3: "ที่ดินแปลงนี้ถูกนำเสนอเพื่อการพัฒนาเป็นโรงงานอุตสาหกรรมหรือคลังสินค้า ซึ่งสอดคล้องอย่างสมบูรณ์กับลักษณะและการเติบโตของพื้นที่โดยรอบ ซึ่งเป็นที่ตั้งของนิคมอุตสาหกรรมขนาดใหญ่หลายแห่ง เช่น สวนอุตสาหกรรม 304 และสวนอุตสาહกรรมโรจนะ พื้นที่นี้จัดอยู่ใน 'พื้นที่สีม่วง' ซึ่งหมายถึงเขตที่ดินประเภทอุตสาหกรรม ทำให้มีความเป็นไปได้สูงมากที่จะได้รับใบอนุญาตก่อสร้างโรงงานหรือคลังสินค้าอย่างราบรื่น รูปแบบการพัฒนาที่เป็นไปได้คือโรงงานสำหรับผู้ใช้รายเดียว (เช่น โรงงานประกอบรถยนต์, โรงงานอิเล็กทรอนิกส์) หรือสวนอุตสาหกรรมให้เช่าเพื่อรองรับ SMEs ในห่วงโซ่อุปทาน",
+  textAsset3: "ที่ดินแปลงนี้มีศักยภาพในการพัฒนาโครงการที่หลากหลายซึ่งสอดคล้องกับผังเมือง 'พื้นที่สีเขียว' (ชนบทและเกษตรกรรม) และยังสามารถเกื้อหนุนระบบนิเวศอุตสาหกรรมโดยรอบได้อย่างสมบูรณ์แบบ แทนที่จะเป็นโรงงานอุตสาหกรรมหนัก ที่ดินผืนนี้เหมาะอย่างยิ่งสำหรับการเป็น ศูนย์กลางโลจิกสติกส์และเกษตรกรรมมูลค่าเพิ่ม รูปแบบการพัฒนาที่มีศักยภาพสูงได้แก่: 1) ศูนย์กระจายสินค้าและคลังสินค้าควบคุมอุณหภูมิ (Cold Storage) ขนาดใหญ่ เพื่อรองรับธุรกิจ E-commerce การค้าปลีก และการรวบรวมผลผลิตทางการเกษตรจากภาคตะวันออกเฉียงเหนือเพื่อส่งออก 2) โรงงานแปรรูปสินค้าเกษตรหรืออุตสาหกรรมอาหารและเครื่องดื่ม ที่ใช้เทคโนโลยีทันสมัย 3) โครงการพัฒนาอสังหาริมทรัพย์เพื่อรองรับชุมชน เช่น โครงการที่พักอาศัยความหนาแน่นต่ำสำหรับบุคลากรในนิคมฯ หรือคอมมูนิตี้มอลล์เพื่อรองรับกำลังซื้อในพื้นที่ การพัฒนาในแนวทางนี้ไม่เพียงแต่สอดคล้องกับข้อกำหนดผังเมือง แต่ยังเป็นการสร้างมูลค่าเพิ่มและตอบสนองต่อความต้องการของเศรษฐกิจยุคใหม่อีกด้วย",
   subtitleAsset4: "การปฏิบัติตามข้อกำหนดผังเมืองและการใช้ประโยชน์ที่ดิน",
-  textAsset4: "การที่ที่ดินตั้งอยู่ในระเบียงอุตสาหกรรมที่จัดตั้งขึ้นแล้ว และพื้นที่ส่วนใหญ่ถูกกำหนดเป็นสีม่วง (อุตสาหกรรม/คลังสินค้า) เป็นข้อบ่งชี้ที่ชัดเจนถึงความเป็นไปได้สูงที่จะได้รับอนุญาตให้พัฒนาเป็นเขตอุตสาหกรรม แม้ว่าการตรวจสอบผังเมืองอย่างเป็นทางการจะเป็นขั้นตอนที่จำเป็นในการทำ Due Diligence แต่สภาพแวดล้อมโดยรอบก็เป็นหลักฐานที่หนักแน่นถึงความเป็นไปได้ ซึ่งช่วยลดความเสี่ยงในการลงทุนได้อย่างมีนัยสำคัญ",
+  textAsset4: "แม้ที่ดินจะตั้งอยู่ในระเบียงอุตสาหกรรมที่แข็งแกร่ง แต่การถูกจัดอยู่ใน ผังเมืองสีเขียว (ชนบทและเกษตรกรรม) ถือเป็นโอกาสเชิงกลยุทธ์ในการพัฒนาโครงการที่แตกต่างและส่งเสริมซึ่งกันและกัน การขอใบอนุญาตสำหรับโครงการประเภทคลังสินค้า ศูนย์กระจายสินค้า โรงงานแปรรูปเกษตรที่ไม่กระทบสิ่งแวดล้อม หรือโครงการที่พักอาศัย มีความเป็นไปได้สูงที่จะได้รับการอนุมัติ เนื่องจากสอดคล้องกับวัตถุประสงค์ของผังเมืองและช่วยเติมเต็มความต้องการของชุมชนอุตสาหกรรมโดยรอบ สภาพแวดล้อมนี้จึงเป็นหลักฐานที่ชัดเจนถึงความเป็นไปได้ในการพัฒนาโครงการสนับสนุน ซึ่งช่วยลดความเสี่ยงในการลงทุนได้อย่างมีนัยสำคัญ",
   subtitleAsset5: "สินทรัพย์เชิงกลยุทธ์: ประตูโลจิสติกส์เฉพาะทางบนถนนสายรอง",
   textAsset5_p1: "นอกเหนือจากการมีหน้ากว้างติดทางหลวงแผ่นดินหมายเลข 304 แล้ว ที่ดินแปลงนี้ยังมีข้อได้เปรียบเชิงยุทธศาสตร์ที่สำคัญอย่างยิ่งอีกประการหนึ่ง นั่นคือส่วน 'หางช้าง' ของที่ดินซึ่งมีหน้ากว้างติดถนนสาธารณะสายรองเป็นแนวยาวถึง 495 เมตร ถนนสายนี้มีความกว้างเพียงพอสำหรับรถบรรทุกขนาดใหญ่สามารถสัญจรสวนกันได้อย่างสะดวกสบาย ทำให้เกิดศักยภาพในการสร้าง 'ประตูโลจิสติกส์' (Logistics Gateway) ที่แยกเป็นสัดส่วนออกจากทางเข้าหลักได้อย่างสมบูรณ์",
   textAsset5_title: "โอกาสและเหตุผลที่น่าลงทุน:",
@@ -473,14 +474,14 @@ const thTranslations: TranslationSet = {
           { type: 'paragraph', text: "ข้อมูลที่น่าสนใจที่สุดอย่างหนึ่งคือความแตกต่างอย่างมีนัยสำคัญระหว่างราคาประเมินที่ดินของทางราชการกับราคาเสนอขายในตลาดจริง ซึ่งสะท้อนถึงการคาดการณ์อนาคตของนักลงทุน" },
           { type: 'list', items: [
               "ราคาประเมินราชการ (รอบบัญชีปี 2566-2569): กรมธนารักษ์ได้กำหนดราคาประเมินสำหรับถนนสายสำคัญในพื้นที่ เช่น ถนนทางหลวงหมายเลข 3079 ไว้ที่ 1,250 - 16,500 บาทต่อตารางวา",
-              "ราคาตลาด (ณ ไตรมาสที่ 3 ปี 2568): ราคาเสนอขายที่ดินในพื้นที่ โดยเฉพาะที่ดินในผังเมืองสีม่วง มีราคาสูงกว่าราคาประเมินหลายเท่าตัว ตัวอย่างเช่น มีการประกาศขายที่ดินติดกับโรงงานในนิคม 304 ในราคาไร่ละ 2.5 ล้านบาท (6,250 บาทต่อตารางวา) ขณะที่ที่ดินที่ยังไม่พัฒนาในบริเวณใกล้เคียงมีราคาเสนอขายตั้งแต่ 700,000 บาท ถึง 1.8 ล้านบาทต่อไร่"
+              "ราคาตลาด (ณ ไตรมาสที่ 3 ปี 2568): ราคาเสนอขายที่ดินในพื้นที่ โดยเฉพาะที่ดินในผังเมืองสีเขียว มีราคาสูงกว่าราคาประเมินหลายเท่าตัว ตัวอย่างเช่น มีการประกาศขายที่ดินติดกับโรงงานในนิคม 304 ในราคาไร่ละ 2.5 ล้านบาท (6,250 บาทต่อตารางวา) ขณะที่ที่ดินที่ยังไม่พัฒนาในบริเวณใกล้เคียงมีราคาเสนอขายตั้งแต่ 700,000 บาท ถึง 1.8 ล้านบาทต่อไร่"
           ] },
           { type: 'paragraph', text: "ช่องว่างระหว่างราคาประเมินและราคาตลาดนี้ชี้ให้เห็นว่า ตลาดอสังหาริมทรัพย์มีการมองไปข้างหน้า (Forward-looking) และได้คำนวณรวมเอาศักยภาพในอนาคตที่เกิดจาก EEC และโครงการรถไฟเข้าไปในราคาแล้วอย่างชัดเจน ซึ่งแตกต่างจากราคาประเมินของราชการที่เป็นการมองย้อนหลัง (Backward-looking) เราสามารถเห็น 'ค่าพรีเมียม' (Premium) ที่เกิดขึ้นตามลำดับชั้น:" },
           { type: 'list', items: [
               "ราคาพื้นฐาน: ที่ดินเกษตรกรรม",
               "พรีเมียมจากโครงสร้างพื้นฐาน: ที่ดินที่ติดถนนสายหลัก",
-              "พรีเมียมจากผังเมือง (Zoning Premium): ที่ดินที่ถูกกำหนดให้เป็นพื้นที่สีม่วงสำหรับอุตสาหกรรมจะมีราคาสูงที่สุด เพราะสะท้อนถึง 'ความแน่นอนทางกฎระเบียบ' (Regulatory Certainty)",
-              "พรีเมียมจากการเก็งกำไรอนาคต: การที่ราคาที่ดินสีม่วงพุ่งสูงขึ้นอย่างรวดเร็ว สะท้อนความเชื่อของนักลงทุนว่าอุปสงค์ในอนาคต ซึ่งขับเคลื่อนโดยการขยายตัวจาก EEC และผลกระทบจากระเบียงรถไฟ จะมีมากกว่าอุปทานที่ดินในปัจจุบันอย่างมหาศาล"
+              "พรีเมียมจากผังเมือง (Zoning Premium): ที่ดินที่ถูกกำหนดให้เป็นพื้นที่สีเขียวสำหรับอุตสาหกรรมจะมีราคาสูงที่สุด เพราะสะท้อนถึง 'ความแน่นอนทางกฎระเบียบ' (Regulatory Certainty)",
+              "พรีเมียมจากการเก็งกำไรอนาคต: การที่ราคาที่ดินสีเขียวพุ่งสูงขึ้นอย่างรวดเร็ว สะท้อนความเชื่อของนักลงทุนว่าอุปสงค์ในอนาคต ซึ่งขับเคลื่อนโดยการขยายตัวจาก EEC และผลกระทบจากระเบียงรถไฟ จะมีมากกว่าอุปทานที่ดินในปัจจุบันอย่างมหาศาล"
           ] }
       ]
     },
@@ -559,9 +560,9 @@ const zhTranslations: TranslationSet = {
   subtitleAsset2: "独特的地形和布局",
   textAsset2: "该地块形状独特，形似“大象”，这是一个战略性特征。“头部和身体”部分直接临近304国道，有120米长的临街面，作为通往内部约230莱更大区域的主要入口。“尾部”部分为一矩形地块，连接到一条足以容纳双向重型卡车通行的次级公路。这种双通道布局有助于高效的交通管理，将物料运输与员工出入分开，并增强了主要内部区域的安全性。",
   subtitleAsset3: "开发潜力",
-  textAsset3: "该地块非常适合工业或仓库开发，与周边地区（如304工业园和洛加纳工业园等主要工业区的所在地）的特点完美契合。该区域被划为工业用途（“紫色区域”），因此工厂或仓库的建筑许可证很可能会顺利获批。开发可能性包括为大公司（如汽车组装、电子制造）设立的单一用户设施，或为当地供应链中的中小企业服务的可租赁多租户工业园。",
+  textAsset3: "该地块具有多样化项目开发的潜力，既符合其 '绿色区域'（乡村与农业）的规划，又能完美支持周边的工业生态系统。此地块并非用于重工业工厂，而是成为 物流与增值农业中心枢纽 的理想选择。高潜力的开发可能性包括：1) 建立大型配送中心和温控仓库（冷库），以支持电子商务、零售业以及整合来自东北部的农产品用于出口。2) 建立采用现代技术的农产品加工厂或食品饮料工业设施。3) 开发社区配套房地产项目，例如为工业园区人员提供低密度住宅区，或建立社区购物中心以服务当地的购买力。这种开发方式不仅符合区域规划法规，还能创造附加值并满足现代经济的需求。",
   subtitleAsset4: "区域规划和土地使用合规性",
-  textAsset4: "该地块位于一个已建立的工业走廊内，主要被划为紫色区域（工业/仓储），这强烈表明获得工业开发许可的可能性很高。虽然正式核实是尽职调查的必要步骤，但周围环境为项目的可行性提供了有力证据，显著降低了投资风险。",
+  textAsset4: "尽管地块位于一个强大的工业走廊内，但其被划定在 绿色区域（乡村与农业） 内，为发展独特且互补的项目提供了战略机遇。申请仓库、配送中心、环保型农产品加工厂或住宅项目等类型的许可证，获批的可能性非常高。这是因为这些项目符合土地利用规划的目标，并有助于满足周边工业社区的需求。这种环境为开发以支持为重点的项目的可行性提供了明确证据，从而显著降低了投资风险。",
   subtitleAsset5: "战略资产：通过次级公路的专用物流门户",
   textAsset5_p1: "除了临近304国道，这块土地还拥有另一个至关重要的战略优势：地块的“象尾”部分沿着一条次级公路有长达495米的临街面。这条公路足够宽阔，可供大型卡车舒适地交汇通行，从而创造了建立一个与主入口完全独立的“物流门户”的潜力。",
   textAsset5_title: "机会与投资理由：",
@@ -738,7 +739,7 @@ const zhTranslations: TranslationSet = {
           { type: 'paragraph', text: "一个显著的差距存在于政府官方土地估价与实际市场要价之间，反映了投资者对未来的预期。" },
           { type: 'list', items: [
             "官方评估价（2023-2026年）：财政部对3079号国道等主要道路的定价为每平方哇1,250 - 16,500泰铢。",
-            "市场价（2025年第三季度）：工业区（紫色区域）附近的工业用地要价要高出数倍。例如，304工业园内工厂旁的一块土地标价为每莱250万泰铢（每平方哇6,250泰铢），而附近未开发土地的价格从每莱70万到180万泰铢不等。"
+            "市场价（2025年第三季度）：工业区（绿色区域）附近的工业用地要价要高出数倍。例如，304工业园内工厂旁的一块土地标价为每莱250万泰铢（每平方哇6,250泰铢），而附近未开发土地的价格从每莱70万到180万泰铢不等。"
           ] },
           { type: 'paragraph', text: "这种差距表明房地产市场是前瞻性的，已经将EEC和铁路项目带来的未来潜力计入价格。我们可以看到一个分层的“溢价”：" },
           { type: 'list', items: [
@@ -824,9 +825,9 @@ const jaTranslations: TranslationSet = {
   subtitleAsset2: "独自の地形とレイアウト",
   textAsset2: "この土地は、戦略的特徴であるユニークな「象」の形をしています。「頭と胴体」部分は国道304号線に120メートル直接面しており、内部のより広大な約230ライのエリアへの主要入口として機能します。「尾」部分の長方形の区画は、大型トラックが双方向で通行可能な幅を持つ公道の副道に接続しています。このデュアルアクセス・レイアウトにより、効率的な交通管理が可能となり、物流フローと従業員のアクセスを分離し、主要内部エリアのセキュリティを強化します。",
   subtitleAsset3: "開発ポテンシャル",
-  textAsset3: "この区画は、304工業団地やロジャナ工業団地などの主要工業団地を擁する周辺地域の特性と完全に一致しており、工業または倉庫開発に最適です。このエリアは工業用途（「紫ゾーン」）に指定されているため、工場や倉庫の建設許可が円滑に承認される可能性が非常に高いです。開発の可能性としては、大企業向けの単一使用者施設（例：自動車組立、電子機器製造）や、地域サプライチェーン内の中小企業を対象とした複数テナント型工業団地などが挙げられます。",
+  textAsset3: "この区画は、「グリーンゾーン」（農村・農業地域）という指定に沿いながら、周辺の産業エコシステムを完璧にサポートする多様なプロジェクト開発のポテンシャルを秘めています。重工業の工場ではなく、この土地は 物流と付加価値農業の中心的なハブ となるのに理想的です。ポテンシャルの高い開発可能性としては、1) Eコマース、小売業、および輸出向けに東北部からの農産物を集約するための大規模な配送センターおよび温度管理倉庫（冷蔵倉庫）。2) 近代的な技術を活用した農産物加工工場または食品・飲料産業施設。3) 工業団地の従業員向けの低密度住宅開発や、地域の購買力に応えるコミュニティモールなど、コミュニティを支援する不動産プロジェクトが挙げられます。この開発アプローチは、ゾーニング規制を遵守するだけでなく、付加価値を創出し、現代経済の需要にも応えるものです。",
   subtitleAsset4: "ゾーニングと土地利用規制の遵守",
-  textAsset4: "既存の産業回廊内に位置し、主に紫ゾーン（工業・倉庫）に指定されていることから、工業開発の承認可能性が非常に高いことを強く示唆しています。正式な確認はデューデリジェンスの必須ステップですが、周辺環境は実現可能性の強力な証拠となり、投資リスクを大幅に軽減します。",
+  textAsset4: "この物件は強力な産業回廊内に位置していますが、グリーンゾーン（農村・農業地域）に指定されていることは、独特で補完的な開発を行う戦略的な機会を提供します。倉庫、配送センター、環境に配慮した農産物加工工場、または住宅プロジェクトといった種類のプロジェクトの許可を取得する可能性は非常に高いです。なぜなら、それらは土地利用計画の目的に合致し、周辺の産業コミュニティのニーズを満たすのに役立つからです。この環境は、支援に焦点を当てたプロジェクト開発の実現可能性を明確に示しており、投資リスクを大幅に軽減します。",
   subtitleAsset5: "戦略的資産：副道経由の専用物流ゲートウェイ",
   textAsset5_p1: "国道304号線への正面アクセスに加え、この土地はもう一つの重要な戦略的利点を有しています。それは、土地の「象の尾」部分が、副道である公道に沿って495メートルもの広範な間口を持っている点です。この道路は大型トラックが快適にすれ違うことができる十分な幅員を持ち、メインエントランスから完全に独立した「物流ゲートウェイ」を設置する可能性を生み出します。",
   textAsset5_title: "機会と投資の根拠：",
@@ -1003,7 +1004,7 @@ const jaTranslations: TranslationSet = {
           { type: 'paragraph', text: "政府の公式な土地評価額と実際の市場売出価格との間には大きな隔たりがあり、これは投資家の将来に対する期待を反映しています。" },
           { type: 'list', items: [
               "公式評価価格（2023-2026年）：財務省は、国道3079号線などの主要道路の価格を1平方ワーあたり1,250～16,500バーツに設定しています。",
-              "市場価格（2025年第3四半期）：工業団地近隣の工業用地（紫ゾーン）の売出価格は数倍高くなっています。例えば、304工業団地内の工場に隣接する土地は1ライあたり250万バーツ（1平方ワーあたり6,250バーツ）でリストされており、近隣の未開発地は1ライあたり70万～180万バーツの範囲です。"
+              "市場価格（2025年第3四半期）：工業団地近隣の工業用地（緑ゾーン）の売出価格は数倍高くなっています。例えば、304工業団地内の工場に隣接する土地は1ライあたり250万バーツ（1平方ワーあたり6,250バーツ）でリストされており、近隣の未開発地は1ライあたり70万～180万バーツの範囲です。"
           ] },
           { type: 'paragraph', text: "この隔たりは、不動産市場が将来を見越しており、EECや鉄道プロジェクトからの将来的なポテンシャルをすでに価格に織り込んでいることを示しています。階層的な「プレミアム」が見られます：" },
           { type: 'list', items: [
