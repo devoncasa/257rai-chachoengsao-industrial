@@ -106,3 +106,16 @@ and environment files ignored. No DNS or database migration is needed for this r
 
 To undo this release, revert its commit(s) on `main` and let CI publish the correction;
 verify the resulting live site. A failed build leaves the prior published version live.
+
+## Ambient background addition
+
+A decorative fixed background reuses the approved concept-photo WebP assets. After
+window load, an idle callback selects one of eight photos, avoiding the previous
+session's choice where sessionStorage is available. This contains no personal data.
+Responsive low-priority image loading avoids competing with the main hero. A mask
+shows 10% of the image on the left, increasing to 25% on the right, with slight blur
+and reduced saturation. Content panels and photo captions retain their own surfaces.
+Passive scroll/resize listeners update one transform per animation frame: a slow
+vertical shift and zoom out from 1.14 to 1.04 across the document. Reduced motion
+uses a static background without transitions. SSR and the initial client render both
+start without an image, avoiding random-choice hydration mismatches.
