@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange, navItems,
     <header className="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 transition-all duration-300">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#root" onClick={handleLogoClick}>
-          <img src="https://cdn.jsdelivr.net/gh/devoncasa/257rai-chachoengsao-industrial@main/304-land-logo-small.png" alt={t.logo} className="h-16 w-auto" />
+          <span className="inline-flex h-16 items-center text-2xl font-semibold tracking-tight text-blue-900">{t.logo}</span>
         </a>
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map(item => {
