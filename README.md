@@ -145,3 +145,13 @@ and are divided further by their existing subsection headings; the executive sum
 has six localized topic titles. Content remains in build-rendered HTML for search,
 keyboard users can expand/collapse natively, and no text is fetched or discarded on
 open/close. Brief introductory content and the interactive Land Studio remain visible.
+
+## Approved logo 01
+
+The owner selected concept 01: the forest-green serif SIAMPLOT wordmark with a
+champagne-gold S swash. Its transparent PNG original is retained in
+`design-originals/siamplot-logo-01.png`; 432/648px WebP derivatives serve the header
+and footer with explicit dimensions and accessible brand text. On the dark footer,
+an SVG color filter renders the green lettering in ivory while retaining a gold
+accent; the underlying logo asset and geometry are identical. Both logos link to
+the current language homepage. No favicon or other imagery was replaced.
