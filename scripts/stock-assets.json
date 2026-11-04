@@ -1,0 +1,92 @@
+[
+  {
+    "name": "survey",
+    "author": "Nelson Axigoth",
+    "source": "https://www.pexels.com/photo/a-man-surveying-the-area-5802827/",
+    "license": "https://www.pexels.com/license/",
+    "not_property_photograph": true,
+    "files": [
+      {
+        "path": "design-originals/stock/survey.jpg",
+        "bytes": 2884289,
+        "dimensions": [
+          5568,
+          3712
+        ],
+        "sha256": "e974b900125ca4eae617d6c0bf9d5bd94c73a878210be2b6e89a58459c8a8090"
+      },
+      {
+        "path": "public/media/stock-survey-1600.webp",
+        "bytes": 255150,
+        "dimensions": [
+          1600,
+          1067
+        ],
+        "sha256": "ea6aa2da529bcca5c6310b59dca499b20defd96f850cb689177c96994a41e47b"
+      },
+      {
+        "path": "public/media/stock-survey-640.webp",
+        "bytes": 63256,
+        "dimensions": [
+          640,
+          427
+        ],
+        "sha256": "c748b2358cc1d4117cffc66044b85e0dfa1b9255e895b7d38bc190be768947f9"
+      },
+      {
+        "path": "public/media/stock-survey-960.webp",
+        "bytes": 117070,
+        "dimensions": [
+          960,
+          640
+        ],
+        "sha256": "be468eac2323ad0acba5a7afa8f0669a709129eb9c49906ef5e55b272276d991"
+      }
+    ]
+  },
+  {
+    "name": "power",
+    "author": "American Public Power Association",
+    "source": "https://unsplash.com/photos/VuR4oHZ3ucc",
+    "license": "https://unsplash.com/license",
+    "not_property_photograph": true,
+    "files": [
+      {
+        "path": "design-originals/stock/power.jpg",
+        "bytes": 2119928,
+        "dimensions": [
+          4000,
+          3000
+        ],
+        "sha256": "3f5095542e928ef220bae9acc63898e62d131073d60aa9302f58f7f9a660b2d9"
+      },
+      {
+        "path": "public/media/stock-power-1600.webp",
+        "bytes": 196786,
+        "dimensions": [
+          1600,
+          1200
+        ],
+        "sha256": "4a2fd4ec9be698313f79866b91dddcbdd328a8456114dad238b217b1c872e421"
+      },
+      {
+        "path": "public/media/stock-power-640.webp",
+        "bytes": 48134,
+        "dimensions": [
+          640,
+          480
+        ],
+        "sha256": "f8685648c83773cba222d33c6830ef882743c4c8e201a71389b48cc3995bd43c"
+      },
+      {
+        "path": "public/media/stock-power-960.webp",
+        "bytes": 90756,
+        "dimensions": [
+          960,
+          720
+        ],
+        "sha256": "c3544761eafd67b7b9471c752a35ad633b9f736c163bad448f8ea623424af413"
+      }
+    ]
+  }
+]

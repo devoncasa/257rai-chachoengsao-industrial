@@ -4,14 +4,29 @@ import json
 import re
 class Page(HTMLParser):
     def __init__(self,text):
-        super().__init__();self.nodes=[];self.feed(text)
-    def handle_starttag(self,tag,attrs):self.nodes.append((tag,dict(attrs)))
+        super().__init__();self.nodes=[];self.stack=[];self.clickable_images=[];self.feed(text)
+    def handle_starttag(self,tag,attrs):
+        a=dict(attrs);self.nodes.append((tag,a))
+        if tag in ('img','svg') and any(t in ('a','button') for t in self.stack):self.clickable_images.append(a.get('src'))
+        if tag not in ('area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'):self.stack.append(tag)
+    def handle_endtag(self,tag):
+        if tag in self.stack:
+            while self.stack.pop()!=tag:pass
 for lang,path in [('th',''),('en','en/'),('zh','zh/'),('ja','ja/')]:
     file=Path('dist')/path/'index.html';text=file.read_text();page=Page(text)
+    assert not page.clickable_images, f'{lang}: linked image {page.clickable_images}'
     ids=[a['id'] for _,a in page.nodes if 'id' in a]
     assert len(ids)==len(set(ids)), f'{lang}: duplicate IDs'
     assert sum(tag=='h1' for tag,_ in page.nodes)==1
-    assert sum(tag=='button' and 'aria-pressed' in a for tag,a in page.nodes)==7
+    assert sum(tag=='article' and 'static-concept' in a.get('class','').split() for tag,a in page.nodes)==6
+    assert not any(tag=='dialog' or (tag=='button' and 'aria-pressed' in a) for tag,a in page.nodes)
+    assert not re.search(r'[\u2190-\u21ff\u27f0-\u27ff\u2900-\u297f]',text), f'{lang}: arrow remains'
+    assert sum(tag=='article' and 'current-card' in a.get('class','').split() for tag,a in page.nodes)==4
+    assert '2026' in text
+    assert '13.689956, 101.258538' in text
+    assert {'th':'ฉะเชิงเทรา','en':'Chachoengsao','zh':'北柳府','ja':'チャチューンサオ県'}[lang] in text
+    assert not any(old in text for old in ['ศรีมหาโพธิ','ปราจีนบุรี','Si Maha Phot','Prachinburi','巴真府','プラチンブリ'])
+    assert 'stock-survey-960.webp' in text and 'stock-power-960.webp' in text
     assert ('html',{'lang':lang}) in page.nodes
     canon=[a['href'] for t,a in page.nodes if t=='link' and a.get('rel')=='canonical']
     assert canon==['https://www.siamplot.com/'+path]

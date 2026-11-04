@@ -4,7 +4,18 @@ Production: https://www.siamplot.com/ (Spaceship DNS, Netlify hosting).
 Repository: `devoncasa/257rai-chachoengsao-industrial`; production branch `main`.
 Netlify project `257rai`, site ID `5809108b-70a1-47c5-930b-0f17239b768b`.
 
-## Release: 4 November 2026
+## Current release: static imagery and confirmed map reference
+
+Owner approved the Google Maps pin at 13.689956, 101.258538 as the location basis.
+Current public copy and metadata use Chachoengsao; the previous Prachinburi address
+is superseded. Legal boundaries/address still require matching title documents.
+All images are still and non-clickable, including logos and six static isometric
+concepts. Arrow icons, image dialogs, rotating 3D and parallax are removed.
+See `docs/content-update-2026-11-04.md` for the four-language content changes,
+investor positioning, official sources, stock licenses, verification and limitations.
+The owner explicitly authorized deployment of this completed revision.
+
+## Earlier release: 4 November 2026
 
 The owner approved the editorial design at `https://deploy-preview-1--257rai.netlify.app/`
 for production. This release uses its ivory/forest layouts, photography, self-hosted

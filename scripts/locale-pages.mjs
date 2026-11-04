@@ -3,10 +3,10 @@ import {createRequire} from 'node:module';
 import {buildSync} from 'esbuild';
 const origin='https://www.siamplot.com';
 const locales={
- th:{path:'/',title:'SiamPlot · ที่ดิน 257 ไร่ ศรีมหาโพธิ ปราจีนบุรี',description:'ที่ดินขายทั้งแปลง 257 ไร่ ในศรีมหาโพธิ ปราจีนบุรี พร้อมแนวคิดพัฒนา 3D ข้อมูลประกอบการพิจารณา และช่องทางติดต่อผู้เสนอขาย'},
- en:{path:'/en/',title:'SiamPlot · 257-Rai Land in Si Maha Phot, Prachinburi',description:'Explore a 257-rai parcel offered as a whole in Si Maha Phot, Prachinburi. Compare six 3D development concepts, review due-diligence questions and contact the seller.'},
- zh:{path:'/zh/',title:'SiamPlot · 巴真府是玛哈坡257莱土地',description:'了解泰国巴真府是玛哈坡整块出售的257莱土地，比较六种可旋转3D开发构想，查看尽职调查要点并联系卖方。面积、用途及交易条件须进一步核实。'},
- ja:{path:'/ja/',title:'SiamPlot · プラチンブリ県シーマハーポートの257ライ土地',description:'タイ・プラチンブリ県の面積257ライの土地を一括売却。回転できる6つの3D開発構想と調査項目を比較し、売主に詳細をお問い合わせいただけます。'}
+ th:{path:'/',title:'SiamPlot · ที่ดิน 257 ไร่ ฉะเชิงเทรา',description:'ที่ดินขายทั้งแปลง 257 ไร่ ในฉะเชิงเทรา พร้อมภาพนิ่งแนวคิดพัฒนา 6 แบบ ข้อมูลอัปเดตและรายการเอกสาร และช่องทางติดต่อผู้เสนอขาย'},
+ en:{path:'/en/',title:'SiamPlot · 257-Rai Land in Chachoengsao',description:'Explore a 257-rai parcel offered as a whole in Chachoengsao. Compare six static development concepts, review current context and evidence checks and contact the seller.'},
+ zh:{path:'/zh/',title:'SiamPlot · 北柳府257莱土地',description:'了解泰国北柳府整块出售的257莱土地，比较六种静态立体开发构想，查看尽职调查要点并联系卖方。面积、用途及交易条件须进一步核实。'},
+ ja:{path:'/ja/',title:'SiamPlot · チャチューンサオ県の257ライ土地',description:'タイ・チャチューンサオ県の面積257ライの土地を一括売却。6つの静止立体開発構想と調査項目を比較し、売主に詳細をお問い合わせいただけます。'}
 };
 const bundled=buildSync({stdin:{contents:"import React from 'react';import {renderToString} from 'react-dom/server';import App from './App';export const render=(lang)=>renderToString(React.createElement(App,{initialLang:lang}));",resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'cjs',packages:'external',loader:{'.css':'empty'},write:false}).outputFiles[0].text;
 const mod={exports:{}};new Function('require','module','exports',bundled)(createRequire(import.meta.url),mod,mod.exports);
