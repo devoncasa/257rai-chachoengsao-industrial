@@ -13,6 +13,7 @@ export default function LandStudio({lang}:{lang:Lang}){
  const onError=()=>{if(!software){setSoftware(true);setRetry(n=>n+1);setReady(false);}else{setFailed(true);setStarted(false);setReady(false);}setTurning(false);};
  const Viewer=software?SoftwareViewer:SceneViewer;
  const start=()=>{setFailed(false);setReady(false);setStarted(true);setRetry(n=>n+1);};
+ useEffect(()=>{if(window.location.hash!=='#land-studio')return;const jump=()=>document.getElementById('land-studio')?.scrollIntoView({block:'start',behavior:'instant'});const frame=requestAnimationFrame(jump);window.addEventListener('load',jump,{once:true});return()=>{cancelAnimationFrame(frame);window.removeEventListener('load',jump);};},[]);
  useEffect(()=>{const change=()=>setFullscreen(document.fullscreenElement===stage.current);document.addEventListener('fullscreenchange',change);return()=>document.removeEventListener('fullscreenchange',change);},[]);
  const expand=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if(stage.current?.requestFullscreen)await stage.current.requestFullscreen();else setMessage(c.fullscreenError);}catch{setMessage(c.fullscreenError);}};
  const select=(i:number)=>{setIndex(i);setMessage('');};
