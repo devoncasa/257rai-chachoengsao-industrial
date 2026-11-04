@@ -155,3 +155,24 @@ and footer with explicit dimensions and accessible brand text. On the dark foote
 an SVG color filter renders the green lettering in ivory while retaining a gold
 accent; the underlying logo asset and geometry are identical. Both logos link to
 the current language homepage. No favicon or other imagery was replaced.
+
+## Pastel frames and readability release: 4 November 2026
+
+The owner explicitly authorized deployment after readability verification. This
+supersedes the earlier preview-only instruction for this release. Future deployment
+still requires the owner's instruction.
+
+Pastel green mounts extend 5–8px beyond photo crops. Decorative terrain curves and
+translucent gradients vary on reload while content and map geometry remain stable.
+`readability.css` supplies the final shared typography and contrast layer: body and
+expanded content 16px, support copy 14–15px, captions 12–13px, H1 36–64px, H2 32–52px.
+The narrow H1 exception applies below 360px. Responsive layouts keep these sizes in
+all four languages. Opaque reading panels and a cream page scrim prevent random
+backgrounds from reducing text legibility. Frame/contour colors are decorative;
+interactive controls use stronger borders, visible focus and selected states.
+
+The header is measured with ResizeObserver so expanded navigation and anchor targets
+remain below it when text grows. Tables have named, keyboard-focusable scroll regions.
+Figure grids reserve room for captions. Diagram metadata is normal HTML, rather than
+unreadably small SVG text. Refer to `docs/readability-verification.md` for checks and
+limits. No pricing, parcel geometry, contact details, analytics ID or URLs changed.

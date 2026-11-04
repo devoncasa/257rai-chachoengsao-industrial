@@ -1,0 +1,131 @@
+/* Shared readability layer: four languages, all viewports and decorative variants. */
+:root{--ink:#183e32;--secondary-ink:#405843;--reading-surface:#f6f3eb;font-size:100%}
+body{font-size:1rem;line-height:1.85;color:var(--ink)}
+main{background:rgba(246,243,235,.55)}
+html{scroll-padding-top:calc(var(--site-header-height,88px) + 24px)}
+.land-studio{scroll-margin-top:0}
+h1,h2,h3,h4,h5{overflow-wrap:anywhere}
+h1,.hero-panel h1{font-size:clamp(2.5rem,4.15vw,4rem);line-height:1.35;font-weight:500}
+h2,.land-studio h2,.infrastructure h2,.investment h2,.contact-panel h2{font-size:clamp(2rem,3.2vw,3.25rem);line-height:1.4;font-weight:500}
+h3,.land-studio h3{font-size:clamp(1.25rem,1.8vw,1.5rem);line-height:1.55}
+.hero-panel{background:linear-gradient(135deg,#f8f6ef,#f0f2e8);padding:36px}
+.hero-panel p:not(.eyebrow),.contact-panel p:not(.eyebrow),.context-card p,.archive,.content-block-body{font-size:1rem;line-height:1.85}
+.hero-panel p:not(.eyebrow){max-width:42ch}
+.eyebrow,.hero-panel .eyebrow,.land-studio .ls-eyebrow{font-size:.8125rem;line-height:1.7;letter-spacing:.09em}
+.preview-note{font-size:.8125rem;line-height:1.65}
+.muted,.source-label,.verification{font-size:.9375rem;line-height:1.8;color:var(--secondary-ink)}
+.verification{color:#574426;background:#ede8d9}
+.asset-facts{background:#f0f2e8f5}
+.context-card{background:linear-gradient(135deg,#edf2e6,#e7eedf)}
+.contact-panel{background:#f6f3eb}
+.content-block{background:#f8f7f0;color:var(--ink);border-color:#a4b6a3}
+.content-block .content-block{background:#f0f3e9}
+.content-block>summary h3,.content-block>summary h4,.content-block>summary h5,.research-blocks>.content-block>summary h4{font-size:1rem;line-height:1.7}
+.content-block-body{padding:8px 20px 20px}
+.archive h3{font-size:1.25rem}.archive h4,.archive h5{font-size:1.0625rem;line-height:1.7}
+.content-block-body table,.content-block-body th,.content-block-body td{font-size:.9375rem;line-height:1.75}
+.dark .content-block{background:#244c3d;color:#f6f3eb}
+.dark .content-block .content-block{background:#2b5343}
+.dark .muted,.dark .source-label{color:#e0e8d8}
+.dark .verification{background:#ede8d9;color:#574426}
+.questions li{font-size:1.0625rem;line-height:1.8}
+.check-item span,.hero-bottom small{font-size:.875rem}
+.check-item h3,.use h3{font-size:1.1875rem;line-height:1.65}
+.research-item summary{font-size:1.0625rem;line-height:1.8;gap:14px}
+.research-item summary>span{font-size:.9375rem;color:#405843;flex:none}
+.photo figcaption,.dark figcaption,.image-dialog p{font-size:.8125rem;line-height:1.65;color:#344f3c}
+.photo:not(.hero-image):not(.contact-photo){display:grid;grid-template-rows:minmax(0,1fr) auto;row-gap:14px}
+.photo:not(.hero-image):not(.contact-photo) figcaption{margin-top:0}
+.overflow-x-auto:focus-visible{outline:3px solid #99611e;outline-offset:4px}
+.hero-image figcaption,.contact-photo figcaption{font-size:.8125rem;line-height:1.65;padding:7px 10px;max-width:calc(100% - 28px)}
+.hero-image figcaption{color:#fff;background:#173f32;top:auto;bottom:12px}
+.contact-photo figcaption{color:#183e32;background:#f6f3eb}
+.dark figcaption{color:#e1e9dc}
+.image-dialog{padding:62px 20px 16px;max-height:95dvh;overflow:auto}
+.image-dialog img{height:auto;max-height:75dvh;object-fit:contain}
+.image-dialog p{margin:16px 0 0}
+.dialog-close{min-width:44px;min-height:44px;font-size:1rem}
+.expand{background:#173f32;color:#fff;width:40px;height:40px;border:1px solid #f6f3eb}
+.button,.button.small,.contact-links .text-link{font-size:1rem;line-height:1.6;min-height:48px}
+.text-link{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:5px}
+header{min-height:88px;height:auto;padding-block:12px}
+header nav{font-size:.875rem;gap:18px}
+header nav a{min-height:44px;display:inline-flex;align-items:center}
+select,.menu-toggle{font-size:1rem;min-height:44px}
+.header-actions{gap:16px}
+.footer-links{font-size:.9375rem;gap:10px 25px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px}
+footer p{font-size:.875rem;line-height:1.8;color:#e0e8d8}
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #99611e;outline-offset:4px}
+.dark a:focus-visible,.dark button:focus-visible,footer a:focus-visible{outline-color:#f0c877}
+.image-button:focus-visible{outline:3px solid #99611e;outline-offset:10px}
+.content-block:has(summary:focus-visible){outline-color:#99611e}
+/* Studio: readable technical labels and consistent control targets. */
+.land-studio{--ls-muted:#405843;font-size:1rem}
+.land-studio .ls-intro,.ls-analysis p,.ls-next p,.land-studio li{font-size:1rem;line-height:1.85}
+.land-studio h4{font-size:1.0625rem;line-height:1.7}
+.ls-facts{font-size:.9375rem;grid-template-columns:auto auto minmax(0,1fr);gap:24px}
+.ls-facts>span:last-child{font-size:.875rem}
+.ls-scenarios{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ls-scenarios strong{font-size:1rem;line-height:1.65}
+.ls-scenarios small,.ls-scenario-top{font-size:.875rem;line-height:1.7}
+.ls-mini-plan{max-height:130px;margin:4px 0;outline-offset:2px}
+.ls-stage-heading{font-size:.9375rem;line-height:1.7;flex-wrap:wrap;gap:6px 16px}
+.ls-stage-heading>span:last-child{font-size:.8125rem;white-space:normal;color:#405843}
+.ls-controls button{font-size:.875rem;min-height:44px;border-color:#6b816c;line-height:1.65}
+.ls-controls button:disabled{opacity:1;color:#667064;background:#e5e8dd;border-color:#bdc6b4}
+.ls-start,.ls-contact{font-size:1rem;line-height:1.6;white-space:normal;text-align:center}
+.ls-start{width:max-content;max-width:calc(100% - 36px);padding:13px 18px}
+.land-studio .ls-hint,.land-studio .ls-note,.ls-legend{font-size:.875rem;line-height:1.8;color:#405843}
+.land-studio .ls-limit,.ls-source-grid p{font-size:.9375rem;line-height:1.85;color:#574426;background:#f1eee3;padding:14px 16px}
+.ls-budget dl>div{font-size:.9375rem}
+.ls-source summary{font-size:1rem;line-height:1.8}
+.ls-source-grid h3{font-size:1.25rem}
+.ls-sources,.ls-sources p,.ls-sources a{font-size:.9375rem;line-height:1.8}
+.ls-sources a{display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;text-underline-offset:4px}
+.ls-references p,.ls-references a{font-size:.9375rem;line-height:1.8}
+.ls-references a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1150px){
+ header nav{display:none}.menu-toggle{display:block;border:1px solid #6b816c;background:transparent;color:#183e32;padding:8px 12px}
+ .mobile-navigation{display:grid;position:fixed;top:88px;left:0;right:0;z-index:31;max-height:calc(100dvh - 100px);overflow:auto;grid-template-columns:1fr 1fr;gap:6px 24px;background:#f6f3eb;padding:20px 6%;box-shadow:0 16px 30px #173f3220;font-size:1rem}
+ .mobile-navigation a{padding:12px 0;border-bottom:1px solid #bccaba;min-height:48px}
+}
+@media(max-width:900px){
+ .hero-panel{padding:30px}.hero-image{height:430px}.hero-panel h1{font-size:2.875rem}
+ .ls-workspace{grid-template-columns:minmax(0,1fr)}.ls-lower{gap:30px}
+ .hero-image figcaption{top:12px;bottom:auto;max-width:75%}
+}
+@media(max-width:560px){
+ header{min-height:80px;padding:10px 5%;gap:12px}.header-actions{gap:8px}.header-actions .button.small{display:none}
+ select{font-size:1rem;max-width:90px}.menu-toggle{font-size:.9375rem;padding:8px 10px}.mobile-navigation{top:80px;grid-template-columns:1fr}
+ .preview-note{font-size:.75rem;padding:8px 16px}.hero-image{height:340px}.hero-panel{padding:28px 22px}
+ .hero-panel h1{font-size:2.5rem}.hero-panel .eyebrow{font-size:.8125rem}
+ h2,.land-studio h2,.infrastructure h2,.investment h2,.contact-panel h2{font-size:2rem}
+ .hero-bottom{padding:22px 2%;gap:12px}.hero-bottom>a{font-size:1rem}.hero-bottom>span:nth-child(2){font-size:.9375rem}
+ .hero-image figcaption,.contact-photo figcaption{font-size:.75rem;max-width:75%}
+ .content-block>summary{padding:16px}.content-block-body{font-size:1rem;padding:8px 16px 18px}
+ .use-grid{grid-template-columns:1fr;gap:36px}.use-1{margin-top:0}.use-2{grid-column:auto;display:block;margin-top:0}.use .photo,.use-0 .photo,.use-2 .photo{height:260px}.use>div{margin-top:25px}
+ .ecosystem-grid{grid-template-columns:1fr}.ecosystem .workshop{grid-column:auto;height:310px}.ecosystem .produce{min-height:280px;height:280px}.context-card{padding:26px 22px}.context-card h3{font-size:1.25rem}
+ .land-studio .ls-intro{font-size:1rem}.ls-facts{grid-template-columns:1fr 1fr;gap:15px}.ls-facts>span:last-child{grid-column:1/-1;margin:0}
+ .ls-scenarios{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ls-scenarios strong{font-size:.9375rem}.ls-scenarios small,.ls-scenario-top{font-size:.8125rem}
+ .ls-controls{gap:8px}.ls-controls button{font-size:.875rem}.ls-analysis{padding:24px 20px}.ls-model-space{height:340px}
+ .ls-stage-heading{padding:14px}.ls-lower{grid-template-columns:1fr}.ls-next{padding:0;border-left:0}.ls-budget dl>div{gap:12px}
+ .contact{padding-top:300px}.contact-panel{padding:30px 22px}.contact-phone{font-size:clamp(1.25rem,6vw,1.65rem)}
+ .contact-links{gap:14px 22px}.contact-photo figcaption{top:225px}.contact-links .button{font-size:1rem}
+ .research-item summary{font-size:1rem}.footer-links{font-size:.9375rem}
+}
+@media(max-width:360px){
+ header .brand .brand-logo{width:116px}.header-actions{gap:5px}select{max-width:76px}.menu-toggle{padding:8px}
+ .hero-panel h1{font-size:2.25rem}.hero-panel{width:96%;padding:24px 18px}.hero{margin-inline:18px}
+ .ls-scenarios{grid-template-columns:1fr}.ls-mini-plan{max-height:150px}
+}
+
+header,.header-actions{flex-wrap:wrap}
+.mobile-navigation{top:var(--site-header-height,88px)}
+@media(max-width:360px){header .brand .brand-logo{width:100px}select{max-width:68px}.menu-toggle{padding:8px 6px;font-size:.875rem}header{gap:8px}.header-actions{gap:4px}}
+
+.land-studio .ls-plan-caption{font-size:.875rem;line-height:1.8;color:#405843;padding:10px 16px 0;margin:0;text-align:center;overflow-wrap:anywhere}
+.ls-references h3{font-size:1.125rem;line-height:1.7}
+select{width:auto;min-width:7ch;max-width:none}
+.land-studio .ls-message,.ls-fallback{font-size:1rem;line-height:1.85}
+.source>summary{font-size:1rem;line-height:1.8;min-height:48px}

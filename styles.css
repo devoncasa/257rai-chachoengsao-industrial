@@ -17,3 +17,59 @@ header nav{gap:18px}.land-studio img{height:auto}.land-studio{scroll-margin-top:
 .brand{display:inline-flex;align-items:center;flex-shrink:0}.brand .brand-logo{display:block;width:216px;max-width:100%;height:auto;object-fit:contain}.brand-filter{position:absolute;pointer-events:none;overflow:hidden}.brand-footer{align-self:start;justify-self:start}.brand-footer .brand-logo{filter:url(#logo-footer-tone)}
 @media(max-width:560px){header .brand .brand-logo{width:154px}}
 @media(max-width:380px){header .brand .brand-logo{width:135px}}
+
+/* Approved pastel green relief and transparent terrain contours. */
+:root{--image-frame:#aecdb7;--frame-mist:#dce9dd;--terrain-texture:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20650%22%20fill%3D%22none%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22f%22%3E%3Cstop%20stop-color%3D%22%23adcbb8%22%20stop-opacity%3D%22.5%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c5deca%22%20stop-opacity%3D%220%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Cellipse%20cx%3D%22530%22%20cy%3D%22320%22%20rx%3D%22430%22%20ry%3D%22290%22%20fill%3D%22url%28%23f%29%22%2F%3E%3Cg%20stroke%3D%22%239bbda8%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M%20-130%20200%20C%20110%20-60%20380%20440%20620%20180%20S%20950%20190%201160%20420%22%2F%3E%3Cpath%20d%3D%22M%20-115%20219%20C%20119%20-36%20388%20452%20630%20200%20S%20964%20212%201172%20439%22%2F%3E%3Cpath%20d%3D%22M%20-100%20238%20C%20128%20-12%20396%20464%20640%20220%20S%20978%20234%201184%20458%22%2F%3E%3Cpath%20d%3D%22M%20-85%20257%20C%20137%2012%20404%20476%20650%20240%20S%20992%20256%201196%20477%22%2F%3E%3Cpath%20d%3D%22M%20-70%20276%20C%20146%2036%20412%20488%20660%20260%20S%201006%20278%201208%20496%22%2F%3E%3Cpath%20d%3D%22M%20-55%20295%20C%20155%2060%20420%20500%20670%20280%20S%201020%20300%201220%20515%22%2F%3E%3Cpath%20d%3D%22M%20-40%20314%20C%20164%2084%20428%20512%20680%20300%20S%201034%20322%201232%20534%22%2F%3E%3Cpath%20d%3D%22M%20-25%20333%20C%20173%20108%20436%20524%20690%20320%20S%201048%20344%201244%20553%22%2F%3E%3Cpath%20d%3D%22M%20-10%20352%20C%20182%20132%20444%20536%20700%20340%20S%201062%20366%201256%20572%22%2F%3E%3Cpath%20d%3D%22M%205%20371%20C%20191%20156%20452%20548%20710%20360%20S%201076%20388%201268%20591%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
+body{overflow-x:clip}
+main{position:relative;isolation:isolate;overflow-x:clip}
+.contour-atmosphere{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at var(--contour-x,65%) var(--contour-y,40%),#b7d1be29,transparent 62%)}
+.contour-atmosphere svg{width:140%;height:125%;margin:-8% -20%;transform:rotate(var(--contour-angle,0deg));opacity:.5}
+.section{position:relative;isolation:isolate}
+.section::before{content:"";position:absolute;z-index:-1;pointer-events:none;top:20px;right:-7%;width:78%;height:620px;background:var(--terrain-texture) center/contain no-repeat;opacity:.22;mask-image:radial-gradient(ellipse,#000 15%,transparent 73%)}
+.section:nth-of-type(even)::before{right:auto;left:-12%;transform:rotate(160deg);opacity:.18}
+.dark .section::before{opacity:.15;filter:brightness(1.5)}
+/* A narrow pastel mount lives outside the crop; hover zoom stays inside it. */
+.photo{isolation:isolate;--frame-shift:4px}
+.image-button{position:relative;isolation:isolate;overflow:visible;background:transparent}
+.image-crop{display:block;width:100%;height:100%;overflow:hidden;background:#e0e6d9}
+.image-button::before{content:"";position:absolute;inset:-7px;z-index:-1;border:1px solid var(--image-frame);background:linear-gradient(135deg,#eef4ecbd,#d0e3d18a 48%,#f0f5eb8c);box-shadow:4px 7px 16px #173f320b;pointer-events:none}
+.image-button::after{content:"";position:absolute;inset:-13px;z-index:-2;background:var(--terrain-texture) 60% 50%/140% auto no-repeat;opacity:.4;pointer-events:none;mask-image:linear-gradient(135deg,transparent 10%,#000 65%,transparent)}
+.photo:nth-child(even){--frame-shift:-4px}
+.hero-image .image-button::before{inset:-8px;border-color:#b7d0bb;background:linear-gradient(120deg,#e5efe3d9,#bdd8c491 65%,#eff3e5b3);box-shadow:5px 10px 24px #173f3212}
+.photo figcaption{margin-top:14px}
+.hero-image figcaption{margin-top:0;z-index:3}
+.expand{z-index:3}
+.brand .brand-logo{outline:1px solid #bad1bf;outline-offset:4px}
+.brand-footer .brand-logo{outline:none}
+.brand-footer{outline:1px solid #bad1bf;outline-offset:4px;box-shadow:none}
+.image-dialog img{outline:1px solid var(--image-frame);outline-offset:6px}
+.ls-source-grid img,.ls-mini-plan,.ls-model-space{outline:1px solid var(--image-frame);outline-offset:4px;box-shadow:4px 6px 18px #173f320b}
+/* Quiet changes of pace: stepped images, deliberate space and translucent panels. */
+.hero-panel{border:1px solid #c3d6c1;background:linear-gradient(135deg,#f6f3ebfa,#f3f3eaf2);box-shadow:12px 16px 42px #183e320a}
+.section-heading{position:relative;padding-left:19px;border-left:1px solid #acc7b3}
+.section-heading::after{content:"";display:block;width:58px;height:1px;background:linear-gradient(90deg,#9fbea9,transparent);margin-top:23px}
+.asset-facts{border-top:1px solid #b9cfbd;border-bottom:1px solid #b9cfbd;background:linear-gradient(120deg,#e1eddf5e,transparent 80%);padding:28px}
+.source-grid{column-gap:28px}
+.content-block{background:linear-gradient(130deg,#f7f6eef0,#edf3e8d9);border-color:#bfcfbd}
+.content-block>summary:hover{background:#c6ddc31c}
+.dark .content-block{background:linear-gradient(130deg,#ffffff08,#bbd5bd09);border-color:#b9d1bd38}
+.context-card{border:1px solid #bdd1bc;background:linear-gradient(140deg,#e0ecdcbd,#f1f2e7a1)}
+.contact-panel{border:1px solid #bad0bb;box-shadow:10px 15px 40px #173f3212}
+@media(min-width:901px){
+ .asset-split{grid-template-columns:1.2fr .85fr;gap:11%}.asset .offset{margin:18px 0 30px 10px}
+ .use-0{padding-top:10px}.use-1{margin-top:102px}.use-2{margin-top:25px}.use-1>div{padding-left:18px;border-left:1px solid #aec9b5}
+ .ecosystem-grid{gap:28px}.ecosystem .produce{transform:translateY(28px)}
+ .infrastructure .split{gap:11%}.infrastructure .portrait{margin-top:30px;margin-left:7px}
+ .investment-image{margin-top:48px}.investment .questions{padding-right:20px}
+ .research-layout{gap:8%}.research-photo{margin-left:7px}
+ .contact-panel{transform:translateY(-10px)}
+}
+@media(max-width:900px){.section::before{width:110%;right:-15%;height:450px;opacity:.16}.hero{margin-inline:24px}.hero-panel{box-shadow:7px 12px 24px #183e320a}.asset-facts{padding:22px}.ecosystem-grid{gap:24px}}
+@media(max-width:560px){
+ .image-button::before{inset:-5px}.hero-image .image-button::before{inset:-6px}.image-button::after{inset:-9px}
+ .section-heading{padding-left:13px}.section-heading::after{width:40px;margin-top:17px}.hero-panel{width:92%;padding:27px 22px}.hero-panel h1{font-size:40px}
+ .use-grid{gap:24px}.use-1{margin-top:58px}.context-card{padding:20px 15px}.ecosystem-grid{gap:20px}
+ .ls-source-grid img,.ls-mini-plan,.ls-model-space{outline-offset:3px}.brand .brand-logo{outline-offset:3px}
+ .section::before{width:140%;height:400px;opacity:.14}.contour-atmosphere svg{opacity:.32}
+}
+@media(prefers-reduced-motion:reduce){.image-button img{transition:none}.image-button:hover img{transform:none}}

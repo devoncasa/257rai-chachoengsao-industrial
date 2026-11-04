@@ -81,7 +81,7 @@ const renderContentItem = (item: ContentItem, index: number, tooltipDefinitions:
         );
     case 'table':
       return (
-        <div key={index} className="overflow-x-auto my-6">
+        <div key={index} className="overflow-x-auto my-6" tabIndex={0} role="region" aria-label={item.title}>
           <h4 className="text-lg font-semibold mb-4 text-center text-blue-800">{item.title}</h4>
           <div className="border border-slate-200 rounded-lg overflow-hidden shadow-sm">
             <table className="w-full border-collapse text-slate-800 text-sm">
