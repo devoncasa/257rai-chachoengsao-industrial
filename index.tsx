@@ -1,3 +1,6 @@
+import '@fontsource/noto-sans-thai/400.css';
+import '@fontsource/noto-sans-thai/500.css';
+import '@fontsource/noto-sans-thai/600.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
