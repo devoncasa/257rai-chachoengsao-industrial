@@ -1,6 +1,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import json
+import re
 class Page(HTMLParser):
     def __init__(self,text):
         super().__init__();self.nodes=[];self.feed(text)
@@ -17,6 +18,8 @@ for lang,path in [('th',''),('en','en/'),('zh','zh/'),('ja','ja/')]:
     alts=[a['hreflang'] for t,a in page.nodes if t=='link' and a.get('rel')=='alternate']
     assert set(alts)=={'th','en','zh','ja','x-default'}
     assert 'noindex' not in text
+    assert not re.search(r'per\s+rai|THB\s*/\s*rai|บาท\s*/\s*ไร่|ต่อไร่|ไร่ละ|每莱|泰铢\s*/\s*莱|バーツ\s*/\s*ライ|ライあたり|ライ単価|ライ当たり',text,re.I), f'{lang}: unit-price content remains'
+    assert {'th':'ขายทั้งแปลง · ไม่แบ่งขาย','en':'Whole parcel · No subdivision','zh':'整块出售 · 不分割','ja':'一括売却 · 分割販売なし'}[lang] in text
     for tag,a in page.nodes:
         if tag=='img':
             assert Path('dist'+a['src']).is_file(),a['src']

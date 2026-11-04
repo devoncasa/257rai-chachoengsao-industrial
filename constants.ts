@@ -151,7 +151,7 @@ const enTranslations: TranslationSet = {
           { type: 'paragraph', text: "The industrial potential of this corridor is anchored by two large industrial estates, which attract investment and create a business ecosystem. A comparative analysis helps investors choose a location that best fits their needs." },
           { type: 'subheading_with_list', title: "304 Industrial Park:", intro: "Established in 1994, it is a large and highly developed industrial land project covering over 19,000 rai. Its most outstanding strength is its self-sufficient infrastructure and utilities, including:", items: ["Private Power Plant: With a capacity of 893 MW, backed up by the Provincial Electricity Authority (PEA), crucial for industries requiring high energy stability like electronics or data centers.", "Large Water Reservoir: Its own reservoir with a capacity of 40 million cubic meters on 2,100 rai, securely supporting water-intensive industries.", "Soil Quality: The brown sedimentary soil can support loads of 20-40 tons per square meter, reducing foundation construction costs for large buildings and machinery by up to 20%.", "Eco Industrial Town Concept: Systematic environmental management, such as a zero-discharge wastewater treatment system and promotion of clean energy, aligns with current sustainable investment trends."] },
           { type: 'subheading_with_list', title: "Rojana Industrial Park Prachinburi:", intro: "A newer development of about 6,000 rai, leveraging the strong 'Rojana' brand, widely recognized from its success in Ayutthaya. Its key features are:", items: ["Strategic Location on Highway 304: A clear advantage for transportation links.", "Attracting Major Investors: Successfully attracted Honda to establish its second manufacturing base, creating a significant automotive industry cluster.", "Free Zone: The establishment of a free zone is a key factor for businesses focused on importing raw materials for 100% export, as they receive exemptions from import and export duties.", "Connectivity to East-West Economic Corridor: The location benefits businesses trading with Cambodia."] },
-          { type: 'table', title: "Table 1: Comparative Analysis of 304 IP and Rojana IP", headers: ["Feature", "304 Industrial Park", "Rojana Industrial Park"], rows: [["Established", "1994", "Newer"], ["Total Area (Rai)", "19,000", "Approx. 6,000"], ["Power Capacity", "893 MW (Private)", "From PEA"], ["Water Source", "Private Reservoir (40M m³)", "Service available"], ["Maintenance Fee (THB/Rai/Month)", "1,100", "900"], ["Main Clusters", "Automotive, Electronics, Packaging", "Automotive (Honda-centric)"], ["Distance to Laem Chabang", "130 km", "130 km"], ["Distance to Suvarnabhumi", "110 km", "110 km"], ["Special Features", "Eco-Industrial Town, Excellent Soil, Integrated Utilities", "Free Zone"]] },
+          { type: 'table', title: "Table 1: Comparative Analysis of 304 IP and Rojana IP", headers: ["Feature", "304 Industrial Park", "Rojana Industrial Park"], rows: [["Established", "1994", "Newer"], ["Total Area (Rai)", "19,000", "Approx. 6,000"], ["Power Capacity", "893 MW (Private)", "From PEA"], ["Water Source", "Private Reservoir (40M m³)", "Service available"], ["Main Clusters", "Automotive, Electronics, Packaging", "Automotive (Honda-centric)"], ["Distance to Laem Chabang", "130 km", "130 km"], ["Distance to Suvarnabhumi", "110 km", "110 km"], ["Special Features", "Eco-Industrial Town, Excellent Soil, Integrated Utilities", "Free Zone"]] },
           { type: 'heading4', text: "1.3 Local Economic Growth: The Birth of an \"Industrial City\"" },
           { type: 'paragraph', text: "The area's development has surpassed being just a collection of factories. The concentration of massive employment has created a powerful Demand-Pull Effect, leading to extensive investment in commercial and residential real estate." },
           { type: 'paragraph', text: "Clear evidence of this transformation is the presence of national shopping malls and hypermarkets like Robinson, Big C, and Lotus, which conduct thorough market analysis before investing. Their entry confirms the purchasing power and economic potential of the local population. Additionally, numerous housing projects, apartments, and hotels have been developed to accommodate employees and executives, making the Si Maha Phot district a vibrant area with amenities that, in some aspects, rival or exceed those of Prachinburi's city center." },
@@ -204,19 +204,9 @@ const enTranslations: TranslationSet = {
           { type: 'paragraph', style: 'italic', text: "This section connects the strategic analysis with tangible, on-the-ground realities by examining the readiness of infrastructure and the dynamics of the real estate market." },
           { type: 'heading4', text: "4.1 Infrastructure and Utilities Readiness" },
           { type: 'paragraph', text: "The core infrastructure in this economic corridor is robust. 304 Industrial Park, in particular, has self-sufficient power and water systems, which reduces reliance on the national grid and is a major draw for large-scale investments requiring high utility stability. Both major industrial estates have high-standard internal road systems and effective flood protection, addressing key operational concerns for manufacturers." },
-          { type: 'heading4', text: "4.2 Land Price Analysis: Official Assessment vs. Market Price" },
-          { type: 'paragraph', text: "A significant gap exists between official government land valuations and actual market asking prices, reflecting investor expectations about the future." },
-          { type: 'list', items: [
-              "Official Assessed Price (2023-2026): The Treasury Department sets prices for key roads like Highway 3079 at THB 1,250 - 16,500 per square wah.",
-              "Market Price (Q3 2025): Asking prices for land zoned for industry (green zone) near the industrial estates are several times higher. For example, land adjacent to a factory in 304 IP is listed at THB 2.5 million per rai (THB 6,250/sq.wah), while nearby undeveloped land ranges from THB 700,000 to 1.8 million per rai."
-          ] },
-          { type: 'paragraph', text: "This gap indicates that the real estate market is forward-looking, having already priced in the future potential from the EEC and the rail project. We can see a tiered \"premium\":" },
-          { type: 'list', items: [
-              "Base Price: Agricultural land.", 
-              "Infrastructure Premium: Land on main roads.", 
-              "Zoning Premium: Land zoned for industry is highest, reflecting \"Regulatory Certainty.\"", 
-              "Future Speculation Premium: The rapid price increase reflects the belief that future demand, driven by EEC expansion and the rail corridor, will vastly outstrip current supply."
-          ] }
+          {"type":"heading4","text":"4.2 Whole-parcel sale and transaction review"},
+          {"type":"paragraph","text":"The listed 257-rai property is offered as one whole parcel, without subdivision. Discuss the overall transaction terms with the seller."},
+          {"type":"list","items":["Check title documents, the complete boundary and the total area included in the sale.","Confirm the total asking price, payment conditions, transfer taxes and responsibility for fees in writing.","Assess access, permitted uses and utility requirements for the whole site before agreeing to a transaction."]}
       ]
     },
     section5: {
@@ -257,7 +247,6 @@ const enTranslations: TranslationSet = {
   contactWeChatNote: "(WeChat available)",
   titlePrice: "Investment Conditions & Price",
   textPrice: "The investment conditions for this prime industrial asset are as follows:",
-  pricePerRai: "Price per Rai:",
   totalArea: "Total Area:",
   totalPrice: "Total Selling Price:",
   priceNote: "Note: The land is offered as a single plot (not for subdivision).",
@@ -416,7 +405,7 @@ const thTranslations: TranslationSet = {
           { type: 'paragraph', text: "ศักยภาพทางอุตสาหกรรมของระเบียงเศรษฐกิจแห่งนี้ถูกยึดโยงอยู่กับนิคมอุตสาหกรรมขนาดใหญ่สองแห่ง ซึ่งเป็นเหมือนสมอที่ดึงดูดการลงทุนและสร้างระบบนิเวศทางธุรกิจขึ้นมา การวิเคราะห์เปรียบเทียบคุณสมบัติของทั้งสองแห่งจะช่วยให้นักลงทุนเข้าใจถึงจุดแข็งที่แตกต่างกันและเลือกที่ตั้งที่สอดคล้องกับความต้องการของตนเองได้ดีที่สุด" },
           { type: 'subheading_with_list', title: "สวนอุตสาหกรรม 304 (304 Industrial Park):", intro: "ก่อตั้งขึ้นในปี 2537 (1994) และถือเป็นโครงการพัฒนาที่ดินอุตสาหกรรมขนาดใหญ่และมีความสมบูรณ์สูง ครอบคลุมพื้นที่กว่า 19,000 ไร่ จุดแข็งที่โดดเด่นที่สุดของสวนอุตสาหกรรม 304 คือความพร้อมด้านโครงสร้างพื้นฐานและสาธารณูปโภคที่สามารถพึ่งพาตนเองได้ในระดับสูง (Self-Sufficient) ซึ่งประกอบด้วย:", items: ["โรงไฟฟ้าของตนเอง: กำลังการผลิตสูงถึง 893 เมกะวัตต์ พร้อมระบบไฟฟ้าสำรองจากการไฟฟ้าส่วนภูมิภาค (กฟภ.) ซึ่งเป็นปัจจัยสำคัญอย่างยิ่งสำหรับอุตสาหกรรมที่ต้องการความเสถียรของพลังงานไฟฟ้าสูง เช่น อุตสาหกรรมอิเล็กทรอนิกส์ หรือศูนย์ข้อมูล (Data Center)", "แหล่งน้ำขนาดใหญ่: มีอ่างเก็บน้ำของตัวเองความจุรวม 40 ล้านลูกบาศก์เมตร บนพื้นที่ 2,100 ไร่ ทำให้สามารถรองรับอุตสาหกรรมที่ต้องใช้น้ำในปริมาณมากได้อย่างมั่นคง", "คุณภาพดิน: พื้นที่เป็นดินตะกอนสีน้ำตาลที่สามารถรองรับน้ำหนักได้ถึง 20-40 ตันต่อตารางเมตร ซึ่งช่วยลดต้นทุนการก่อสร้างฐานรากสำหรับอาคารและเครื่องจักรขนาดใหญ่ได้สูงสุดถึง 20%", "แนวคิดเมืองอุตสาหกรรมเชิงนิเวศ (Eco Industrial Town): มีการจัดการสิ่งแวดล้อมที่เป็นระบบ เช่น การบำบัดน้ำเสียที่ไม่ปล่อยออกสู่ภายนอก และการส่งเสริมพลังงานสะอาด ซึ่งสอดคล้องกับแนวโน้มการลงทุนที่ยั่งยืนในปัจจุบัน"] },
           { type: 'subheading_with_list', title: "สวนอุตสาหกรรมโรจนะ ปราจีนบุรี (Rojana Industrial Park Prachinburi):", intro: "เป็นโครงการพัฒนาที่ใหม่กว่า มีพื้นที่ประมาณ 6,000 ไร่ และอาศัยความแข็งแกร่งของแบรนด์ 'โรจนะ' ซึ่งเป็นที่รู้จักและยอมรับอย่างกว้างขวางจากความสำเร็จของโครงการในจังหวัดพระนครศรีอยุธยา จุดเด่นของโรจนะ ปราจีนบุรี คือ:", items: ["ที่ตั้งบนทางหลวงหมายเลข 304: เป็นจุดยุทธศาสตร์ที่ชัดเจนในการเชื่อมโยงการขนส่ง", "การดึงดูดนักลงทุนรายใหญ่: ประสบความสำเร็จในการดึงดูดบริษัท ฮอนด้า ให้มาตั้งฐานการผลิตแห่งที่สอง ซึ่งเป็นการสร้างคลัสเตอร์อุตสาหกรรมยานยนต์ที่สำคัญในพื้นที่", "เขตประกอบการเสรี (Free Zone): มีการจัดตั้งเขตประกอบการเสรี ซึ่งเป็นปัจจัยสำคัญสำหรับธุรกิจที่เน้นการนำเข้าวัตถุดิบเพื่อผลิตและส่งออกทั้งหมด โดยจะได้รับการยกเว้นอากรขาเข้าและขาออก", "ความเชื่อมโยงกับระเบียงเศรษฐกิจตะวันออก-ตะวันตก: ตำแหน่งที่ตั้งเอื้อประโยชน์ต่อการทำธุรกิจกับประเทศกัมพูชา"] },
-          { type: 'table', title: "ตารางที่ 1: การวิเคราะห์เปรียบเทียบสวนอุตสาหกรรม 304 และสวนอุตสาหกรรมโรจนะ", headers: ["คุณลักษณะ", "สวนอุตสาหกรรม 304", "สวนอุตสาหกรรมโรจนะ"], rows: [["ปีที่ก่อตั้ง", "2537 (1994)", "ใหม่กว่า"], ["พื้นที่โครงการทั้งหมด (ไร่)", "19,000", "ประมาณ 6,000"], ["กำลังการผลิตไฟฟ้า", "893 เมกะวัตต์ (โรงไฟฟ้าของตัวเอง)", "รับจากการไฟฟ้าส่วนภูมิภาค"], ["แหล่งน้ำ", "อ่างเก็บน้ำของตัวเอง (40 ล้าน ลบ.ม.)", "มีแหล่งน้ำให้บริการ"], ["ค่าส่วนกลาง (บาท/ไร่/เดือน)", "1,100", "900"], ["คลัสเตอร์หลัก", "ยานยนต์, อิเล็กทรอนิกส์, บรรจุภัณฑ์", "ยานยนต์ (ฮอนด้าเป็นหลัก)"], ["ระยะทางถึงท่าเรือแหลมฉบัง", "130 กม.", "130 กม."], ["ระยะทางถึงสนามบินสุวรรณภูมิ", "110 กม.", "110 กม."], ["คุณสมบัติพิเศษ", "เมืองอุตสาหกรรมเชิงนิเวศ, คุณภาพดินดีเยี่ยม, สาธารณูปโภคครบวงจร", "เขตประกอบการเสรี (Free Zone)"]] },
+          { type: 'table', title: "ตารางที่ 1: การวิเคราะห์เปรียบเทียบสวนอุตสาหกรรม 304 และสวนอุตสาหกรรมโรจนะ", headers: ["คุณลักษณะ", "สวนอุตสาหกรรม 304", "สวนอุตสาหกรรมโรจนะ"], rows: [["ปีที่ก่อตั้ง", "2537 (1994)", "ใหม่กว่า"], ["พื้นที่โครงการทั้งหมด (ไร่)", "19,000", "ประมาณ 6,000"], ["กำลังการผลิตไฟฟ้า", "893 เมกะวัตต์ (โรงไฟฟ้าของตัวเอง)", "รับจากการไฟฟ้าส่วนภูมิภาค"], ["แหล่งน้ำ", "อ่างเก็บน้ำของตัวเอง (40 ล้าน ลบ.ม.)", "มีแหล่งน้ำให้บริการ"], ["คลัสเตอร์หลัก", "ยานยนต์, อิเล็กทรอนิกส์, บรรจุภัณฑ์", "ยานยนต์ (ฮอนด้าเป็นหลัก)"], ["ระยะทางถึงท่าเรือแหลมฉบัง", "130 กม.", "130 กม."], ["ระยะทางถึงสนามบินสุวรรณภูมิ", "110 กม.", "110 กม."], ["คุณสมบัติพิเศษ", "เมืองอุตสาหกรรมเชิงนิเวศ, คุณภาพดินดีเยี่ยม, สาธารณูปโภคครบวงจร", "เขตประกอบการเสรี (Free Zone)"]] },
           { type: 'heading4', text: "1.3 การเติบโตทางเศรษฐกิจในพื้นที่: กำเนิด 'เมืองอุตสาหกรรม'" },
           { type: 'paragraph', text: "การพัฒนาของพื้นที่นี้ได้ก้าวไปไกลกว่าการเป็นเพียงแหล่งรวมโรงงานอุตสาหกรรม การกระจุกตัวของการจ้างงานจำนวนมหาศาลได้สร้างแรงดึงดูด (Demand-Pull Effect) ที่ทรงพลัง ทำให้เกิดการลงทุนในภาคอสังหาริมทรัพย์เพื่อการพาณิชย์และที่อยู่อาศัยตามมาอย่างกว้างขวาง" },
           { type: 'paragraph', text: "หลักฐานที่ชัดเจนของการเปลี่ยนแปลงนี้คือการปรากฏตัวของศูนย์การค้าและไฮเปอร์มาร์เก็ตระดับชาติ เช่น โรบินสัน, บิ๊กซี, และโลตัส ซึ่งแบรนด์เหล่านี้จะทำการวิเคราะห์ตลาดอย่างละเอียดก่อนตัดสินใจลงทุน การเข้ามาของพวกเขาจึงเป็นการยืนยันถึงกำลังซื้อและศักยภาพทางเศรษฐกิจของประชากรในพื้นที่ นอกจากนี้ยังมีการพัฒนาโครงการบ้านจัดสรร อพาร์ตเมนต์ และโรงแรมจำนวนมาก เพื่อรองรับพนักงานและผู้บริหารที่ย้ายเข้ามาทำงาน ทำให้สภาพแวดล้อมของอำเภอศรีมหาโพธิในปัจจุบันมีความคึกคักและเพียบพร้อมด้วยสิ่งอำนวยความสะดวก จนอาจกล่าวได้ว่ามีความเจริญทัดเทียมหรือมากกว่าตัวเมืองปราจีนบุรีในบางมิติ" },
@@ -469,19 +458,9 @@ const thTranslations: TranslationSet = {
           { type: 'paragraph', style: 'italic', text: "ส่วนนี้จะเชื่อมโยงการวิเคราะห์เชิงกลยุทธ์เข้ากับความเป็นจริงที่จับต้องได้ในพื้นที่ โดยจะตรวจสอบความพร้อมของโครงสร้างพื้นฐานและพลวัตของตลาดอสังหาริมทรัพย์ ซึ่งเป็นดัชนีชี้วัดความเชื่อมั่นของนักลงทุนได้เป็นอย่างดี" },
           { type: 'heading4', text: "4.1 ความพร้อมด้านโครงสร้างพื้นฐานและสาธารณูปโภค" },
           { type: 'paragraph', text: "โครงสร้างพื้นฐานหลักในระเบียงเศรษฐกิจแห่งนี้มีความแข็งแกร่งและถือเป็นความได้เปรียบในการแข่งขันที่สำคัญ โดยเฉพาะอย่างยิ่งในสวนอุตสาหกรรม 304 ที่มีระบบไฟฟ้าและประปาที่พึ่งพาตนเองได้ ซึ่งช่วยลดความเสี่ยงจากการพึ่งพาระบบโครงข่ายของประเทศและเป็นแม่เหล็กดึงดูดการลงทุนขนาดใหญ่ที่ต้องการความเสถียรของสาธารณูปโภคขั้นสูงสุด นิคมอุตสาหกรรมหลักทั้งสองแห่งมีระบบถนนภายในที่ได้มาตรฐานสูงและระบบป้องกันน้ำท่วมที่มีประสิทธิภาพ ซึ่งช่วยตอบโจทย์ความกังวลด้านการดำเนินงานที่สำคัญของผู้ผลิต" },
-          { type: 'heading4', text: "4.2 การวิเคราะห์ราคาที่ดิน: ราคาประเมินราชการเทียบกับราคาตลาด" },
-          { type: 'paragraph', text: "ข้อมูลที่น่าสนใจที่สุดอย่างหนึ่งคือความแตกต่างอย่างมีนัยสำคัญระหว่างราคาประเมินที่ดินของทางราชการกับราคาเสนอขายในตลาดจริง ซึ่งสะท้อนถึงการคาดการณ์อนาคตของนักลงทุน" },
-          { type: 'list', items: [
-              "ราคาประเมินราชการ (รอบบัญชีปี 2566-2569): กรมธนารักษ์ได้กำหนดราคาประเมินสำหรับถนนสายสำคัญในพื้นที่ เช่น ถนนทางหลวงหมายเลข 3079 ไว้ที่ 1,250 - 16,500 บาทต่อตารางวา",
-              "ราคาตลาด (ณ ไตรมาสที่ 3 ปี 2568): ราคาเสนอขายที่ดินในพื้นที่ โดยเฉพาะที่ดินในผังเมืองสีเขียว มีราคาสูงกว่าราคาประเมินหลายเท่าตัว ตัวอย่างเช่น มีการประกาศขายที่ดินติดกับโรงงานในนิคม 304 ในราคาไร่ละ 2.5 ล้านบาท (6,250 บาทต่อตารางวา) ขณะที่ที่ดินที่ยังไม่พัฒนาในบริเวณใกล้เคียงมีราคาเสนอขายตั้งแต่ 700,000 บาท ถึง 1.8 ล้านบาทต่อไร่"
-          ] },
-          { type: 'paragraph', text: "ช่องว่างระหว่างราคาประเมินและราคาตลาดนี้ชี้ให้เห็นว่า ตลาดอสังหาริมทรัพย์มีการมองไปข้างหน้า (Forward-looking) และได้คำนวณรวมเอาศักยภาพในอนาคตที่เกิดจาก EEC และโครงการรถไฟเข้าไปในราคาแล้วอย่างชัดเจน ซึ่งแตกต่างจากราคาประเมินของราชการที่เป็นการมองย้อนหลัง (Backward-looking) เราสามารถเห็น 'ค่าพรีเมียม' (Premium) ที่เกิดขึ้นตามลำดับชั้น:" },
-          { type: 'list', items: [
-              "ราคาพื้นฐาน: ที่ดินเกษตรกรรม",
-              "พรีเมียมจากโครงสร้างพื้นฐาน: ที่ดินที่ติดถนนสายหลัก",
-              "พรีเมียมจากผังเมือง (Zoning Premium): ที่ดินที่ถูกกำหนดให้เป็นพื้นที่สีเขียวสำหรับอุตสาหกรรมจะมีราคาสูงที่สุด เพราะสะท้อนถึง 'ความแน่นอนทางกฎระเบียบ' (Regulatory Certainty)",
-              "พรีเมียมจากการเก็งกำไรอนาคต: การที่ราคาที่ดินสีเขียวพุ่งสูงขึ้นอย่างรวดเร็ว สะท้อนความเชื่อของนักลงทุนว่าอุปสงค์ในอนาคต ซึ่งขับเคลื่อนโดยการขยายตัวจาก EEC และผลกระทบจากระเบียงรถไฟ จะมีมากกว่าอุปทานที่ดินในปัจจุบันอย่างมหาศาล"
-          ] }
+          {"type":"heading4","text":"4.2 การซื้อขายทั้งแปลงและเงื่อนไขที่ควรตรวจสอบ"},
+          {"type":"paragraph","text":"ที่ดินตามประกาศขนาด 257 ไร่ เสนอขายทั้งแปลง ไม่แบ่งขาย กรุณาสอบถามเงื่อนไขการซื้อขายโดยรวมกับผู้เสนอขาย"},
+          {"type":"list","items":["ตรวจเอกสารสิทธิ แนวเขต และพื้นที่ทั้งหมดที่รวมอยู่ในการซื้อขาย","ยืนยันราคาเสนอขายรวมทั้งแปลง เงื่อนไขชำระเงิน ภาษี และผู้รับผิดชอบค่าโอนเป็นลายลักษณ์อักษร","ประเมินทางเข้าออก การใช้ประโยชน์ที่ดิน และสาธารณูปโภคสำหรับพื้นที่ทั้งแปลงก่อนตกลงซื้อขาย"]}
       ]
     },
     section5: {
@@ -522,7 +501,6 @@ const thTranslations: TranslationSet = {
   contactWeChatNote: "(มี WeChat)",
   titlePrice: "เงื่อนไขการลงทุนและราคาเสนอขาย",
   textPrice: "เงื่อนไขการลงทุนสำหรับสินทรัพย์อุตสาหกรรมที่สำคัญนี้มีดังต่อไปนี้:",
-  pricePerRai: "ราคาต่อไร่:",
   totalArea: "พื้นที่ทั้งหมด:",
   totalPrice: "ราคาเสนอขายทั้งหมด:",
   priceNote: "หมายเหตุ: ที่ดินเสนอขายเป็นแปลงเดียว (ไม่แบ่งขาย)",
@@ -681,7 +659,7 @@ const zhTranslations: TranslationSet = {
           { type: 'paragraph', text: "该走廊的工业潜力由两个大型工业园支撑，它们吸引投资并创造了一个商业生态系统。比较分析有助于投资者选择最适合其需求的地点。" },
           { type: 'subheading_with_list', title: "304工业园：", intro: "成立于1994年，是一个占地超过19,000莱的大型且高度发达的工业地产项目。其最突出的优势是其高度自给自足的基础设施和公用事业，包括：", items: ["自有发电厂：发电量达893兆瓦，并有省电力局（PEA）备用电源，对需要高能源稳定性的行业（如电子或数据中心）至关重要。", "大型水库：拥有容量为4000万立方米的水库，占地2100莱，为用水密集型行业提供可靠支持。", "土壤质量：棕色沉积土可承重20-40吨/平方米，可为大型建筑和机械的地基建设成本降低高达20%。", "生态工业城理念：系统化的环境管理，如零排放废水处理系统和推广清洁能源，符合当前的可持续投资趋势。"] },
           { type: 'subheading_with_list', title: "洛加纳工业园（巴真府）：", intro: "这是一个较新的开发项目，占地约6,000莱，利用了在大城府成功建立的强大“洛加纳”品牌。其主要特点是：", items: ["位于304国道的战略位置：在交通连接方面具有明显优势。", "吸引主要投资者：成功吸引本田公司建立其第二个生产基地，在该地区创建了一个重要的汽车产业集群。", "自由区：设立自由区是针对那些专注于进口原材料以进行100%出口的企业的关键因素，因为它们可以享受进出口关税豁免。", "与东西经济走廊的连接：该位置有利于与柬埔寨的贸易业务。"] },
-          { type: 'table', title: "表1：304工业园与洛加纳工业园比较分析", headers: ["特征", "304工业园", "洛加纳工业园"], rows: [["成立年份", "1994年", "较新"], ["总面积（莱）", "19,000", "约6,000"], ["电力容量", "893兆瓦（自有）", "来自省电力局"], ["水源", "自有水库（4000万立方米）", "提供服务"], ["维护费（泰铢/莱/月）", "1,100", "900"], ["主要产业集群", "汽车、电子、包装", "汽车（以本田为中心）"], ["至林查班港距离", "130公里", "130公里"], ["至素万那普机场距离", "110公里", "110公里"], ["特殊功能", "生态工业城、优质土壤、综合公用事业", "自由区"]] },
+          { type: 'table', title: "表1：304工业园与洛加纳工业园比较分析", headers: ["特征", "304工业园", "洛加纳工业园"], rows: [["成立年份", "1994年", "较新"], ["总面积（莱）", "19,000", "约6,000"], ["电力容量", "893兆瓦（自有）", "来自省电力局"], ["水源", "自有水库（4000万立方米）", "提供服务"], ["主要产业集群", "汽车、电子、包装", "汽车（以本田为中心）"], ["至林查班港距离", "130公里", "130公里"], ["至素万那普机场距离", "110公里", "110公里"], ["特殊功能", "生态工业城、优质土壤、综合公用事业", "自由区"]] },
           { type: 'heading4', text: "1.3 地方经济增长：“工业城市”的诞生" },
           { type: 'paragraph', text: "该地区的发展已超越了仅仅是工厂的集合。大量的就业集中创造了强大的需求拉动效应，导致了商业和住宅房地产的广泛投资。" },
           { type: 'paragraph', text: "这种转变的明确证据是像Robinson、Big C和Lotus这样的全国性购物中心和大型超市的出现，它们在投资前会进行彻底的市场分析。它们的进入证实了当地居民的购买力和经济潜力。此外，为了容纳员工和管理人员，开发了许多住宅项目、公寓和酒店，使西玛哈坡县成为一个充满活力的地区，其便利设施在某些方面甚至可以与巴真府市中心相媲美或超越。" },
@@ -734,19 +712,9 @@ const zhTranslations: TranslationSet = {
           { type: 'paragraph', style: 'italic', text: "本节将战略分析与可触摸的实地情况相结合，通过考察基础设施的完备性和房地产市场的动态来进行分析。" },
           { type: 'heading4', text: "4.1 基础设施与公用事业的完备性" },
           { type: 'paragraph', text: "该经济走廊的核心基础设施十分健全。特别是304工业园，拥有自给自足的电力和供水系统，减少了对国家电网的依赖，是吸引需要高度公用事业稳定性的大型投资的主要因素。两个主要工业园都拥有高标准的内部道路系统和有效的防洪设施，解决了制造商的主要运营顾虑。" },
-          { type: 'heading4', text: "4.2 土地价格分析：官方评估价与市场价对比" },
-          { type: 'paragraph', text: "一个显著的差距存在于政府官方土地估价与实际市场要价之间，反映了投资者对未来的预期。" },
-          { type: 'list', items: [
-            "官方评估价（2023-2026年）：财政部对3079号国道等主要道路的定价为每平方哇1,250 - 16,500泰铢。",
-            "市场价（2025年第三季度）：工业区（绿色区域）附近的工业用地要价要高出数倍。例如，304工业园内工厂旁的一块土地标价为每莱250万泰铢（每平方哇6,250泰铢），而附近未开发土地的价格从每莱70万到180万泰铢不等。"
-          ] },
-          { type: 'paragraph', text: "这种差距表明房地产市场是前瞻性的，已经将EEC和铁路项目带来的未来潜力计入价格。我们可以看到一个分层的“溢价”：" },
-          { type: 'list', items: [
-            "基础价：农地。", 
-            "基础设施溢价：临主要道路的土地。", 
-            "规划溢价：工业规划用地价格最高，反映了“法规确定性”。", 
-            "未来投机溢价：价格的快速上涨反映了投资者相信未来由EEC扩张和铁路走廊驱动的需求将远超当前供应。"
-          ] }
+          {"type":"heading4","text":"4.2 整块出售与交易条件核查"},
+          {"type":"paragraph","text":"挂牌面积257莱的土地整块出售，不分割销售。请直接与卖方商议整体交易条件。"},
+          {"type":"list","items":["核对产权文件、完整边界及交易所包含的全部土地面积。","以书面形式确认整块土地的总要价、付款条件、税费及过户费用承担方式。","成交前评估整块土地的出入口、许可用途和公用设施需求。"]}
       ]
     },
     section5: {
@@ -787,7 +755,6 @@ const zhTranslations: TranslationSet = {
   contactWeChatNote: "(提供微信)",
   titlePrice: "投资条件与售价",
   textPrice: "此优质工业资产的投资条件如下：",
-  pricePerRai: "每莱价格：",
   totalArea: "总面积：",
   totalPrice: "总售价：",
   priceNote: "注：该土地为整块出售（不可分割）。",
@@ -946,7 +913,7 @@ const jaTranslations: TranslationSet = {
           { type: 'paragraph', text: "この回廊の産業ポテンシャルは、投資を誘致しビジネスエコシステムを創造する2つの大規模工業団地によって支えられています。比較分析は、投資家が自社のニーズに最も適した場所を選択するのに役立ちます。" },
           { type: 'subheading_with_list', title: "304工業団地：", intro: "1994年に設立され、19,000ライを超える広大で高度に開発された工業用地プロジェクトです。その最も際立った強みは、以下を含む自己完結型のインフラとユーティリティです：", items: ["自家発電所：893MWの容量を持ち、地方電力公社（PEA）によるバックアップがあり、電子機器やデータセンターなど高いエネルギー安定性を必要とする産業にとって不可欠です。", "大規模貯水池：2,100ライの敷地に4,000万立方メートルの容量を持つ独自の貯水池があり、水を大量に消費する産業を確実にサポートします。", "土壌品質：茶色の堆積土は1平方メートルあたり20〜40トンの荷重を支えることができ、大規模な建物や機械の基礎建設コストを最大20％削減します。", "エコ工業団地構想：ゼロディスチャージ廃水処理システムやクリーンエネルギーの推進など、体系的な環境管理は、現在の持続可能な投資トレンドと一致しています。"] },
           { type: 'subheading_with_list', title: "ロジャナ工業団地（プラチンブリ）：", intro: "アユタヤでの成功から広く認知されている強力な「ロジャナ」ブランドを活用した、約6,000ライの比較的新しい開発です。その主な特徴は以下の通りです：", items: ["国道304号線沿いの戦略的立地：輸送リンクにおける明確な利点。", "主要投資家の誘致：ホンダを誘致して第二の製造拠点を設立させることに成功し、重要な自動車産業クラスターを形成しました。", "フリーゾーン：フリーゾーンの設立は、輸出入関税が免除されるため、100％輸出向けに原材料を輸入するビジネスにとって重要な要素です。", "東西経済回廊への接続性：この立地は、カンボジアと取引するビジネスに利益をもたらします。"] },
-          { type: 'table', title: "表1：304工業団地とロジャナ工業団地の比較分析", headers: ["特徴", "304工業団地", "ロジャナ工業団地"], rows: [["設立年", "1994年", "比較的新しい"], ["総面積（ライ）", "19,000", "約6,000"], ["電力容量", "893 MW（自家発電）", "PEAから供給"], ["水源", "私有貯水池（4,000万m³）", "サービス利用可能"], ["維持管理費（THB/ライ/月）", "1,100", "900"], ["主要クラスター", "自動車、電子機器、包装", "自動車（ホンダ中心）"], ["レムチャバン港までの距離", "130 km", "130 km"], ["スワンナプーム空港までの距離", "110 km", "110 km"], ["特記事項", "エコ工業団地、優れた土壌、統合ユーティリティ", "フリーゾーン"]] },
+          { type: 'table', title: "表1：304工業団地とロジャナ工業団地の比較分析", headers: ["特徴", "304工業団地", "ロジャナ工業団地"], rows: [["設立年", "1994年", "比較的新しい"], ["総面積（ライ）", "19,000", "約6,000"], ["電力容量", "893 MW（自家発電）", "PEAから供給"], ["水源", "私有貯水池（4,000万m³）", "サービス利用可能"], ["主要クラスター", "自動車、電子機器、包装", "自動車（ホンダ中心）"], ["レムチャバン港までの距離", "130 km", "130 km"], ["スワンナプーム空港までの距離", "110 km", "110 km"], ["特記事項", "エコ工業団地、優れた土壌、統合ユーティリティ", "フリーゾーン"]] },
           { type: 'heading4', text: "1.3 地域経済の成長：「産業都市」の誕生" },
           { type: 'paragraph', text: "この地域の開発は、単なる工場の集積地であることを超えています。大規模な雇用の集中は強力な需要牽引効果（Demand-Pull Effect）を生み出し、商業用および住宅用不動産への広範な投資につながっています。" },
           { type: 'paragraph', text: "この変革の明確な証拠は、ロビンソン、ビッグC、ロータスといった全国展開のショッピングモールやハイパーマーケットの存在です。これらの企業は投資前に徹底的な市場分析を行います。彼らの進出は、地域住民の購買力と経済的可能性を裏付けています。さらに、従業員や経営幹部を収容するために数多くの住宅プロジェクト、アパート、ホテルが開発されており、シーマハーポー地区は、いくつかの側面でプラチンブリ市の中心部に匹敵するか、それを超えるアメニティを備えた活気あるエリアとなっています。" },
@@ -999,19 +966,9 @@ const jaTranslations: TranslationSet = {
           { type: 'paragraph', style: 'italic', text: "本セクションでは、戦略的分析と、インフラの整備状況および不動産市場の動向を検証することによって、現地の具体的な状況とを結びつけます。" },
           { type: 'heading4', text: "4.1 インフラと公共サービスの整備状況" },
           { type: 'paragraph', text: "この経済回廊の中核となるインフラは強固です。特に304工業団地は、自己完結型の電力・水道システムを備えており、国の送電網への依存度を低減させ、高い公共サービスの安定性を必要とする大規模投資にとって大きな魅力となっています。両主要工業団地は、高水準の内部道路網と効果的な洪水対策を有しており、製造業者の主要な運営上の懸念に対応しています。" },
-          { type: 'heading4', text: "4.2 地価分析：公式評価額と市場価格の比較" },
-          { type: 'paragraph', text: "政府の公式な土地評価額と実際の市場売出価格との間には大きな隔たりがあり、これは投資家の将来に対する期待を反映しています。" },
-          { type: 'list', items: [
-              "公式評価価格（2023-2026年）：財務省は、国道3079号線などの主要道路の価格を1平方ワーあたり1,250～16,500バーツに設定しています。",
-              "市場価格（2025年第3四半期）：工業団地近隣の工業用地（緑ゾーン）の売出価格は数倍高くなっています。例えば、304工業団地内の工場に隣接する土地は1ライあたり250万バーツ（1平方ワーあたり6,250バーツ）でリストされており、近隣の未開発地は1ライあたり70万～180万バーツの範囲です。"
-          ] },
-          { type: 'paragraph', text: "この隔たりは、不動産市場が将来を見越しており、EECや鉄道プロジェクトからの将来的なポテンシャルをすでに価格に織り込んでいることを示しています。階層的な「プレミアム」が見られます：" },
-          { type: 'list', items: [
-              "基本価格：農地。",
-              "インフラプレミアム：主要道路に面した土地。",
-              "ゾーニングプレミアム：「規制の確実性」を反映して、工業用地に指定された土地が最も高価です。",
-              "将来の投機プレミアム：価格の急激な上昇は、EECの拡大と鉄道回廊によってもたらされる将来の需要が現在の供給を大幅に上回るという信念を反映しています。"
-          ] }
+          {"type":"heading4","text":"4.2 一括売却と取引条件の確認"},
+          {"type":"paragraph","text":"掲載面積257ライの土地は一括売却で、分割販売は行いません。取引全体の条件を売主にご確認ください。"},
+          {"type":"list","items":["権利書、全体の境界、売買に含まれる土地面積を確認してください。","土地全体の売出総額、支払条件、税金、登記・移転費用の負担を書面で確認してください。","契約前に敷地全体の接道、許可用途、電力・水道の必要条件を検討してください。"]}
       ]
     },
     section5: {
@@ -1052,7 +1009,6 @@ const jaTranslations: TranslationSet = {
   contactWeChatNote: "（WeChat対応）",
   titlePrice: "投資条件および価格",
   textPrice: "この優良産業資産の投資条件は以下の通りです：",
-  pricePerRai: "ライ単価：",
   totalArea: "総面積：",
   totalPrice: "総販売価格：",
   priceNote: "注：土地は一括でのご提供となります（分割販売は不可）。",

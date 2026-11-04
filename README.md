@@ -126,3 +126,22 @@ The standalone price section shown in the owner’s screenshot was removed from 
 four languages. Price navigation links were removed; the hero price now links to
 contact. Other existing price mentions remain unchanged. The legacy `#price`
 fragment is retained as an invisible contact anchor for shared links.
+
+## Whole-parcel sale clarification
+
+All unit-price offers have been removed from the hero, asset facts, locale copy and
+research disclosures. Historical unit-price comparisons and fee rows were removed
+from the public translation data. The price-analysis subsection now explains
+whole-parcel transaction checks. Sale messaging states that the listed 257-rai
+property is offered as a whole parcel without subdivision. No new total asking
+price is inferred or calculated. Original source history remains in Git.
+
+## Expandable long-form topics
+
+Long original listing disclosures are grouped under their original subject headings
+in native details/summary blocks, with a responsive two-column topic grid. Business
+ideas have individual titled blocks. Research chapters keep their outer disclosure
+and are divided further by their existing subsection headings; the executive summary
+has six localized topic titles. Content remains in build-rendered HTML for search,
+keyboard users can expand/collapse natively, and no text is fetched or discarded on
+open/close. Brief introductory content and the interactive Land Studio remain visible.

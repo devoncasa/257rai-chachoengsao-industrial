@@ -1,5 +1,6 @@
 
 import React from 'react';
+import ExpandableBlock from './ExpandableBlock';
 
 type ContentItem =
   | { type: 'paragraph'; text: string; style?: 'italic' | 'bold' }
@@ -22,6 +23,7 @@ type ContentItem =
 interface AnalysisRendererProps {
   content: ContentItem[];
   tooltipDefinitions: { [key: string]: string };
+  introTitles?: readonly string[];
 }
 
 // Tooltip Component (self-contained)
@@ -108,11 +110,10 @@ const renderContentItem = (item: ContentItem, index: number, tooltipDefinitions:
   }
 };
 
-export const AnalysisRenderer: React.FC<AnalysisRendererProps> = ({ content, tooltipDefinitions }) => {
-  if (!content) return null;
-  return (
-    <div className="space-y-4">
-      {content.map((item, index) => renderContentItem(item, index, tooltipDefinitions))}
-    </div>
-  );
+export const AnalysisRenderer: React.FC<AnalysisRendererProps> = ({ content, tooltipDefinitions, introTitles }) => {
+ if(!content)return null;
+ if(introTitles)return <div className="research-blocks">{content.map((item,index)=><ExpandableBlock key={index} title={introTitles[index]||introTitles[0]} level={4}>{renderContentItem(item,index,tooltipDefinitions)}</ExpandableBlock>)}</div>;
+ const groups:{title:string|null;level:4|5;items:ContentItem[]}[]=[{title:null,level:4,items:[]}];
+ for(const item of content){if(item.type==='heading4'||item.type==='heading5')groups.push({title:item.text,level:item.type==='heading4'?4:5,items:[]});else groups[groups.length-1].items.push(item);}
+ return <div className="research-blocks">{groups.map((group,index)=>group.title?<ExpandableBlock key={index} title={group.title} level={group.level}>{group.items.map((item,i)=>renderContentItem(item,i,tooltipDefinitions))}</ExpandableBlock>:<React.Fragment key={index}>{group.items.map((item,i)=>renderContentItem(item,i,tooltipDefinitions))}</React.Fragment>)}</div>;
 };
