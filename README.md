@@ -119,3 +119,10 @@ Passive scroll/resize listeners update one transform per animation frame: a slow
 vertical shift and zoom out from 1.14 to 1.04 across the document. Reduced motion
 uses a static background without transitions. SSR and the initial client render both
 start without an image, avoiding random-choice hydration mismatches.
+
+## Price section removal
+
+The standalone price section shown in the owner’s screenshot was removed from all
+four languages. Price navigation links were removed; the hero price now links to
+contact. Other existing price mentions remain unchanged. The legacy `#price`
+fragment is retained as an invisible contact anchor for shared links.
