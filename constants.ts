@@ -2,10 +2,10 @@
 import { Translations, Language, TranslationSet } from './types';
 
 const enTranslations: TranslationSet = {
-  pageTitle: "Siam Estate Hub",
+  pageTitle: "SiamPlot",
   metaDescription: "Explore a prime investment opportunity: a 257-rai industrial land plot in Prachinburi, Thailand. Strategically located on Highway 304, near major industrial parks and logistics hubs. Ideal for manufacturing, logistics, and supply chain development in Southeast Asia.",
   metaKeywords: "industrial land Thailand, Prachinburi investment, Highway 304 property, Thailand manufacturing base, logistics hub Southeast Asia, EEC Thailand, BOI Thailand, land for sale Prachinburi, industrial real estate",
-  logo: "Prime 304 Industrial Land",
+  logo: "SiamPlot",
   navOverview: "Overview",
   navAsset: "The Asset",
   navPotential: "Potential",
@@ -267,10 +267,10 @@ const enTranslations: TranslationSet = {
 };
 
 const thTranslations: TranslationSet = {
-  pageTitle: "สยาม เอสเตท ฮับ",
+  pageTitle: "SiamPlot",
   metaDescription: "สำรวจโอกาสการลงทุนในที่ดินอุตสาหกรรมแปลงใหญ่ขนาด 257 ไร่ในจังหวัดปราจีนบุรี ประเทศไทย ตั้งอยู่บนทำเลยุทธศาสตร์ทางหลวงหมายเลข 304 ใกล้นิคมอุตสาหกรรมและศูนย์กลางโลจิสติกส์ที่สำคัญ เหมาะสำหรับเป็นฐานการผลิต โลจิสติกส์ และการพัฒนาซัพพลายเชนในเอเชียตะวันออกเฉียงใต้",
   metaKeywords: "ที่ดินอุตสาหกรรม, การลงทุนในประเทศไทย, อสังหาริมทรัพย์ปราจีนบุรี, ฐานการผลิตประเทศไทย, ศูนย์กลางโลจิสติกส์, EEC ประเทศไทย, BOI ประเทศไทย, ที่ดินปราจีนบุรี, อสังหาริมทรัพย์เพื่อการอุตสาหกรรม",
-  logo: "ที่ดินอุตสาหกรรม 304",
+  logo: "SiamPlot",
   navOverview: "ภาพรวม",
   navAsset: "สินทรัพย์",
   navPotential: "ศักยภาพทางธุรกิจ",
@@ -532,10 +532,10 @@ const thTranslations: TranslationSet = {
 };
 
 const zhTranslations: TranslationSet = {
-  pageTitle: "暹罗地产中心",
+  pageTitle: "SiamPlot",
   metaDescription: "探索位于泰国巴真府的257莱优质工业用地的黄金投资机会。该地块地理位置优越，位于304国道旁，靠近主要工业园区和物流枢纽。是您在东南亚建立制造业、物流和供应链的理想选择。",
   metaKeywords: "泰国工业用地, 巴真府投资, 304国道地产, 泰国制造业基地, 东南亚物流枢纽, 泰国东部经济走廊EEC, 泰国投资促进委员会BOI, 巴真府待售土地, 工业房地产",
-  logo: "304工业用地",
+  logo: "SiamPlot",
   navOverview: "摘要",
   navAsset: "资产详情",
   navPotential: "商业潜力",
@@ -797,10 +797,10 @@ const zhTranslations: TranslationSet = {
 };
 
 const jaTranslations: TranslationSet = {
-  pageTitle: "サイアム・エステート・ハブ",
+  pageTitle: "SiamPlot",
   metaDescription: "タイ、プラチンブリ県における257ライの優良工業用地への絶好の投資機会。主要工業団地や物流ハブに近接した304号線沿いの戦略的立地。東南アジアでの製造、物流、サプライチェーン開発の拠点として理想的です。",
   metaKeywords: "タイ工業用地, プラチンブリ投資, 304号線不動産, タイ製造拠点, 東南アジア物流ハブ, タイEEC, タイBOI, プラチンブリ売地, 工業用不動産",
-  logo: "304優良工業用地",
+  logo: "SiamPlot",
   navOverview: "概要",
   navAsset: "資産概要",
   navPotential: "事業ポテンシャル",

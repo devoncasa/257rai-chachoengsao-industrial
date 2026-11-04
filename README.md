@@ -1,4 +1,4 @@
-# SiamPlots visual preview
+# SiamPlot visual preview
 
 Review branch `preview/siamplots-visual-study`. Production remains on `main`.
 Base commit `8b99a55f6d23e9cbfebe2bac8b8e38a081538cba`.
@@ -41,3 +41,7 @@ Netlify primary domain is https://www.siamplot.com/ and the apex redirects to it
 Existing Google Analytics account 369388460, property 506181492, web stream 12199324771 and measurement ID G-YTH1CE6XB4 were retained. The stream URL is now https://www.siamplot.com. The existing production page loads that tag, and GA4 Realtime page_view > page_location showed both new hostnames during the live verification. Verification visits are test traffic, not customer growth.
 
 The new analytics.ts module is committed only to the design review branch. Its build and host/event checks passed, and the hosted preview loaded the updated bundle without any Google tag. The design review has not been merged or released.
+
+## Brand name
+
+The customer-facing brand is SiamPlot, singular, in all four languages. Header, footer, page titles, accessible logo names, initial HTML metadata and favicon use this identity. Historical archive filenames, legacy redirect aliases and repository/branch identifiers retain their actual paths. Google Analytics keeps its existing measurement ID.
