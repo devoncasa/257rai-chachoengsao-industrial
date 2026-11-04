@@ -4,6 +4,8 @@ import { translations } from './constants';
 import { Language, TranslationSet } from './types';
 import { Lightbox } from './Lightbox';
 import { AnalysisRenderer } from './AnalysisRenderer';
+import LandStudio from './land-studio/LandStudio';
+import {copy as studioCopy} from './land-studio/copy';
 
 interface NavItem {
   key: string;
@@ -44,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange, navItems,
         <a href="#root" onClick={handleLogoClick}>
           <span className="inline-flex h-16 items-center text-2xl font-semibold tracking-tight text-blue-900">{t.logo}</span>
         </a>
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6 min-w-0 overflow-x-auto mx-4">
           {navItems.map(item => {
             const sectionId = item.href.substring(1);
             const isActive = activeSection === sectionId;
@@ -53,11 +55,11 @@ const Header: React.FC<HeaderProps> = ({ t, currentLang, onLangChange, navItems,
                 key={item.key} 
                 href={item.href} 
                 onClick={(e) => handleNavClick(e, item.href)} 
-                className={`text-blue-900 hover:text-sky-600 transition-colors font-medium pb-1 border-b-2 ${
+                className={`whitespace-nowrap text-blue-900 hover:text-sky-600 transition-colors font-medium pb-1 border-b-2 ${
                   isActive ? 'border-sky-400' : 'border-transparent'
                 }`}
               >
-                {t[item.key]}
+                {item.key === 'navLandStudio' ? studioCopy[currentLang].nav : t[item.key]}
               </a>
             );
           })}
@@ -150,6 +152,7 @@ const BusinessPotentialCard: React.FC<{title: string; concept: string; rationale
 const navItems = [
   { key: 'navOverview', href: '#overview' },
   { key: 'navAsset', href: '#asset' },
+  { key: 'navLandStudio', href: '#land-studio' },
   { key: 'navPotential', href: '#business-potential' },
   { key: 'navLocation', href: '#location' },
   { key: 'navEcosystem', href: '#ecosystem' },
@@ -307,6 +310,7 @@ const App: React.FC = () => {
                       </svg>
                       {t.viewOnMap}
                     </a>
+                    <a href="#land-studio" className="ls-jump">{studioCopy[lang].nav} <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
         </div>
@@ -384,7 +388,9 @@ const App: React.FC = () => {
         </div>
         
         <div className="bg-white py-12 md:py-20">
-          <div className="w-full lg:w-3/5 mx-auto px-6">
+          <LandStudio lang={lang}/>
+
+        <div className="w-full lg:w-3/5 mx-auto px-6">
             <Section id="business-potential" title={t.titleBusinessPotential}>
               <div className="space-y-12">
                 <div>
