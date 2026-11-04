@@ -1,0 +1,205 @@
+{
+  "provenance": "AI-generated concept illustrations, not actual property photographs",
+  "assets": [
+    {
+      "name": "contact",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/contact.png",
+        "sha256": "918070dcc46d120bc73fb3ecc38a9ab883d8301278e2ec77c3b7f93582d79808"
+      },
+      "web": [
+        {
+          "path": "public/media/contact-1600.webp",
+          "bytes": 110688,
+          "sha256": "04509aa512613f3f62ace5e72590e93ac6ff3edccd3e951f0ab2f76f2b748d55"
+        },
+        {
+          "path": "public/media/contact-640.webp",
+          "bytes": 37056,
+          "sha256": "e47f2b22f6f27bb517a3017409449d8f68c32a3baf278fbaf67fd21b305789b5"
+        },
+        {
+          "path": "public/media/contact-960.webp",
+          "bytes": 61400,
+          "sha256": "938b8e81fe0999b9b4d03df08d2e1d65e59811625e089185c843f9a47891f101"
+        }
+      ]
+    },
+    {
+      "name": "details",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/details.png",
+        "sha256": "b257e787c4bb6894d9e322b855f757c20c2f20a214b3d84c8de5317327c5dc4c"
+      },
+      "web": [
+        {
+          "path": "public/media/details-1600.webp",
+          "bytes": 191450,
+          "sha256": "2ca3862a0ec696f487e16318ba420593cfbe9227f902937a9c6c91a129aa04a8"
+        },
+        {
+          "path": "public/media/details-640.webp",
+          "bytes": 42338,
+          "sha256": "e44c7615c75050b7eb3f82783f24c7d0976e134bb9b180df266ff62b2e548cbd"
+        },
+        {
+          "path": "public/media/details-960.webp",
+          "bytes": 84516,
+          "sha256": "6002e064efd9b647bba8d2e4409bd725e0c38322f77e9c778dbce30ab81ee9cf"
+        }
+      ]
+    },
+    {
+      "name": "ecosystem",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/ecosystem.png",
+        "sha256": "e9940187db0caf28aafda811096bf39686a67a1a31f9c142a7517265148f5179"
+      },
+      "web": [
+        {
+          "path": "public/media/ecosystem-1600.webp",
+          "bytes": 241278,
+          "sha256": "06f5936a214f3895b2e6849e9340fbdb86a3c2d964b7a4f20ce337be0f0ab058"
+        },
+        {
+          "path": "public/media/ecosystem-640.webp",
+          "bytes": 59514,
+          "sha256": "7a423933685a6288152278b393a7642660c8e0b1fdcd5ac2bbafe77fc5649ac7"
+        },
+        {
+          "path": "public/media/ecosystem-960.webp",
+          "bytes": 115762,
+          "sha256": "87460ef22ccb2e7d2e3e99df0207772d62bc425d626904329cae113160a91171"
+        }
+      ]
+    },
+    {
+      "name": "infrastructure",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/infrastructure.png",
+        "sha256": "e2a54574da0029bbb752666d0e552714441de37a105f8723c11bdeda5edacb4b"
+      },
+      "web": [
+        {
+          "path": "public/media/infrastructure-1600.webp",
+          "bytes": 176344,
+          "sha256": "962567a15b53d858467e57d9cbb3b4c061dac434682df2b0acde3206ae8b5e0a"
+        },
+        {
+          "path": "public/media/infrastructure-640.webp",
+          "bytes": 52292,
+          "sha256": "601f7b5550a99e342d561f990c818b8d009a9c89cf483fa17ffdca5dc584c00e"
+        },
+        {
+          "path": "public/media/infrastructure-960.webp",
+          "bytes": 92302,
+          "sha256": "cdd5d17307b318106f1401cf93a2e41ef2bbbdb5a6f72b240fdb4e6f52de36fb"
+        }
+      ]
+    },
+    {
+      "name": "location",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/location.png",
+        "sha256": "efa8679d421bf1f43f5155e96e7187320e586e1e01e110066b004924a8e6be09"
+      },
+      "web": [
+        {
+          "path": "public/media/location-1600.webp",
+          "bytes": 244514,
+          "sha256": "6d3819058e4db0c6f81543bc55d7bd3d40ef741a2b4a90de8a12f6cb36184039"
+        },
+        {
+          "path": "public/media/location-640.webp",
+          "bytes": 56806,
+          "sha256": "2c5e3b5375bbf7bee5b62d2b3d12771c1a4cce27d4ba9f541751fc4d3e0272b3"
+        },
+        {
+          "path": "public/media/location-960.webp",
+          "bytes": 115608,
+          "sha256": "d043699b98af6c3f4a6afa3a76c5ddd3bab6348c71ac31171a35cb0a3f1b2404"
+        }
+      ]
+    },
+    {
+      "name": "overview",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/overview.png",
+        "sha256": "6a437d67997f1042b1fdb8ed032f5cb83b7f0a5b7d22b682ebbb812f800b9e32"
+      },
+      "web": [
+        {
+          "path": "public/media/overview-1600.webp",
+          "bytes": 99484,
+          "sha256": "69b7d0bce85c28da67e2f23c8ad1c7867ef79df7e780711d192379ddfab9c042"
+        },
+        {
+          "path": "public/media/overview-640.webp",
+          "bytes": 32218,
+          "sha256": "8c2c81a82423ae3024a21ae285a8d7d9000e1c3f29d6e4a5841e8a99961673fc"
+        },
+        {
+          "path": "public/media/overview-960.webp",
+          "bytes": 54108,
+          "sha256": "6bffeb33696e5dca7afb96d955b44b59cb565cd674cbe578364a42b67d1ccd8a"
+        }
+      ]
+    },
+    {
+      "name": "potential",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/potential.png",
+        "sha256": "03121990ab121966d2cc6b15603aae95d25fe08d63b848154b44e4e72c663061"
+      },
+      "web": [
+        {
+          "path": "public/media/potential-1600.webp",
+          "bytes": 137708,
+          "sha256": "27a078716007fcaf693ae13364619a13dfcbc0b08bf543368e7dcb960d3d1494"
+        },
+        {
+          "path": "public/media/potential-640.webp",
+          "bytes": 43406,
+          "sha256": "fac8d9532af2f57696090e325390ef869b19fcf1cf90e6f722bba217c5d67556"
+        },
+        {
+          "path": "public/media/potential-960.webp",
+          "bytes": 73132,
+          "sha256": "835acdaa250311c5263d393102ef821b88748ca12db0d47a8b90779d2f0c4e9c"
+        }
+      ]
+    },
+    {
+      "name": "review",
+      "original": {
+        "archive": "SiamPlots-Visual-Preview.zip",
+        "path": "SiamPlots-Visual-Preview/design-originals/review.png",
+        "sha256": "8d1c76d10aab934b2bfa95319df3e0c4ce335eef0575dccbbedd2265e28f541e"
+      },
+      "web": [
+        {
+          "path": "public/media/review-1600.webp",
+          "bytes": 111920,
+          "sha256": "171da74367abdf53d56d421a25e7513c43b3552941ce4f727b7cf665f5dcb00e"
+        },
+        {
+          "path": "public/media/review-640.webp",
+          "bytes": 35472,
+          "sha256": "7ccc86cb4edf5d085efdbbc0a4a72d12fce4ceafc9cb3a7d98283829cedebf6a"
+        },
+        {
+          "path": "public/media/review-960.webp",
+          "bytes": 58662,
+          "sha256": "f400b1548fe8cf88e1e8212b927e59be8f5ac39db5bf4eb1e0e2f969cead56c2"
+        }
+      ]
+    }
+  ]
+}

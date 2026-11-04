@@ -25,21 +25,14 @@ interface AnalysisRendererProps {
 }
 
 // Tooltip Component (self-contained)
-const Tooltip: React.FC<{ term: string, definition: string }> = ({ term, definition }) => (
-  <span className="relative group inline-block">
-    <span className="text-blue-600 font-semibold border-b-2 border-dotted border-blue-400 cursor-help">{term}</span>
-    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-slate-800 text-white text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible z-10">
-      {definition}
-      <svg className="absolute text-slate-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255">
-        <polygon className="fill-current" points="0,0 127.5,127.5 255,0"/>
-      </svg>
-    </span>
-  </span>
-);
+const Tooltip: React.FC<{ term: string, definition: string }> = ({term, definition}) => {
+ const [open,setOpen]=React.useState(false); const id=React.useId();
+ return <span className="term"><button type="button" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(!open)} onKeyDown={e=>{if(e.key==='Escape')setOpen(false);}}>{term}</button><span id={id} hidden={!open}>{definition}</span></span>;
+};
 
 // Helper function to render text with tooltips
 const renderTextWithTooltips = (text: string, definitions: { [key: string]: string }) => {
-    if (!definitions || !text) return text;
+    if (!definitions || !text || !Object.keys(definitions).length) return text;
 
     // Sort terms by length, descending, to match longer terms first (e.g., "Quality FDI" before "FDI")
     const terms = Object.keys(definitions).sort((a, b) => b.length - a.length);

@@ -1,3 +1,7 @@
+import './analytics';
+import '@fontsource/noto-sans-thai/400.css';
+import '@fontsource/noto-sans-thai/500.css';
+import '@fontsource/noto-sans-thai/600.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,9 +12,11 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const app = (
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
+if(rootElement.hasChildNodes()) ReactDOM.hydrateRoot(rootElement,app);
+else ReactDOM.createRoot(rootElement).render(app);
