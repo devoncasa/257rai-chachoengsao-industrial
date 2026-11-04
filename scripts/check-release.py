@@ -26,7 +26,8 @@ for lang,path in [('th',''),('en','en/'),('zh','zh/'),('ja','ja/')]:
     assert '13.689956, 101.258538' in text
     assert {'th':'ฉะเชิงเทรา','en':'Chachoengsao','zh':'北柳府','ja':'チャチューンサオ県'}[lang] in text
     assert not any(old in text for old in ['ศรีมหาโพธิ','ปราจีนบุรี','Si Maha Phot','Prachinburi','巴真府','プラチンブリ'])
-    assert 'stock-survey-960.webp' in text and 'stock-power-960.webp' in text
+    assert 'stock-survey-' not in text and 'stock-power-960.webp' in text
+    assert 'evidence-layout' not in text and 'evidence-documents' not in text
     assert ('html',{'lang':lang}) in page.nodes
     canon=[a['href'] for t,a in page.nodes if t=='link' and a.get('rel')=='canonical']
     assert canon==['https://www.siamplot.com/'+path]
