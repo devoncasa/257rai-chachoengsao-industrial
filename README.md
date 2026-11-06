@@ -187,3 +187,14 @@ remain below it when text grows. Tables have named, keyboard-focusable scroll re
 Figure grids reserve room for captions. Diagram metadata is normal HTML, rather than
 unreadably small SVG text. Refer to `docs/readability-verification.md` for checks and
 limits. No pricing, parcel geometry, contact details, analytics ID or URLs changed.
+
+
+## Field Atlas review preview (2026-11-06)
+
+This branch is a design review checkpoint, not approved for production. It promotes the original sketch and retained road references before conceptual development imagery. Original source images remain untouched. Street View provenance/date/usage and the cropped sketch boundary must be confirmed before release; do not infer new boundary details.
+
+Validation: `npm run check`; `CONTEXT=deploy-preview npm run build`. Generated locale HTML must have noindex, all legacy fragment IDs, correct canonical/hreflang, static images, and working contact links. Native language links work without hydration; client enhancement preserves the active fragment. No lead is transmitted by the site itself.
+
+Cache policy applies immutable only to Vite content-hashed /assets paths; HTML and unversioned media retain host defaults. No server environment variables were added.
+
+Rollback: revert this branch's changes or restore the verified prior Netlify deploy after checking the current production state. Do not merge or promote the preview without release authorization. Previous README descriptions of interactive 3D or image enlargement do not describe this branch: imagery is static and non-clickable.
