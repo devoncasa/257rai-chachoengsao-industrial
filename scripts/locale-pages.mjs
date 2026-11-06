@@ -1,26 +1,32 @@
+import {buyerAnswers} from './buyer-answers.mjs';
+import {writeInvestorGuides} from './investor-guides.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {buildSync} from 'esbuild';
 const origin='https://www.siamplot.com';
-const locales={
- th:{path:'/',title:'SiamPlot · ที่ดิน 257 ไร่ ฉะเชิงเทรา',description:'ที่ดินขายทั้งแปลง 257 ไร่ ในฉะเชิงเทรา พร้อมภาพนิ่งแนวคิดพัฒนา 6 แบบ ข้อมูลอัปเดตและรายการเอกสาร และช่องทางติดต่อผู้เสนอขาย'},
- en:{path:'/en/',title:'SiamPlot · 257-Rai Land in Chachoengsao',description:'Explore a 257-rai parcel offered as a whole in Chachoengsao. Compare six static development concepts, review current context and evidence checks and contact the seller.'},
- zh:{path:'/zh/',title:'SiamPlot · 北柳府257莱土地',description:'了解泰国北柳府整块出售的257莱土地，比较六种静态立体开发构想，查看尽职调查要点并联系卖方。面积、用途及交易条件须进一步核实。'},
- ja:{path:'/ja/',title:'SiamPlot · チャチューンサオ県の257ライ土地',description:'タイ・チャチューンサオ県の面積257ライの土地を一括売却。6つの静止立体開発構想と調査項目を比較し、売主に詳細をお問い合わせいただけます。'}
-};
+const locales={"th": {"path": "/", "title": "ขายที่ดิน 257 ไร่ ราชสาส์น ฉะเชิงเทรา | SiamPlot", "description": "ดูข้อมูลที่ดิน 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา แผนที่เดิมและภาพประกอบพื้นที่ พร้อมสอบถามราคาและนัดชม ขายทั้งแปลง ไม่แบ่งขาย"}, "en": {"path": "/en/", "title": "257 Rai Land for Sale in Chachoengsao | SiamPlot", "description": "Explore a 257-rai land listing in Ratchasan, Chachoengsao. View the original plan and site references, ask for the whole-parcel price and arrange a visit."}, "zh": {"path": "/zh/", "title": "泰国北柳府257莱土地整宗出售 | SiamPlot", "description": "了解泰国北柳府Ratchasan县257莱土地，查看原始示意图及地块参考图片，咨询整宗价格和交易条件，并预约实地看地。不分割出售。"}, "ja": {"path": "/ja/", "title": "タイ・チャチューンサオの土地257ライ一括売却 | SiamPlot", "description": "タイ・チャチューンサオ県ラーチャサーン郡の土地257ライ。元の概略図と現地参考画像を確認し、一括価格・取引条件のお問い合わせや現地見学の相談ができます。"}};
 const bundled=buildSync({stdin:{contents:"import React from 'react';import {renderToString} from 'react-dom/server';import App from './App';export const render=(lang)=>renderToString(React.createElement(App,{initialLang:lang}));",resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'cjs',packages:'external',loader:{'.css':'empty'},write:false}).outputFiles[0].text;
 const mod={exports:{}};new Function('require','module','exports',bundled)(createRequire(import.meta.url),mod,mod.exports);
-const template=await readFile('dist/index.html','utf8');
+let template=await readFile('dist/index.html','utf8');
+// One small stylesheet (~12 KB gzip) inlined to remove the measured render-blocking request.
+for(const match of [...template.matchAll(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)]){
+ const css=await readFile('dist'+match[1],'utf8');
+ template=template.replace(match[0],`<style>${css}</style>`);
+}
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
 const preview=process.env.CONTEXT&&process.env.CONTEXT!=='production';
 const alternates=Object.entries(locales).map(([l,p])=>`<link rel="alternate" hreflang="${l}" href="${origin+p.path}"/>`).join('')+`<link rel="alternate" hreflang="x-default" href="${origin}/"/>`;
 for(const [lang,page] of Object.entries(locales)){
  const canonical=origin+page.path;
  const schema={'@context':'https://schema.org','@graph':[{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'SiamPlot',inLanguage:Object.keys(locales)},{'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:page.title,description:page.description,inLanguage:lang,isPartOf:{'@id':origin+'/#website'}}]};
- const head=`<link rel="canonical" href="${canonical}"/>${alternates}<meta property="og:type" content="website"/><meta property="og:site_name" content="SiamPlot"/><meta property="og:title" content="${escape(page.title)}"/><meta property="og:description" content="${escape(page.description)}"/><meta property="og:url" content="${canonical}"/><meta property="og:image" content="${origin}/media/overview-1600.webp"/><meta property="og:image:alt" content="${lang==='th'?'ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง':'Concept illustration, not a photograph of the property'}"/><meta name="twitter:card" content="summary_large_image"/><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`;
- const html=template.replace('lang="th"',`lang="${lang}"`).replace(/<title>.*?<\/title>/,`<title>${escape(page.title)}</title>`).replace(/<meta name="description" content="[^"]*"\/>/,`<meta name="description" content="${escape(page.description)}"/>`).replace(/<meta name="robots" content="[^"]*"\/>/,`<meta name="robots" content="${preview?'noindex,nofollow':'index,follow'}"/>`).replace('<!--release-head-->',head).replace('<div id="root"></div>',`<div id="root">${mod.exports.render(lang)}</div>`);
+ const head=`<link rel="canonical" href="${canonical}"/>${alternates}<meta property="og:locale" content="${({th:'th_TH',en:'en_US',zh:'zh_CN',ja:'ja_JP'})[lang]}"/><meta property="og:type" content="website"/><meta property="og:site_name" content="SiamPlot"/><meta property="og:title" content="${escape(page.title)}"/><meta property="og:description" content="${escape(page.description)}"/><meta property="og:url" content="${canonical}"/><meta property="og:image" content="${origin}/media/land-source-646.webp"/><meta property="og:image:alt" content="${({th:'ผังต้นฉบับเพื่ออ้างอิง ไม่ใช่ผลสำรวจรับรอง',en:'Original land sketch for reference; not a certified survey',zh:'原始地块示意图，仅供参考，并非经认证的测量图',ja:'参考用の原図です。認証された測量図ではありません。'})[lang]}"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${escape(page.title)}"/><meta name="twitter:description" content="${escape(page.description)}"/><meta name="twitter:image" content="${origin}/media/land-source-646.webp"/><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`;
+ const answers=buyerAnswers[lang];
+ const faq=`<section class="section buyer-answers" aria-labelledby="buyer-answers-title"><h2 id="buyer-answers-title">${answers.title}</h2>${answers.items.map(([q,a])=>`<details class="content-block"><summary><h3>${q}</h3><span aria-hidden="true">＋</span></summary><div class="content-block-body"><p>${a}</p></div></details>`).join('')}</section>`;
+ const rendered=mod.exports.render(lang).replace('</main>',faq+'</main>');
+ const html=template.replace('lang="th"',`lang="${lang}"`).replace(/<title>.*?<\/title>/,`<title>${escape(page.title)}</title>`).replace(/<meta name="description" content="[^"]*"\/>/,`<meta name="description" content="${escape(page.description)}"/>`).replace(/<meta name="robots" content="[^"]*"\/>/,`<meta name="robots" content="${preview?'noindex,follow':'index,follow,max-image-preview:large'}"/>`).replace('<!--release-head-->',head).replace('<div id="root"></div>',`<div id="root">${rendered}</div>`);
  const directory=lang==='th'?'dist':`dist/${lang}`;await mkdir(directory,{recursive:true});await writeFile(`${directory}/index.html`,html);
 }
 await writeFile('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.values(locales).map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}</urlset>`);
+const investorPaths=await writeInvestorGuides({origin,preview,mkdir,writeFile});
+await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...Object.values(locales).map(p=>p.path),...investorPaths].map(path=>`<url><loc>${origin+path}</loc></url>`).join('')}</urlset>`);
 console.log('Rendered four localized HTML pages, canonical/hreflang metadata, robots and sitemap.');

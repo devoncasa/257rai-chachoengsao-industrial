@@ -1,0 +1,125 @@
+import { investorLocales } from './investor-locales.mjs';
+import { investorPhotos } from './investor-photos.mjs';
+
+const sources = {
+  province: ['สกพอ. · ฉะเชิงเทราใน EEC', 'https://www.eeco.or.th/chachoengsao-th/'],
+  zones: ['สกพอ. · รายชื่อเขตส่งเสริมและอุตสาหกรรมเป้าหมาย', 'https://www.eeco.or.th/special-economic-promotion-zones-for-targeted-industries-th/'],
+  logistics: ['สกพอ. · มติ กพอ. ครั้งที่ 1/2569', 'https://www.eeco.or.th/press_release/eec-policy-committee-thai-210526/'],
+  transport: ['สนข. · เวทีร่างแผนเชื่อมโยงการขนส่งสินค้า 27 ก.พ. 2569', 'https://www.otp.go.th/post/view/12389'],
+  agriculture: ['กรมส่งเสริมการเกษตร · ตัวอย่างกลุ่มมะม่วงและผู้รวบรวมผลผลิตบางคล้า', 'https://edoae.doae.go.th/?p=2891'],
+  water: ['กรมส่งเสริมการเกษตร · ตัวอย่างจัดการน้ำ ท่าตะเกียบ 3 ก.ย. 2569', 'https://edoae.doae.go.th/?p=5553'],
+  zoning: ['กรมโยธาธิการและผังเมือง · ตรวจการใช้ประโยชน์ที่ดิน', 'https://townsquare.dpt.go.th/lup/'],
+  boi: ['BOI · ข่าวและสถิติคำขอส่งเสริมการลงทุน', 'https://www.boi.go.th/index.php?language=en&page=press_releases'],
+};
+const guides = [
+  {
+    slug: 'eec', title: 'ลงทุนในฉะเชิงเทรา มอง EEC ผ่านเครือข่ายคู่ค้า',
+    intro: 'ที่ดิน 257 ไร่ตามประกาศในราชสาส์น จังหวัดฉะเชิงเทรา หนึ่งในสามจังหวัด EEC เสนอขายทั้งแปลง เหมาะสำหรับผู้ที่ต้องการศึกษาการจัดพื้นที่หลักและพื้นที่สำรองบนทำเลเดียว',
+    sections: [
+      ['01 · ภาพจริงของภูมิภาค', 'สกพอ. ระบุบทบาทของฉะเชิงเทราในด้านเกษตรแปรรูป โลจิสติกส์ และการค้า ส่วน 304 อินดัสเตรียล ปาร์ค 2 ในพนมสารคามเป็นตัวอย่างเขตส่งเสริมที่รองรับหลายอุตสาหกรรม การอยู่จังหวัดเดียวกันเปิดโจทย์ให้ศึกษาเครือข่ายผู้ส่งมอบและลูกค้า สิทธิของเขตที่ประกาศใช้ตามพื้นที่และเงื่อนไขของแต่ละโครงการ'],
+      ['02 · หาโอกาสจากงานระหว่างโรงงาน', 'ทำแผนที่การไหลของสินค้า ตั้งแต่ต้นทาง ผู้คัดคุณภาพ ผู้รับช่วงงาน จนถึงปลายทาง แล้วหาเหตุที่ต้องขนซ้ำหรือรอคิว งานที่น่าทดสอบ ได้แก่ รวมล็อตเล็ก ตรวจรับวัตถุดิบ พักสินค้ารอกระจาย และรับคืนบรรจุภัณฑ์ รายได้ควรผูกกับปริมาณหรือระดับบริการที่ลูกค้าระบุได้'],
+      ['03 · แยกสัญญาณการลงทุนออกจากอุปสงค์จริง', 'มติ กพอ. ปี 2569 เรื่องสมาร์ทโลจิสติกส์ในบางปะกงชี้ถึงการพัฒนาบริการกระจายสินค้าที่ตรวจสอบย้อนกลับได้ ส่วน BOI รายงานว่ามูลค่าคำขอส่งเสริมทั่วประเทศเก้าเดือนแรกปี 2569 เพิ่ม 28% ใช้สองข้อมูลนี้เลือกกลุ่มที่จะสัมภาษณ์ จากนั้นตรวจแยกว่ามีลูกค้าที่พร้อมจ่ายค่าบริการใดในเส้นทางที่เกี่ยวกับแปลงนี้'],
+      ['04 · เกณฑ์คัดโครงการ', 'เริ่มจากกรณีฐานที่ใช้ถนนและบริการปัจจุบัน ให้ผลตอบแทนกรณีฐานยืนได้โดยไม่รวมสิทธิส่งเสริมหรือโครงการขนส่งในอนาคต จึงค่อยประเมินประโยชน์เพิ่มเติมเมื่อมีประกาศ ระยะเวลา และผลต่อเส้นทางที่ตรวจสอบได้'],
+    ], sources: ['province','zones','logistics','boi'],
+  },
+  {
+    slug: 'logistics', title: 'คลังสินค้าและโลจิสติกส์ วางระบบจากรอบรถจริง',
+    intro: 'เปรียบเทียบคลังภูมิภาค จุดถ่ายลำสินค้า และคลังควบคุมอุณหภูมิ ผ่านต้นทุนต่อเที่ยวและเวลาส่งมอบที่ลูกค้าต้องการ',
+    sections: [
+      ['01 · เลือกประเภทคลังจากรูปแบบสินค้า', 'คลังเก็บระยะยาวเน้นความจุและรายได้ต่อพาเลต ส่วนจุดถ่ายลำเน้นรอบรถ ช่องเทียบ และคิวรับส่ง คลังเย็นต้องมีปริมาณงานเพียงพอสำหรับค่าไฟและระบบสำรอง เลือกประเภทจากข้อมูลสินค้าจริง ได้แก่ จำนวนพาเลตต่อวัน เวลาพักสินค้า และช่วงพีกของลูกค้า'],
+      ['02 · ทดสอบทางเข้าและเที่ยวกลับ', 'ให้ผู้ขนส่งทดลองเส้นทางด้วยรถขนาดที่จะใช้งานจริง ตรวจจุดกลับรถ คิวหน้าแปลง ความกว้าง ช่วงฝน และเวลาถึงลูกค้า บันทึกทั้งเที่ยวบรรทุกและเที่ยวเปล่า หากจัดคู่เที่ยวกลับกับผู้ส่งรายอื่นได้ ให้คำนวณผลประหยัดจากเที่ยวที่ทำได้จริงและเงื่อนไขเวลาของทั้งสองฝ่าย'],
+      ['03 · ออกแบบลานให้คลังไม่ติดคอขวด', 'แยกจุดตรวจเอกสาร พื้นที่รอ ช่องเทียบรถ และแนวคนเดิน ลองวางระยะแรกให้รถเดินทางเดียวภายในพื้นที่ถ้าผังและการอนุญาตเอื้อ คำนวณจำนวนช่องเทียบจากเวลาบริการต่อคันและจำนวนรถในชั่วโมงพีก เพิ่มพื้นที่สำรองสำหรับกรณีรถมาพร้อมกัน'],
+      ['04 · ตัวอย่างเปรียบเทียบต้นทุน', 'ตัวอย่างสมมติ หากทำเลหนึ่งลดได้ 15 นาทีต่อเที่ยวที่ 20 เที่ยวต่อวัน จะคืนเวลารถได้ 5 ชั่วโมงต่อวัน ให้นำชั่วโมงนี้คูณต้นทุนรถต่อชั่วโมงที่กิจการใช้ แล้วเทียบกับค่าปรับทางเข้า ลาน และค่าแรง ตัวเลขนี้เป็นวิธีคำนวณสำหรับใส่ผลสำรวจของผู้ซื้อ'],
+      ['05 · สัญญาณก่อนสร้าง', 'ขอข้อมูลคำสั่งซื้อหรือหนังสือแสดงความสนใจจากผู้ใช้หลัก ระบุปริมาณขั้นต่ำ เวลาส่งมอบ และผู้รับภาระอุปกรณ์เฉพาะ ตรวจหนังสือผังเมือง ทางเข้าออก และกำลังไฟตามประเภทคลัง ร่างแผนขนส่งทางรางและทางน้ำของ สนข. ใช้ติดตามโอกาสในอนาคต'],
+    ], sources: ['logistics','transport','zoning'],
+  },
+  {
+    slug: 'development', title: 'นักพัฒนาอสังหา ออกแบบโครงการที่ขยายได้',
+    intro: 'ศึกษาทั้งอาคารตามสั่ง อาคารให้เช่าแบบยืดหยุ่น และพื้นที่บริการหลายกิจกรรม โดยซื้อทั้งแปลงและคุมเงินลงทุนทีละระยะ',
+    sections: [
+      ['01 · อาคารตามสั่งสำหรับผู้ใช้หลัก', 'เริ่มจากผู้ใช้ที่ระบุพื้นที่ ประเภทสินค้า น้ำหนักพื้น และวันต้องการใช้งาน กำหนดว่าผู้เช่าหรือผู้พัฒนาลงทุนงานเฉพาะ เช่น ห้องเย็นหรือระบบไฟเพิ่ม ตรวจว่าหากผู้ใช้ย้ายออก อาคารดัดแปลงกลับสู่ตลาดทั่วไปได้ด้วยงบเท่าไร'],
+      ['02 · อาคารให้เช่าที่แบ่งฟังก์ชันได้', 'ศึกษาผังอาคารที่เพิ่มช่วงอาคารได้โดยยังใช้ลานและทางหลักเดิม วางระบบวัดค่าน้ำไฟและบริการส่วนกลางให้คิดต้นทุนได้เป็นหน่วย ทดสอบความต้องการจากขนาดพื้นที่ที่ผู้เช่ากลุ่มเป้าหมายใช้อยู่และสัญญาที่พร้อมพิจารณา'],
+      ['03 · พื้นที่บริการและโครงการผสม', 'ศึกษาศูนย์บริการธุรกิจ เช่น จุดรับส่งสินค้า งานบำรุงรักษา หรือสำนักงานปฏิบัติการ สำหรับแนวพักอาศัยหรือบริการริมทาง ให้สำรวจลูกค้าคนละชุด ตรวจข้อกำหนดแยกตามกิจกรรม และดูผลกระทบเสียง รถหนัก ความปลอดภัย และน้ำเสียก่อนผสมการใช้งาน'],
+      ['04 · ตัวเลขที่ใช้คุยกับคณะลงทุน', 'คำนวณต้นทุนรวมต่อพื้นที่ให้เช่าสุทธิจากที่ดิน งานถม ระบบภายนอก อาคาร ดอกเบี้ยและช่วงว่าง เทียบกับค่าเช่าสุทธิหลังส่วนลดและต้นทุนดูแล ทดสอบสามกรณี ได้แก่ ผู้ใช้หลักเข้าเต็มตามแผน เปิดช้ากว่าคาด และต้องแบ่งอาคารให้ผู้ใช้หลายราย'],
+      ['05 · ทำให้ระยะแรกเดินได้เอง', 'ระบุขอบเขตงานหลักที่ต้องจ่ายตั้งแต่ระยะแรกกับงานที่รอได้ เช่น ขยายระบบไปพื้นที่สำรอง เริ่มขยายเมื่อผู้เช่ายืนยันหรือการใช้งานถึงเกณฑ์ที่กำหนดไว้ ให้ทีมสำรวจตรวจแนวเขต ระดับ และจุดเชื่อมจริงก่อนกำหนดตำแหน่งอาคาร'],
+    ], sources: ['province','zoning'],
+  },
+  {
+    slug: 'agri-food', title: 'เกษตรและอาหาร เพิ่มมูลค่าตั้งแต่รับผลผลิต',
+    intro: 'ศึกษาศูนย์รวบรวม คัดบรรจุ และแปรรูปแบบทยอยเพิ่มบริการตามฤดูกาลและยอดรับซื้อ',
+    sections: [
+      ['01 · จุดตั้งต้นจากธุรกิจในจังหวัด', 'กรมส่งเสริมการเกษตรรายงานตัวอย่างบางคล้าที่มีการรวมและคัดผลผลิตส่งค้าปลีกสมัยใหม่และช่องทางออนไลน์ ผู้ลงทุนใช้เป็นต้นแบบศึกษารูปแบบบริการ แล้วสำรวจปริมาณ ชนิดผลผลิต และแหล่งรับซื้อในรัศมีเดินรถจริงของโครงการ'],
+      ['02 · จัดกระแสสินค้าตามเกรด', 'ศึกษาพื้นที่รับผลผลิต ตรวจคุณภาพ คัดเกรด บรรจุ และส่งต่อ ผลผลิตที่ไม่เข้าเกรดสดอาจมีช่องทางแปรรูปเมื่อมีผู้รับซื้อและผ่านข้อกำหนดอาหาร จัดโซนรับเข้า งานสะอาด ของเสีย และเส้นทางรถแยกตามความเสี่ยงของผลิตภัณฑ์'],
+      ['03 · ข้ามฤดูด้วยบริการที่ใช้ร่วมกันได้', 'ทำปฏิทินวัตถุดิบรายเดือนและเทียบช่วงพีก ระบุอุปกรณ์ที่ใช้ร่วมได้ภายใต้สุขลักษณะ เช่น จุดชั่งและพื้นที่จัดส่ง ส่วนห้องเย็นหรือไลน์ล้างให้ลงทุนเมื่อปริมาณงานและเกณฑ์คุณภาพรองรับ รวมค่าไฟในช่วงเครื่องเดินต่ำและเวลาล้างเปลี่ยนสินค้าไว้ด้วย'],
+      ['04 · ใช้ผลผลิตที่ขายได้เป็นฐานกำไร', 'คิดรายได้จากน้ำหนักขายได้แยกเกรด หักค่ารับซื้อ บรรจุ สูญเสีย ค่าห้องเย็น และขนส่ง ทดลองล็อตกับผู้ซื้อก่อนกำหนดกำลังการผลิต กรณีจัดการน้ำที่ท่าตะเกียบเป็นตัวอย่างวิธีเก็บข้อมูลการใช้น้ำ ให้วัดปริมาณและฤดูกาลของโครงการเอง'],
+    ], sources: ['agriculture','water','zoning'],
+  },
+  {
+    slug: 'industrial-services', title: 'ฐานบริการอุตสาหกรรมและงานสนับสนุนการผลิต',
+    intro: 'ค้นหางานที่ผู้ผลิตยินดีจ่ายเพื่อให้มีพื้นที่และผู้ดูแลแยก เช่น พักวัตถุดิบ บริหารบรรจุภัณฑ์ หรือจัดเตรียมสินค้าก่อนส่งโรงงาน',
+    sections: [
+      ['01 · เริ่มจากปัญหาที่ฝ่ายจัดซื้อวัดได้', 'คุยกับฝ่ายจัดซื้อและผู้ส่งมอบเรื่องเวลารอรับวัตถุดิบ ล็อตส่งไม่เต็มคัน พื้นที่รับคืนภาชนะ และต้นทุนจัดเก็บ งานที่เริ่มทดสอบได้อาจเป็นรวมเที่ยว จัดชุดสินค้า หรือตรวจนับภายนอกโรงงาน ตามข้อกำหนดของคู่ค้า'],
+      ['02 · ใช้รายชื่ออุตสาหกรรมเป็นแผนค้นหาคู่ค้า', 'อุตสาหกรรมเป้าหมายที่ สกพอ. ระบุใน 304 อินดัสเตรียล ปาร์ค 2 รวมถึงอาหาร โลจิสติกส์ และอิเล็กทรอนิกส์ ใช้จัดกลุ่มการสัมภาษณ์ แยกวัตถุดิบและมาตรฐานที่ใช้ร่วมกันได้ แล้วตรวจต้นทุนเดินรถจากแปลงไปจุดรับจริง'],
+      ['03 · เลือกสิ่งปลูกสร้างตามระดับบริการ', 'ลานพักและพื้นที่แห้งใช้สมมติฐานต่างจากงานซ่อม งานแปรรูป หรือกิจกรรมเกี่ยวข้องสารเคมี ระบุขอบเขตของเสีย เสียง การป้องกันอัคคีภัย และไฟฟ้าที่ต้องใช้ตั้งแต่ต้น ขอความเห็นหน่วยงานสำหรับกิจกรรมเฉพาะก่อนรวมไว้ในแผนรายได้'],
+      ['04 · หลักฐานก่อนขยายจากผู้ใช้รายแรก', 'ขอข้อมูลปริมาณรายสัปดาห์ เวลาตอบสนอง การตรวจสอบย้อนกลับ และเงื่อนไขค่าปรับ ใช้รอบทดลองวัดต้นทุนต่อล็อตและสัดส่วนส่งตรงเวลา ก่อนตัดสินใจว่าจะเพิ่มช่องรับสินค้า พื้นที่สำรอง หรือระบบติดตามระดับใด'],
+    ], sources: ['zones','logistics','zoning'],
+  },
+  {
+    slug: 'site-review', title: 'แผนประเมินแปลง 257 ไร่ก่อนตัดสินใจซื้อ',
+    intro: 'จัดการนัดชมให้ได้คำตอบทั้งด้านการใช้งาน ต้นทุน และหลักฐานเฉพาะแปลงสำหรับคณะลงทุน',
+    sections: [
+      ['01 · นัดชมตามรูปแบบธุรกิจ', 'แจ้งประเภทกิจกรรม ขนาดรถ กำลังงานระยะแรก และวันที่ต้องการเริ่มดำเนินงาน ใช้ผังเดิมและภาพถนนเป็นจุดตั้งต้นวางเส้นทางสำรวจ ยืนยันจุดนัดหมายและทดสอบทางเข้ากับรถจริงเมื่อได้รับอนุญาต'],
+      ['02 · ตรวจพื้นที่และการอนุญาตให้แยกกัน', 'เทียบเอกสารสิทธิ แนวเขต และพื้นที่สำรวจกับผัง วัดระดับดินและทางน้ำ แยกงานตรวจเอกสารออกจากการขอหนังสือตรวจสอบการใช้ประโยชน์ที่ดินจากกรมโยธาธิการและผังเมือง โดยระบุกิจการที่ตั้งใจทำให้ชัด'],
+      ['03 · สอบถามระบบด้วยข้อมูลโหลดจริง', 'ให้ผู้ให้บริการประเมินจุดเชื่อม กำลังรองรับ ค่าใช้จ่าย และระยะเวลา แยกไฟฟ้าช่วงพีก น้ำช่วงแล้ง และการระบายน้ำออกเป็นคนละสมมติฐาน ประเมินค่าใช้จ่ายตั้งแต่เขตแปลงถึงอาคาร รวมงานสำรองที่กิจการต้องรับเอง'],
+      ['04 · เปรียบเทียบทำเลด้วยเกณฑ์เดียวกัน', 'ใช้ตัวเลขต้นทุนรวม เวลาเริ่มใช้งาน เวลาเดินรถ พื้นที่สุทธิ และเงินลงทุนก่อนมีลูกค้า ให้คะแนนเฉพาะรายการที่มีหลักฐาน ระบุรายการค้างเป็นคำถามที่ส่งต่อได้ แล้วกำหนดว่าจะเดินหน้าศึกษาต่อเมื่อเงื่อนไขใดผ่าน'],
+    ], sources: ['zoning','water','transport'],
+  },
+];
+
+const escape = value => value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+const cards = (currentSlug) => guides.filter(guide => guide.slug !== currentSlug).map(guide => `<li><a href="/investors/${guide.slug}/"><strong>${guide.title}</strong></a><p>${guide.intro}</p></li>`).join('');
+const pages = [
+  { path: '/investors/', title: 'ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่', intro: 'เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง', content: `${investorPhotos('hub')}<h2>เลือกแนวลงทุนที่ต้องการศึกษา</h2><ul class="guide-grid">${cards()}</ul>` },
+  ...guides.map(guide => ({
+    path: `/investors/${guide.slug}/`, title: guide.title, intro: guide.intro,
+    content: investorPhotos(guide.slug, 0, 2) +
+      guide.sections.map(([title, body], index) =>
+        `<section><h2>${title}</h2><p>${body}</p></section>` +
+        (index === 1 ? investorPhotos(guide.slug, 2, 4) : '')
+      ).join('') +
+      `<h2>แหล่งอ้างอิง</h2><ul>${guide.sources.map(key => `<li><a href="${escape(sources[key][1])}">${sources[key][0]}</a></li>`).join('')}</ul><h2>อ่านต่อสำหรับการตัดสินใจ</h2><ul class="guide-grid">${cards(guide.slug)}</ul>`,
+  })),
+];
+
+const languageNames={th:'ไทย',en:'English',zh:'中文',ja:'日本語'};
+const prefix=lang=>lang==='th'?'':`/${lang}`;
+const meta=(origin,path,title,intro,lang,preview,slug)=>{
+ const canonical=origin+prefix(lang)+path;
+ const image=origin+`/media/investors/${slug||'hub'}-1.webp`;
+ const schema={'@context':'https://schema.org','@graph':[
+  {'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'SiamPlot',inLanguage:Object.keys(languageNames)},
+  {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:title,description:intro,inLanguage:lang,isPartOf:{'@id':origin+'/#website'},dateModified:'2026-11-06',breadcrumb:{'@id':canonical+'#breadcrumb'}},
+  {'@type':'BreadcrumbList','@id':canonical+'#breadcrumb',itemListElement:[{'@type':'ListItem',position:1,name:'SiamPlot',item:origin+prefix(lang)+'/'},{'@type':'ListItem',position:2,name:lang==='th'?'ศูนย์ข้อมูลนักลงทุน':investorLocales[lang].ui[2],item:origin+prefix(lang)+'/investors/'},...(slug?[{'@type':'ListItem',position:3,name:title,item:canonical}]:[])]}
+ ]};
+ return `<link rel="canonical" href="${canonical}"><meta name="robots" content="${preview?'noindex,follow':'index,follow,max-image-preview:large'}"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${Object.keys(languageNames).map(l=>`<link rel="alternate" hreflang="${l}" href="${origin+prefix(l)+path}">`).join('')}<link rel="alternate" hreflang="x-default" href="${origin+path}"><meta property="og:type" content="${slug?'article':'website'}"><meta property="og:site_name" content="SiamPlot"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(intro)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${{th:'th_TH',en:'en_US',zh:'zh_CN',ja:'ja_JP'}[lang]}"><meta property="og:image" content="${image}"><meta property="og:image:width" content="768"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="${escape(lang==='th'?'ภาพจำลองแนวคิด ไม่ใช่ภาพแปลงที่เสนอขาย':investorLocales[lang].ui[13])}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(intro)}"><meta name="twitter:image" content="${image}"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`;
+};
+const languageMenu=(path,lang)=>`<nav class="guide-languages" aria-label="${lang==='th'?'ภาษา':investorLocales[lang].ui[14]}">${Object.entries(languageNames).map(([l,name])=>`<a lang="${l}" hreflang="${l}" ${l===lang?'aria-current="page"':''} href="${prefix(l)+path}">${name}</a>`).join('')}</nav>`;
+export async function writeInvestorGuides({ origin, preview, mkdir, writeFile }) {
+ const allPaths=[];
+ for(const lang of Object.keys(languageNames)){
+  const dict=investorLocales[lang];
+  const list=lang==='th'?pages:[{path:'/investors/',title:dict.hub,intro:dict.intro},...guides.map((g,i)=>({path:`/investors/${g.slug}/`,title:dict.guides[i][0],intro:dict.guides[i][1],slug:g.slug,index:i}))];
+  const localizedCards=current=>`<ul class="guide-grid">${guides.map((g,i)=>g.slug===current?'':`<li><a href="${prefix(lang)}/investors/${g.slug}/"><strong>${dict.guides[i][0]}</strong></a><p>${dict.guides[i][1]}</p></li>`).join('')}</ul>`;
+  for(const page of list){
+   const {path,title,intro}=page,slug=path.split('/')[2]||'';
+   let content=page.content;
+   if(lang!=='th') content=slug ? investorPhotos(slug,0,2,lang)+dict.guides[page.index][2].map(([h,b],i)=>`<section><h2>${h}</h2><p>${b}</p></section>`+(i===1?investorPhotos(slug,2,4,lang):'')).join('')+`<h2>${dict.ui[7]}</h2><ul>${guides[page.index].sources.map(key=>`<li><a href="${escape(sources[key][1])}">${dict.sourceLabels[Object.keys(sources).indexOf(key)]}</a></li>`).join('')}</ul><h2>${dict.ui[8]}</h2>`+localizedCards(slug) : investorPhotos('hub',0,4,lang)+`<h2>${dict.ui[6]}</h2>`+localizedCards();
+   const u=lang==='th'?['ข้ามไปยังเนื้อหา','นำทาง','ศูนย์ข้อมูลนักลงทุน','สอบถามราคาและนัดชม','ราชสาส์น · ฉะเชิงเทรา · EEC','ทบทวนข้อมูล 6 พฤศจิกายน 2569 · ข้อเสนอเชิงกลยุทธ์เพื่อศึกษา','','','','คุยเรื่องทำเลตามแผนของคุณ','แจ้งประเภทโครงการและขนาดการดำเนินงานระยะแรก เพื่อสอบถามเงื่อนไขซื้อทั้งแปลงและนัดชมพื้นที่','ติดต่อ SiamPlot','ดูทำเลและภาพถนน']:dict.ui;
+   const localPath=prefix(lang)+path;
+   await mkdir('dist'+localPath,{recursive:true});
+   await writeFile('dist'+localPath+'index.html',`<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} | SiamPlot</title><meta name="description" content="${escape(intro)}">${meta(origin,path,title,intro,lang,preview,slug)}<link rel="stylesheet" href="/investor-guides.css"></head><body><a class="guide-skip" href="#guide-content">${u[0]}</a><header><a href="${prefix(lang)}/"><img src="/brand/siamplot-wordmark-432.webp" width="216" height="72" alt="SiamPlot"></a><nav aria-label="${u[1]}"><a href="${prefix(lang)}/investors/">${u[2]}</a><a href="${prefix(lang)}/#contact">${u[3]}</a></nav>${languageMenu(path,lang)}</header><main id="guide-content" tabindex="-1"><p class="eyebrow">${u[4]}</p><h1>${title}</h1><p class="intro">${intro}</p><p class="date">${u[5]}</p>${content}<div class="contact"><h2>${u[9]}</h2><p>${u[10]}</p><a href="${prefix(lang)}/#contact">${u[11]}</a> · <a href="${prefix(lang)}/#location">${u[12]}</a></div></main></body></html>`);
+   allPaths.push(localPath);
+  }
+ }
+ return allPaths;
+}

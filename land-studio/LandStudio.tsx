@@ -16,6 +16,6 @@ export default function LandStudio({lang}:{lang:Lang}){
    <ExpandableBlock title={c.technical} level={4}><h5>{c.concept}</h5><p>{concept.movement}</p><ul>{concept.checks.map(text=><li key={text}>{text}</li>)}</ul><h5>{c.next}</h5><p>{concept.next}</p><h5>{c.budget}</h5><dl className="static-budget">{c.categories.map((name,j)=><div key={name}><dt>{name}</dt><dd>{scenario.shares[j]}%</dd></div>)}</dl><p className="ls-note">{c.budgetNote}</p></ExpandableBlock>
   </article>})}</div>
   <p className="ls-limit">{c.assumption}</p>
-  <details className="ls-source"><summary>{c.source}<span aria-hidden="true">＋</span></summary><div className="ls-source-grid"><figure><img src="/media/land-source-646.webp" srcSet="/media/land-source-646.webp 646w, /media/land-source-960.webp 960w" sizes="(max-width:700px) 100vw, 40vw" width="646" height="455" loading="lazy" alt={c.source}/></figure><div><h3>{c.factsTitle}</h3><ul>{c.facts.map(text=><li key={text}>{text}</li>)}</ul></div></div></details>
+  <details className="ls-source"><summary>{c.source}<span aria-hidden="true">＋</span></summary><div className="ls-source-grid"><figure><img src="/media/land-source-646.webp"  sizes="(max-width:700px) 100vw, 40vw" width="646" height="455" loading="lazy" alt={c.source}/></figure><div><h3>{c.factsTitle}</h3><ul>{c.facts.map(text=><li key={text}>{text}</li>)}</ul></div></div></details>
  </div></section>;
 }

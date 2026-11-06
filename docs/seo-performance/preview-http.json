@@ -1,0 +1,226 @@
+[
+  {
+    "path": "/en/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/agri-food/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/development/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/eec/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/industrial-services/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/logistics/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/en/investors/site-review/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/agri-food/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/development/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/eec/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/industrial-services/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/logistics/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/investors/site-review/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/agri-food/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/development/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/eec/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/industrial-services/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/logistics/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/ja/investors/site-review/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/agri-food/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/development/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/eec/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/industrial-services/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/logistics/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  },
+  {
+    "path": "/zh/investors/site-review/",
+    "status": 200,
+    "canonical": true,
+    "noindex": true,
+    "language": true
+  }
+]
