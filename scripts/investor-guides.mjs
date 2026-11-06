@@ -1,3 +1,5 @@
+import { investorPhotos } from './investor-photos.mjs';
+
 const sources = {
   province: ['สกพอ. · ฉะเชิงเทราใน EEC', 'https://www.eeco.or.th/chachoengsao-th/'],
   zones: ['สกพอ. · รายชื่อเขตส่งเสริมและอุตสาหกรรมเป้าหมาย', 'https://www.eeco.or.th/special-economic-promotion-zones-for-targeted-industries-th/'],
@@ -76,10 +78,14 @@ const guides = [
 const escape = value => value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 const cards = guides.map(guide => `<li><a href="/investors/${guide.slug}/"><strong>${guide.title}</strong></a><p>${guide.intro}</p></li>`).join('');
 const pages = [
-  { path: '/investors/', title: 'ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่', intro: 'เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง', content: `<h2>เลือกแนวลงทุนที่ต้องการศึกษา</h2><ul class="guide-grid">${cards}</ul>` },
+  { path: '/investors/', title: 'ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่', intro: 'เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง', content: `${investorPhotos('hub')}<h2>เลือกแนวลงทุนที่ต้องการศึกษา</h2><ul class="guide-grid">${cards}</ul>` },
   ...guides.map(guide => ({
     path: `/investors/${guide.slug}/`, title: guide.title, intro: guide.intro,
-    content: guide.sections.map(([title, body]) => `<section><h2>${title}</h2><p>${body}</p></section>`).join('') +
+    content: investorPhotos(guide.slug, 0, 2) +
+      guide.sections.map(([title, body], index) =>
+        `<section><h2>${title}</h2><p>${body}</p></section>` +
+        (index === 1 ? investorPhotos(guide.slug, 2, 4) : '')
+      ).join('') +
       `<h2>แหล่งอ้างอิง</h2><ul>${guide.sources.map(key => `<li><a href="${escape(sources[key][1])}">${sources[key][0]}</a></li>`).join('')}</ul><h2>อ่านต่อสำหรับการตัดสินใจ</h2><ul class="guide-grid">${cards}</ul>`,
   })),
 ];

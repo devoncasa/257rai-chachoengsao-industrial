@@ -17,3 +17,23 @@ a:focus-visible{outline:3px solid #8c571d;outline-offset:4px}
 .guide-grid li,.contact{padding:22px;background:#fffdf5;border:1px solid #a4baaa;box-shadow:4px 4px 0 #dbe6d8}
 .guide-grid p{font-size:15px;margin:8px 0 0}
 .contact{margin-top:40px}
+
+.investor-photos{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:start;margin:32px 0 48px}
+.investor-photos figure{margin:0;min-width:0;padding:6px;border:1px solid #a4baaa;background:#fffdf5;box-shadow:5px 5px 0 #dbe6d8}
+.investor-photos figure:nth-child(even){margin-top:30px}
+.investor-photos img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.investor-photos figcaption{font-size:14px;padding:9px 8px 4px}
+.investor-photos figcaption span{color:#486956;margin-right:6px;font-variant-numeric:tabular-nums}
+.photo-credit{grid-column:1/-1;font-size:13px;color:#3f5d4f;margin:0}
+@media(max-width:600px){
+  .investor-photos{grid-template-columns:1fr;gap:14px;margin:24px 0 32px}
+  .investor-photos figure:nth-child(even){margin-top:0;width:94%;justify-self:end}
+}
+@media(min-width:601px){
+  .investor-photos--hub{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+  .investor-photos--hub figure:nth-child(3){width:88%;justify-self:end}
+  .investor-photos--eec,.investor-photos--site-review{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+  .investor-photos--pair-2:not(.investor-photos--hub){grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+  .investor-photos--pair-2 figure:nth-child(1){margin-top:28px}
+  .investor-photos--pair-2 figure:nth-child(2){margin-top:0}
+}
