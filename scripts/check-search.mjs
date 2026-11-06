@@ -15,7 +15,11 @@ for(const file of htmlPaths){
  assert(!descriptions.has(description),'duplicate description '+path);descriptions.add(description);
  assert.equal((html.match(/<h1[ >]/g)||[]).length,1,path+' H1');
  assert(html.includes(`rel="canonical" href="${origin+path}"`),path+' canonical');
- for(const l of locales)assert(html.includes(`hreflang="${l}"`),path+' alternate '+l);
+ for(const l of locales){
+ const alternate=html.match(new RegExp(`hreflang="${l}" href="([^"]+)"`));assert(alternate,path+' alternate '+l);
+ const target=await readFile(root+alternate[1].replace(origin,'')+'index.html','utf8');
+ assert(target.includes(`hreflang="${lang}" href="${origin+path}"`),path+' reciprocal '+l);
+}
  const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size,path+' duplicate IDs');
  for(const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs))JSON.parse(m[1]);
  for(const m of html.matchAll(/(?:href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)){

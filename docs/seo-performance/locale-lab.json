@@ -1,0 +1,92 @@
+[
+  {
+    "lang": "en",
+    "page": "home",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 1954.792,
+    "CLS": 0
+  },
+  {
+    "lang": "en",
+    "page": "guide",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 756.586,
+    "CLS": 0
+  },
+  {
+    "lang": "zh",
+    "page": "home",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 1880.656,
+    "CLS": 0
+  },
+  {
+    "lang": "zh",
+    "page": "guide",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 1210.036,
+    "CLS": 0
+  },
+  {
+    "lang": "ja",
+    "page": "home",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 0.97,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 1956.223,
+    "CLS": 0
+  },
+  {
+    "lang": "ja",
+    "page": "guide",
+    "device": "mobile",
+    "runs": 1,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    },
+    "LCPms": 1729.7600000000002,
+    "CLS": 0
+  }
+]

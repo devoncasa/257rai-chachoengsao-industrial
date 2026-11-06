@@ -1,0 +1,245 @@
+{
+  "method": "Lighthouse 13.6.0, Chromium 153, local gzip HTTP server in Linux container; geographic test location unavailable; cold browser context per run; default Lighthouse simulated mobile and desktop profiles; no production analytics on local host. Before was preview/noindex; after is an unreleased production-context build. No field CWV data available.",
+  "results": [
+    {
+      "page": "home",
+      "device": "mobile",
+      "before": {
+        "runs": 3,
+        "scores": {
+          "performance": 92,
+          "accessibility": 98,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "medianLCPms": 3105.6,
+        "medianCLS": 0.08930640383428128,
+        "medianTransferredBytes": 481171,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-DIV",
+          "path": "1,HTML,1,BODY,0,DIV,7,MAIN,0,SECTION,0,FIGURE,0,DIV",
+          "selector": "main#main > section#overview > figure.photo > div.image-button",
+          "boundingRect": {
+            "top": 132,
+            "bottom": 472,
+            "left": 24,
+            "right": 388,
+            "width": 364,
+            "height": 340
+          },
+          "snippet": "<div class=\"image-button\">",
+          "nodeLabel": "ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง"
+        }
+      },
+      "verified": {
+        "runs": 3,
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "medianLCPms": 2186.5,
+        "medianCLS": 0,
+        "medianTransferredBytes": 424156,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-DIV",
+          "path": "1,HTML,1,BODY,0,DIV,8,MAIN,0,SECTION,0,FIGURE,0,DIV",
+          "selector": "main#main > section#overview > figure.photo > div.image-button",
+          "boundingRect": {
+            "top": 152,
+            "bottom": 492,
+            "left": 24,
+            "right": 388,
+            "width": 364,
+            "height": 340
+          },
+          "snippet": "<div class=\"image-button\">",
+          "nodeLabel": "ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง"
+        }
+      }
+    },
+    {
+      "page": "home",
+      "device": "desktop",
+      "before": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 98,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "medianLCPms": 680.8,
+        "medianCLS": 0.02065492900787714,
+        "medianTransferredBytes": 641492,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-IMG",
+          "path": "1,HTML,1,BODY,0,DIV,7,MAIN,0,SECTION,0,FIGURE,0,DIV,0,SPAN,0,IMG",
+          "selector": "figure.photo > div.image-button > span.image-crop > img",
+          "boundingRect": {
+            "top": 156,
+            "bottom": 746,
+            "left": 24,
+            "right": 1311,
+            "width": 1287,
+            "height": 590
+          },
+          "snippet": "<img src=\"/media/overview-1600.webp\" srcset=\"/media/overview-640.webp 640w, /media/overview-960.webp 960w, /media/overv…\" sizes=\"100vw\" width=\"1672\" height=\"940\" alt=\"ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง\" loading=\"eager\" fetchpriority=\"high\">",
+          "nodeLabel": "ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง"
+        }
+      },
+      "verified": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "medianLCPms": 548.6,
+        "medianCLS": 0,
+        "medianTransferredBytes": 530268,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-IMG",
+          "path": "1,HTML,1,BODY,0,DIV,8,MAIN,0,SECTION,0,FIGURE,0,DIV,0,SPAN,0,IMG",
+          "selector": "figure.photo > div.image-button > span.image-crop > img",
+          "boundingRect": {
+            "top": 156,
+            "bottom": 746,
+            "left": 24,
+            "right": 1311,
+            "width": 1287,
+            "height": 590
+          },
+          "snippet": "<img src=\"/media/overview-1600.webp\" srcset=\"/media/overview-640.webp 640w, /media/overview-960.webp 960w, /media/overv…\" sizes=\"100vw\" width=\"1672\" height=\"940\" alt=\"ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง\" loading=\"eager\" fetchpriority=\"high\">",
+          "nodeLabel": "ภาพแนวคิดประกอบ ไม่ใช่ภาพสถานที่จริง"
+        }
+      }
+    },
+    {
+      "page": "guide",
+      "device": "mobile",
+      "before": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "medianLCPms": 1210.0,
+        "medianCLS": 0,
+        "medianTransferredBytes": 195298,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-IMG",
+          "path": "1,HTML,1,BODY,2,MAIN,4,DIV,0,FIGURE,0,IMG",
+          "selector": "main#guide-content > div.investor-photos > figure > img",
+          "boundingRect": {
+            "top": 658,
+            "bottom": 896,
+            "left": 28,
+            "right": 384,
+            "width": 357,
+            "height": 238
+          },
+          "snippet": "<img src=\"/media/investors/logistics-1.webp\" width=\"768\" height=\"512\" loading=\"lazy\" decoding=\"async\" alt=\"ประเมินทางเข้าและวงเลี้ยวรถ\">",
+          "nodeLabel": "ประเมินทางเข้าและวงเลี้ยวรถ"
+        }
+      },
+      "verified": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "medianLCPms": 755.8,
+        "medianCLS": 0,
+        "medianTransferredBytes": 196114,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,2,MAIN,2,P",
+          "selector": "body > main#guide-content > p.intro",
+          "boundingRect": {
+            "top": 509,
+            "bottom": 642,
+            "left": 21,
+            "right": 391,
+            "width": 371,
+            "height": 133
+          },
+          "snippet": "<p class=\"intro\">",
+          "nodeLabel": "เปรียบเทียบคลังภูมิภาค จุดถ่ายลำสินค้า และคลังควบคุมอุณหภูมิ ผ่านต้นทุนต่อเที่ยวและเวลาส่งมอบที่ลูกค้าต้อง…"
+        }
+      }
+    },
+    {
+      "page": "guide",
+      "device": "desktop",
+      "before": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "medianLCPms": 286.2,
+        "medianCLS": 0,
+        "medianTransferredBytes": 195298,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-IMG",
+          "path": "1,HTML,1,BODY,2,MAIN,4,DIV,0,FIGURE,0,IMG",
+          "selector": "main#guide-content > div.investor-photos > figure > img",
+          "boundingRect": {
+            "top": 593,
+            "bottom": 944,
+            "left": 195,
+            "right": 722,
+            "width": 527,
+            "height": 351
+          },
+          "snippet": "<img src=\"/media/investors/logistics-1.webp\" width=\"768\" height=\"512\" loading=\"lazy\" decoding=\"async\" alt=\"ประเมินทางเข้าและวงเลี้ยวรถ\">",
+          "nodeLabel": "ประเมินทางเข้าและวงเลี้ยวรถ"
+        }
+      },
+      "verified": {
+        "runs": 3,
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "medianLCPms": 404.3,
+        "medianCLS": 0,
+        "medianTransferredBytes": 196114,
+        "LCPElement": {
+          "type": "node",
+          "lhId": "page-0-IMG",
+          "path": "1,HTML,1,BODY,2,MAIN,4,DIV,0,FIGURE,0,IMG",
+          "selector": "main#guide-content > div.investor-photos > figure > img",
+          "boundingRect": {
+            "top": 653,
+            "bottom": 1004,
+            "left": 195,
+            "right": 722,
+            "width": 527,
+            "height": 351
+          },
+          "snippet": "<img src=\"/media/investors/logistics-1.webp\" width=\"768\" height=\"512\" loading=\"lazy\" decoding=\"async\" alt=\"ประเมินทางเข้าและวงเลี้ยวรถ\">",
+          "nodeLabel": "ประเมินทางเข้าและวงเลี้ยวรถ"
+        }
+      }
+    }
+  ]
+}
