@@ -76,9 +76,9 @@ const guides = [
 ];
 
 const escape = value => value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
-const cards = guides.map(guide => `<li><a href="/investors/${guide.slug}/"><strong>${guide.title}</strong></a><p>${guide.intro}</p></li>`).join('');
+const cards = (currentSlug) => guides.filter(guide => guide.slug !== currentSlug).map(guide => `<li><a href="/investors/${guide.slug}/"><strong>${guide.title}</strong></a><p>${guide.intro}</p></li>`).join('');
 const pages = [
-  { path: '/investors/', title: 'ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่', intro: 'เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง', content: `${investorPhotos('hub')}<h2>เลือกแนวลงทุนที่ต้องการศึกษา</h2><ul class="guide-grid">${cards}</ul>` },
+  { path: '/investors/', title: 'ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่', intro: 'เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง', content: `${investorPhotos('hub')}<h2>เลือกแนวลงทุนที่ต้องการศึกษา</h2><ul class="guide-grid">${cards()}</ul>` },
   ...guides.map(guide => ({
     path: `/investors/${guide.slug}/`, title: guide.title, intro: guide.intro,
     content: investorPhotos(guide.slug, 0, 2) +
@@ -86,7 +86,7 @@ const pages = [
         `<section><h2>${title}</h2><p>${body}</p></section>` +
         (index === 1 ? investorPhotos(guide.slug, 2, 4) : '')
       ).join('') +
-      `<h2>แหล่งอ้างอิง</h2><ul>${guide.sources.map(key => `<li><a href="${escape(sources[key][1])}">${sources[key][0]}</a></li>`).join('')}</ul><h2>อ่านต่อสำหรับการตัดสินใจ</h2><ul class="guide-grid">${cards}</ul>`,
+      `<h2>แหล่งอ้างอิง</h2><ul>${guide.sources.map(key => `<li><a href="${escape(sources[key][1])}">${sources[key][0]}</a></li>`).join('')}</ul><h2>อ่านต่อสำหรับการตัดสินใจ</h2><ul class="guide-grid">${cards(guide.slug)}</ul>`,
   })),
 ];
 
@@ -99,9 +99,10 @@ export async function writeInvestorGuides({ origin, preview, mkdir, writeFile })
 <title>${escape(title)} | SiamPlot</title><meta name="description" content="${escape(intro)}">
 <link rel="canonical" href="${origin}${path}"><meta name="robots" content="${preview ? 'noindex,nofollow' : 'index,follow'}">
 <link rel="stylesheet" href="/investor-guides.css"></head><body>
+<a class="guide-skip" href="#guide-content">ข้ามไปยังเนื้อหา</a>
 <header><a href="/"><img src="/brand/siamplot-wordmark-432.webp" width="216" height="72" alt="SiamPlot"></a>
 <nav aria-label="นำทาง"><a href="/investors/">ศูนย์ข้อมูลนักลงทุน</a><a href="/#contact">สอบถามราคาและนัดชม</a></nav></header>
-<main><p class="eyebrow">ราชสาส์น · ฉะเชิงเทรา · EEC</p><h1>${title}</h1><p class="intro">${intro}</p>
+<main id="guide-content" tabindex="-1"><p class="eyebrow">ราชสาส์น · ฉะเชิงเทรา · EEC</p><h1>${title}</h1><p class="intro">${intro}</p>
 <p class="date">ทบทวนข้อมูล 6 พฤศจิกายน 2569 · ข้อเสนอเชิงกลยุทธ์เพื่อศึกษา</p>
 ${content}<div class="contact"><h2>คุยเรื่องทำเลตามแผนของคุณ</h2><p>แจ้งประเภทโครงการและขนาดการดำเนินงานระยะแรก เพื่อสอบถามเงื่อนไขซื้อทั้งแปลงและนัดชมพื้นที่</p><a href="/#contact">ติดต่อ SiamPlot</a> · <a href="/#location">ดูทำเลและภาพถนน</a></div>
 </main></body></html>`);

@@ -37,3 +37,6 @@ a:focus-visible{outline:3px solid #8c571d;outline-offset:4px}
   .investor-photos--pair-2 figure:nth-child(1){margin-top:28px}
   .investor-photos--pair-2 figure:nth-child(2){margin-top:0}
 }
+
+.guide-skip{position:absolute;left:16px;top:12px;padding:8px 14px;background:#fffdf5;transform:translateY(-200%);z-index:1}
+.guide-skip:focus{transform:translateY(0)}
