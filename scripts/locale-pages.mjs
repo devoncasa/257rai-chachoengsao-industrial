@@ -1,3 +1,4 @@
+import {writeInvestorGuides} from './investor-guides.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {buildSync} from 'esbuild';
@@ -17,5 +18,6 @@ for(const [lang,page] of Object.entries(locales)){
  const directory=lang==='th'?'dist':`dist/${lang}`;await mkdir(directory,{recursive:true});await writeFile(`${directory}/index.html`,html);
 }
 await writeFile('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.values(locales).map(p=>`<url><loc>${origin+p.path}</loc></url>`).join('')}</urlset>`);
+const investorPaths=await writeInvestorGuides({origin,preview,mkdir,writeFile});
+await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...Object.values(locales).map(p=>p.path),...investorPaths].map(path=>`<url><loc>${origin+path}</loc></url>`).join('')}</urlset>`);
 console.log('Rendered four localized HTML pages, canonical/hreflang metadata, robots and sitemap.');

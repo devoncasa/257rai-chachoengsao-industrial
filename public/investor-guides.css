@@ -1,0 +1,19 @@
+:root{color:#173f32;background:#f6f3eb;font:17px/1.85 system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0}
+header{padding:12px max(5%,22px);border-bottom:1px solid #a4baaa;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header img{display:block;max-width:100%;height:auto}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+main{width:min(90%,960px);margin:clamp(32px,6vw,85px) auto}
+h1,h2{line-height:1.4}
+h1{font-size:clamp(32px,5.2vw,64px);margin:12px 0 20px}
+h2{font-size:clamp(22px,3.5vw,32px)}
+section{margin:38px 0;padding-top:12px;border-top:1px solid #a4baaa}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible{outline:3px solid #8c571d;outline-offset:4px}
+.eyebrow,.date{font-size:14px;color:#3f5d4f}
+.intro{font-size:clamp(18px,2.5vw,23px)}
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px;padding:0;list-style:none}
+.guide-grid li,.contact{padding:22px;background:#fffdf5;border:1px solid #a4baaa;box-shadow:4px 4px 0 #dbe6d8}
+.guide-grid p{font-size:15px;margin:8px 0 0}
+.contact{margin-top:40px}

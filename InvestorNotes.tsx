@@ -85,13 +85,28 @@ const notes = {
   },
 } satisfies Record<string, Note>;
 
+const guidePaths: Record<keyof typeof notes, string> = {
+  overview: '/investors/',
+  asset: '/investors/site-review/',
+  'land-studio': '/investors/development/',
+  'business-potential': '/investors/agri-food/',
+  location: '/investors/logistics/',
+  ecosystem: '/investors/industrial-services/',
+  infrastructure: '/investors/site-review/',
+  investment: '/investors/development/',
+  analysis: '/investors/eec/',
+  contact: '/investors/site-review/',
+};
+
 export default function InvestorNotes({ topic }: { topic: keyof typeof notes }) {
   const note: Note = notes[topic];
   return (
     <aside className="investor-notes" aria-label={note.title}>
       <p className="eyebrow">มุมมองนักลงทุน · ทบทวน 6 พฤศจิกายน 2569</p>
+      {topic === 'overview' && <p>ฉะเชิงเทราเป็นหนึ่งในสามจังหวัด EEC ร่วมกับชลบุรีและระยอง <a href="/investors/eec/">ดูโอกาสเชื่อมกับเครือข่ายธุรกิจ EEC</a></p>}
       <h3>{note.title}</h3>
       {note.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+      <p><a href={guidePaths[topic]}>อ่านคู่มือลงทุนฉบับเต็ม</a></p>
       {note.sources && <ul>{note.sources.map(source => {
         const [label, url] = sources[source];
         return <li key={url}><a href={url} target="_blank" rel="noopener noreferrer">{label}</a></li>;
