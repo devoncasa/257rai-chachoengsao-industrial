@@ -104,7 +104,7 @@ export default function InvestorNotes({ topic }: { topic: keyof typeof notes }) 
     <aside className="investor-notes" aria-label={note.title}>
       <p className="eyebrow">มุมมองนักลงทุน · ทบทวน 6 พฤศจิกายน 2569</p>
       {topic === 'overview' && <p>ฉะเชิงเทราเป็นหนึ่งในสามจังหวัด EEC ร่วมกับชลบุรีและระยอง <a href="/investors/eec/">ดูโอกาสเชื่อมกับเครือข่ายธุรกิจ EEC</a></p>}
-      <h3>{note.title}</h3>
+      <h2>{note.title}</h2>
       {note.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
       <p><a href={guidePaths[topic]}>อ่านคู่มือลงทุนฉบับเต็ม</a></p>
       {note.sources && <ul>{note.sources.map(source => {

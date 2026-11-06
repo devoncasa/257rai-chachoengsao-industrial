@@ -152,3 +152,5 @@ img,.image-crop,.image-button,.static-plan{cursor:default;transition:none!import
 select{appearance:none;-webkit-appearance:none;padding:8px 10px;border:1px solid #6b816c;background:#f6f3eb}.evidence-documents{padding-left:24px}.evidence-documents li{margin:14px 0;line-height:1.85}
 
 .location-strategy{margin-top:55px;border-top:1px solid #a4b6a3;padding-top:38px}.strategy-heading{max-width:75ch}.strategy-heading h3{font-size:clamp(1.5rem,2.5vw,2rem)}.pin-reference{padding:25px;background:#f8f7f0;border:1px solid #a4b6a3;margin:28px 0}.pin-reference h4{font-size:1.125rem;margin:0}.pin-coordinate{font-size:clamp(1.25rem,3vw,1.75rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;line-height:1.5}.strategy-ideas{display:grid;grid-template-columns:1fr 1fr;gap:0 25px;align-items:start}.strategy-subtitle{font-size:1.25rem;margin:32px 0 15px}@media(max-width:700px){.strategy-ideas{grid-template-columns:1fr}.pin-reference{padding:20px}}
+
+.mobile-navigation[hidden]{display:none!important}

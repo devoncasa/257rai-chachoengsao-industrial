@@ -1,3 +1,4 @@
+import { investorLocales } from './investor-locales.mjs';
 import { investorPhotos } from './investor-photos.mjs';
 
 const sources = {
@@ -90,22 +91,35 @@ const pages = [
   })),
 ];
 
+const languageNames={th:'ไทย',en:'English',zh:'中文',ja:'日本語'};
+const prefix=lang=>lang==='th'?'':`/${lang}`;
+const meta=(origin,path,title,intro,lang,preview,slug)=>{
+ const canonical=origin+prefix(lang)+path;
+ const image=origin+`/media/investors/${slug||'hub'}-1.webp`;
+ const schema={'@context':'https://schema.org','@graph':[
+  {'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'SiamPlot',inLanguage:Object.keys(languageNames)},
+  {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:title,description:intro,inLanguage:lang,isPartOf:{'@id':origin+'/#website'},dateModified:'2026-11-06',breadcrumb:{'@id':canonical+'#breadcrumb'}},
+  {'@type':'BreadcrumbList','@id':canonical+'#breadcrumb',itemListElement:[{'@type':'ListItem',position:1,name:'SiamPlot',item:origin+prefix(lang)+'/'},{'@type':'ListItem',position:2,name:lang==='th'?'ศูนย์ข้อมูลนักลงทุน':investorLocales[lang].ui[2],item:origin+prefix(lang)+'/investors/'},...(slug?[{'@type':'ListItem',position:3,name:title,item:canonical}]:[])]}
+ ]};
+ return `<link rel="canonical" href="${canonical}"><meta name="robots" content="${preview?'noindex,follow':'index,follow,max-image-preview:large'}"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${Object.keys(languageNames).map(l=>`<link rel="alternate" hreflang="${l}" href="${origin+prefix(l)+path}">`).join('')}<link rel="alternate" hreflang="x-default" href="${origin+path}"><meta property="og:type" content="${slug?'article':'website'}"><meta property="og:site_name" content="SiamPlot"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(intro)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${{th:'th_TH',en:'en_US',zh:'zh_CN',ja:'ja_JP'}[lang]}"><meta property="og:image" content="${image}"><meta property="og:image:width" content="768"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="${escape(lang==='th'?'ภาพจำลองแนวคิด ไม่ใช่ภาพแปลงที่เสนอขาย':investorLocales[lang].ui[13])}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(intro)}"><meta name="twitter:image" content="${image}"><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>`;
+};
+const languageMenu=(path,lang)=>`<nav class="guide-languages" aria-label="${lang==='th'?'ภาษา':investorLocales[lang].ui[14]}">${Object.entries(languageNames).map(([l,name])=>`<a lang="${l}" hreflang="${l}" ${l===lang?'aria-current="page"':''} href="${prefix(l)+path}">${name}</a>`).join('')}</nav>`;
 export async function writeInvestorGuides({ origin, preview, mkdir, writeFile }) {
-  for (const { path, title, intro, content } of pages) {
-    const directory = 'dist' + path;
-    await mkdir(directory, { recursive: true });
-    await writeFile(directory + 'index.html', `<!doctype html>
-<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${escape(title)} | SiamPlot</title><meta name="description" content="${escape(intro)}">
-<link rel="canonical" href="${origin}${path}"><meta name="robots" content="${preview ? 'noindex,nofollow' : 'index,follow'}">
-<link rel="stylesheet" href="/investor-guides.css"></head><body>
-<a class="guide-skip" href="#guide-content">ข้ามไปยังเนื้อหา</a>
-<header><a href="/"><img src="/brand/siamplot-wordmark-432.webp" width="216" height="72" alt="SiamPlot"></a>
-<nav aria-label="นำทาง"><a href="/investors/">ศูนย์ข้อมูลนักลงทุน</a><a href="/#contact">สอบถามราคาและนัดชม</a></nav></header>
-<main id="guide-content" tabindex="-1"><p class="eyebrow">ราชสาส์น · ฉะเชิงเทรา · EEC</p><h1>${title}</h1><p class="intro">${intro}</p>
-<p class="date">ทบทวนข้อมูล 6 พฤศจิกายน 2569 · ข้อเสนอเชิงกลยุทธ์เพื่อศึกษา</p>
-${content}<div class="contact"><h2>คุยเรื่องทำเลตามแผนของคุณ</h2><p>แจ้งประเภทโครงการและขนาดการดำเนินงานระยะแรก เพื่อสอบถามเงื่อนไขซื้อทั้งแปลงและนัดชมพื้นที่</p><a href="/#contact">ติดต่อ SiamPlot</a> · <a href="/#location">ดูทำเลและภาพถนน</a></div>
-</main></body></html>`);
+ const allPaths=[];
+ for(const lang of Object.keys(languageNames)){
+  const dict=investorLocales[lang];
+  const list=lang==='th'?pages:[{path:'/investors/',title:dict.hub,intro:dict.intro},...guides.map((g,i)=>({path:`/investors/${g.slug}/`,title:dict.guides[i][0],intro:dict.guides[i][1],slug:g.slug,index:i}))];
+  const localizedCards=current=>`<ul class="guide-grid">${guides.map((g,i)=>g.slug===current?'':`<li><a href="${prefix(lang)}/investors/${g.slug}/"><strong>${dict.guides[i][0]}</strong></a><p>${dict.guides[i][1]}</p></li>`).join('')}</ul>`;
+  for(const page of list){
+   const {path,title,intro}=page,slug=path.split('/')[2]||'';
+   let content=page.content;
+   if(lang!=='th') content=slug ? investorPhotos(slug,0,2,lang)+dict.guides[page.index][2].map(([h,b],i)=>`<section><h2>${h}</h2><p>${b}</p></section>`+(i===1?investorPhotos(slug,2,4,lang):'')).join('')+`<h2>${dict.ui[7]}</h2><ul>${guides[page.index].sources.map(key=>`<li><a href="${escape(sources[key][1])}">${dict.sourceLabels[Object.keys(sources).indexOf(key)]}</a></li>`).join('')}</ul><h2>${dict.ui[8]}</h2>`+localizedCards(slug) : investorPhotos('hub',0,4,lang)+`<h2>${dict.ui[6]}</h2>`+localizedCards();
+   const u=lang==='th'?['ข้ามไปยังเนื้อหา','นำทาง','ศูนย์ข้อมูลนักลงทุน','สอบถามราคาและนัดชม','ราชสาส์น · ฉะเชิงเทรา · EEC','ทบทวนข้อมูล 6 พฤศจิกายน 2569 · ข้อเสนอเชิงกลยุทธ์เพื่อศึกษา','','','','คุยเรื่องทำเลตามแผนของคุณ','แจ้งประเภทโครงการและขนาดการดำเนินงานระยะแรก เพื่อสอบถามเงื่อนไขซื้อทั้งแปลงและนัดชมพื้นที่','ติดต่อ SiamPlot','ดูทำเลและภาพถนน']:dict.ui;
+   const localPath=prefix(lang)+path;
+   await mkdir('dist'+localPath,{recursive:true});
+   await writeFile('dist'+localPath+'index.html',`<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} | SiamPlot</title><meta name="description" content="${escape(intro)}">${meta(origin,path,title,intro,lang,preview,slug)}<link rel="stylesheet" href="/investor-guides.css"></head><body><a class="guide-skip" href="#guide-content">${u[0]}</a><header><a href="${prefix(lang)}/"><img src="/brand/siamplot-wordmark-432.webp" width="216" height="72" alt="SiamPlot"></a><nav aria-label="${u[1]}"><a href="${prefix(lang)}/investors/">${u[2]}</a><a href="${prefix(lang)}/#contact">${u[3]}</a></nav>${languageMenu(path,lang)}</header><main id="guide-content" tabindex="-1"><p class="eyebrow">${u[4]}</p><h1>${title}</h1><p class="intro">${intro}</p><p class="date">${u[5]}</p>${content}<div class="contact"><h2>${u[9]}</h2><p>${u[10]}</p><a href="${prefix(lang)}/#contact">${u[11]}</a> · <a href="${prefix(lang)}/#location">${u[12]}</a></div></main></body></html>`);
+   allPaths.push(localPath);
   }
-  return pages.map(page => page.path);
+ }
+ return allPaths;
 }

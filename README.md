@@ -202,3 +202,15 @@ Rollback: revert this branch's changes or restore the verified prior Netlify dep
 
 ### Combined revision after design feedback
 The standalone Field Atlas hero and reordered sections were rejected. The current preview restores the production hero, all original sections in their original order, ambient background, existing imagery and body copy in all four languages. The original map panel and two road-reference images are additive. Native language links, visible email address, branded 404, metadata correction and hashed-asset caching are retained. No content consolidation is authorized. Compare generated text against the production App before release.
+
+### Multilingual search and performance preview (2026-11-06)
+
+The build emits four homepage locales and 28 investor-guide pages. Thai remains the editorial source; `scripts/investor-locales.mjs` holds English, Simplified Chinese and Japanese guide copy. `scripts/buyer-answers.mjs` provides visible buyer answers. Maintain aligned facts, source links and reciprocal language URLs when editing. `node scripts/check-search.mjs` validates the 32-page output, unique titles/descriptions, H1s, metadata, image attributes and local targets.
+
+React is now a build-time renderer for the homepage. The browser entry enhances existing HTML with the mobile menu, Escape/focus recovery, language anchors, header measurement, background and contour effects, and existing analytics. Details and links remain native HTML. If adding new interactive React state to App, implement the equivalent enhancement in `index.tsx` or deliberately reintroduce a bounded interactive component. Do not assume hydration. The previous 354 KB browser bundle is replaced by about 3.8 KB of enhancement code. Fonts use `optional` to avoid a late layout shift on slow connections; a system font may remain for that navigation. A small compressed stylesheet is inlined to remove a measured blocking request. Original source assets are retained.
+
+Preview builds deliberately use `noindex,follow`. Production context emits `index,follow,max-image-preview:large`; canonicals always use https://www.siamplot.com. Preview SEO scores are therefore expected to lose indexing points. Do not remove preview noindex to improve a score. There is no guarantee of AI citations, rankings or parcel-specific permits or incentives.
+
+Validation: `npm run check`, `CONTEXT=deploy-preview npm run build`, `node scripts/check-search.mjs`. Build production context separately for release SEO checks. Performance reports under `docs/seo-performance` describe local simulated lab conditions, not field Core Web Vitals or a live PageSpeed score. The public PSI API returned 429 during this session. Production analytics are not loaded on preview/local hosts.
+
+Rollback: revert this preview commit to d7061d974d0b4f1b12d8546a42eee9fea6d9d5bf and rebuild the same branch. Production remains unchanged until release is explicitly authorized. After any eventual release verify language links, mobile menu, contact links, metadata and the intended build on the canonical live domain; rerun PageSpeed when available.

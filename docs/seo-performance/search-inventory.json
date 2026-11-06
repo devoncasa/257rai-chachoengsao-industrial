@@ -1,0 +1,199 @@
+{
+  "pages": 32,
+  "uniqueTitles": 32,
+  "uniqueDescriptions": 32,
+  "rows": [
+    {
+      "path": "/en/",
+      "lang": "en",
+      "title": "257 Rai Land for Sale in Chachoengsao | SiamPlot",
+      "description": "Explore a 257-rai land listing in Ratchasan, Chachoengsao. View the original plan and site references, ask for the whole-parcel price and arrange a visit."
+    },
+    {
+      "path": "/en/investors/agri-food/",
+      "lang": "en",
+      "title": "Agri-food investment: add value from the receiving point | SiamPlot",
+      "description": "Assess produce collection, grading, packing and processing services that can grow with seasonal supply and confirmed purchases."
+    },
+    {
+      "path": "/en/investors/development/",
+      "lang": "en",
+      "title": "Property development: build in phases with room to expand | SiamPlot",
+      "description": "Assess build-to-suit premises, adaptable rental buildings and mixed service uses while acquiring the whole parcel and phasing construction."
+    },
+    {
+      "path": "/en/investors/eec/",
+      "lang": "en",
+      "title": "Investing in Chachoengsao: the EEC supplier network | SiamPlot",
+      "description": "Assess how a single landholding could support operating space and future expansion in one of the EEC’s three provinces."
+    },
+    {
+      "path": "/en/investors/",
+      "lang": "en",
+      "title": "EEC investor guides | 257 rai in Chachoengsao | SiamPlot",
+      "description": "Explore investment options for a listed 257-rai parcel in Ratchasan, Chachoengsao. Offered as one whole parcel: 411,200 m², or 41.12 hectares."
+    },
+    {
+      "path": "/en/investors/industrial-services/",
+      "lang": "en",
+      "title": "Industrial support services and supplier operations | SiamPlot",
+      "description": "Identify services manufacturers may outsource: material holding, reusable packaging management and pre-delivery preparation."
+    },
+    {
+      "path": "/en/investors/logistics/",
+      "lang": "en",
+      "title": "Warehousing and logistics: plan around actual truck cycles | SiamPlot",
+      "description": "Compare regional warehousing, cross-docking and cold storage through cost per trip and customer delivery requirements."
+    },
+    {
+      "path": "/en/investors/site-review/",
+      "lang": "en",
+      "title": "257-rai site review: evidence before a purchase decision | SiamPlot",
+      "description": "Use a site visit to resolve operational questions, development costs and parcel-specific evidence for the investment committee."
+    },
+    {
+      "path": "/",
+      "lang": "th",
+      "title": "ขายที่ดิน 257 ไร่ ราชสาส์น ฉะเชิงเทรา | SiamPlot",
+      "description": "ดูข้อมูลที่ดิน 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา แผนที่เดิมและภาพประกอบพื้นที่ พร้อมสอบถามราคาและนัดชม ขายทั้งแปลง ไม่แบ่งขาย"
+    },
+    {
+      "path": "/investors/agri-food/",
+      "lang": "th",
+      "title": "เกษตรและอาหาร เพิ่มมูลค่าตั้งแต่รับผลผลิต | SiamPlot",
+      "description": "ศึกษาศูนย์รวบรวม คัดบรรจุ และแปรรูปแบบทยอยเพิ่มบริการตามฤดูกาลและยอดรับซื้อ"
+    },
+    {
+      "path": "/investors/development/",
+      "lang": "th",
+      "title": "นักพัฒนาอสังหา ออกแบบโครงการที่ขยายได้ | SiamPlot",
+      "description": "ศึกษาทั้งอาคารตามสั่ง อาคารให้เช่าแบบยืดหยุ่น และพื้นที่บริการหลายกิจกรรม โดยซื้อทั้งแปลงและคุมเงินลงทุนทีละระยะ"
+    },
+    {
+      "path": "/investors/eec/",
+      "lang": "th",
+      "title": "ลงทุนในฉะเชิงเทรา มอง EEC ผ่านเครือข่ายคู่ค้า | SiamPlot",
+      "description": "ที่ดิน 257 ไร่ตามประกาศในราชสาส์น จังหวัดฉะเชิงเทรา หนึ่งในสามจังหวัด EEC เสนอขายทั้งแปลง เหมาะสำหรับผู้ที่ต้องการศึกษาการจัดพื้นที่หลักและพื้นที่สำรองบนทำเลเดียว"
+    },
+    {
+      "path": "/investors/",
+      "lang": "th",
+      "title": "ศูนย์ข้อมูลนักลงทุน EEC | ที่ดิน 257 ไร่ | SiamPlot",
+      "description": "เลือกอ่านตามรูปแบบธุรกิจของคุณ ที่ดินตามประกาศ 257 ไร่ อำเภอราชสาส์น ฉะเชิงเทรา เสนอขายทั้งแปลง"
+    },
+    {
+      "path": "/investors/industrial-services/",
+      "lang": "th",
+      "title": "ฐานบริการอุตสาหกรรมและงานสนับสนุนการผลิต | SiamPlot",
+      "description": "ค้นหางานที่ผู้ผลิตยินดีจ่ายเพื่อให้มีพื้นที่และผู้ดูแลแยก เช่น พักวัตถุดิบ บริหารบรรจุภัณฑ์ หรือจัดเตรียมสินค้าก่อนส่งโรงงาน"
+    },
+    {
+      "path": "/investors/logistics/",
+      "lang": "th",
+      "title": "คลังสินค้าและโลจิสติกส์ วางระบบจากรอบรถจริง | SiamPlot",
+      "description": "เปรียบเทียบคลังภูมิภาค จุดถ่ายลำสินค้า และคลังควบคุมอุณหภูมิ ผ่านต้นทุนต่อเที่ยวและเวลาส่งมอบที่ลูกค้าต้องการ"
+    },
+    {
+      "path": "/investors/site-review/",
+      "lang": "th",
+      "title": "แผนประเมินแปลง 257 ไร่ก่อนตัดสินใจซื้อ | SiamPlot",
+      "description": "จัดการนัดชมให้ได้คำตอบทั้งด้านการใช้งาน ต้นทุน และหลักฐานเฉพาะแปลงสำหรับคณะลงทุน"
+    },
+    {
+      "path": "/ja/",
+      "lang": "ja",
+      "title": "タイ・チャチューンサオの土地257ライ一括売却 | SiamPlot",
+      "description": "タイ・チャチューンサオ県ラーチャサーン郡の土地257ライ。元の概略図と現地参考画像を確認し、一括価格・取引条件のお問い合わせや現地見学の相談ができます。"
+    },
+    {
+      "path": "/ja/investors/agri-food/",
+      "lang": "ja",
+      "title": "農業・食品関連投資：受入れ段階から価値を高める | SiamPlot",
+      "description": "季節ごとの供給と確定した買付量に合わせ、集荷、選別、包装、加工サービスを検討します。"
+    },
+    {
+      "path": "/ja/investors/development/",
+      "lang": "ja",
+      "title": "不動産開発：段階整備と拡張性を両立する | SiamPlot",
+      "description": "土地は一括で取得し、オーダーメイド施設、用途変更しやすい賃貸棟、複合的なサービス拠点を段階的に整備する方法を検討します。"
+    },
+    {
+      "path": "/ja/investors/eec/",
+      "lang": "ja",
+      "title": "チャチューンサオへの投資：EECの供給網を読む | SiamPlot",
+      "description": "EECを構成する3県の一つで、事業用地と将来の拡張余地を一体的に確保する可能性を検討します。"
+    },
+    {
+      "path": "/ja/investors/",
+      "lang": "ja",
+      "title": "EEC投資ガイド｜チャチューンサオの土地257ライ | SiamPlot",
+      "description": "チャチューンサオ県ラーチャサーン郡の売地257ライを、事業用途別に検討できます。一括売却で、面積は411,200㎡、約41.12ヘクタールです。"
+    },
+    {
+      "path": "/ja/investors/industrial-services/",
+      "lang": "ja",
+      "title": "産業支援サービス・サプライヤー拠点 | SiamPlot",
+      "description": "原料の一時保管、通い容器の管理、工場納入前の準備など、製造企業が外部委託できる業務を探ります。"
+    },
+    {
+      "path": "/ja/investors/logistics/",
+      "lang": "ja",
+      "title": "倉庫・物流拠点：実際の車両運行から計画する | SiamPlot",
+      "description": "地域倉庫、クロスドック、冷蔵・冷凍倉庫を、1運行当たりの費用と納品条件で比較します。"
+    },
+    {
+      "path": "/ja/investors/site-review/",
+      "lang": "ja",
+      "title": "257ライの現地調査：購入判断に必要な確認事項 | SiamPlot",
+      "description": "現地見学で運営条件、開発費用、物件固有の資料を整理し、投資委員会の判断につなげます。"
+    },
+    {
+      "path": "/zh/",
+      "lang": "zh",
+      "title": "泰国北柳府257莱土地整宗出售 | SiamPlot",
+      "description": "了解泰国北柳府Ratchasan县257莱土地，查看原始示意图及地块参考图片，咨询整宗价格和交易条件，并预约实地看地。不分割出售。"
+    },
+    {
+      "path": "/zh/investors/agri-food/",
+      "lang": "zh",
+      "title": "农业与食品投资：从收货端提升价值 | SiamPlot",
+      "description": "结合季节性供应与确认采购量，评估集货、分级、包装和加工服务。"
+    },
+    {
+      "path": "/zh/investors/development/",
+      "lang": "zh",
+      "title": "房地产开发：整宗持有，分期建设 | SiamPlot",
+      "description": "研究定制厂房或仓库、可调整租赁单元及配套服务空间，以分期开发控制投入。"
+    },
+    {
+      "path": "/zh/investors/eec/",
+      "lang": "zh",
+      "title": "北柳府投资：从EEC供应链寻找机会 | SiamPlot",
+      "description": "评估在EEC三府之一持有完整地块、统筹运营空间与后续扩建的可能性。"
+    },
+    {
+      "path": "/zh/investors/",
+      "lang": "zh",
+      "title": "EEC投资指南｜北柳府257莱整宗土地 | SiamPlot",
+      "description": "按业务类型评估泰国北柳府Ratchasan县257莱土地的投资思路。整宗出售，面积约411,200平方米，即41.12公顷。"
+    },
+    {
+      "path": "/zh/investors/industrial-services/",
+      "lang": "zh",
+      "title": "工业配套服务与供应商运营基地 | SiamPlot",
+      "description": "寻找制造企业愿意外包的原料暂存、周转包装管理及入厂前备货服务。"
+    },
+    {
+      "path": "/zh/investors/logistics/",
+      "lang": "zh",
+      "title": "仓储物流选址：从真实运输周转测算 | SiamPlot",
+      "description": "根据单趟成本和客户交付要求，比较区域仓库、越库配送和冷链仓储。"
+    },
+    {
+      "path": "/zh/investors/site-review/",
+      "lang": "zh",
+      "title": "257莱地块考察：购买决策前的证据清单 | SiamPlot",
+      "description": "让实地考察回答运营条件、开发成本及地块资料问题，便于投资委员会评估。"
+    }
+  ]
+}
