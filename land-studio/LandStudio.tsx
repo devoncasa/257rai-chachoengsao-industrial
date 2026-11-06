@@ -8,7 +8,7 @@ export default function LandStudio({lang}:{lang:Lang}){
  const c=copy[lang];
  return <section id="land-studio" className="land-studio static-studio" aria-labelledby="ls-title"><div className="ls-inner">
   <div className="ls-heading"><div><p className="ls-eyebrow">{c.eyebrow}</p><h2 id="ls-title">{c.title}</h2></div><p className="ls-intro">{c.intro}</p></div>
-  <div className="ls-facts"><span><strong>257</strong> RAI</span><span><strong>411,200</strong> m²</span><span>{c.baseline}</span></div>
+  <div className="ls-facts"><span><strong>257</strong> {lang==='th'?'ไร่':'RAI'}</span><span><strong>411,200</strong> {lang==='th'?'ตร.ม.':'m²'}</span><span>{c.baseline}</span></div>
   <div className="static-concepts">{scenarios.map((scenario,i)=>{const concept=c.concepts[i];return <article className="static-concept" key={scenario.id}>
    <div className="static-concept-title"><span className="ls-eyebrow">0{i+1}</span><h3>{concept.title}</h3></div>
    <figure className="static-plan"><PlanView scenario={scenario} label={concept.title}/><figcaption>{c.model} · 0{i+1}</figcaption></figure>
