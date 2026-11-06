@@ -198,3 +198,7 @@ Validation: `npm run check`; `CONTEXT=deploy-preview npm run build`. Generated l
 Cache policy applies immutable only to Vite content-hashed /assets paths; HTML and unversioned media retain host defaults. No server environment variables were added.
 
 Rollback: revert this branch's changes or restore the verified prior Netlify deploy after checking the current production state. Do not merge or promote the preview without release authorization. Previous README descriptions of interactive 3D or image enlargement do not describe this branch: imagery is static and non-clickable.
+
+
+### Combined revision after design feedback
+The standalone Field Atlas hero and reordered sections were rejected. The current preview restores the production hero, all original sections in their original order, ambient background, existing imagery and body copy in all four languages. The original map panel and two road-reference images are additive. Native language links, visible email address, branded 404, metadata correction and hashed-asset caching are retained. No content consolidation is authorized. Compare generated text against the production App before release.
