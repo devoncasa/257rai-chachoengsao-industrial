@@ -214,3 +214,23 @@ Preview builds deliberately use `noindex,follow`. Production context emits `inde
 Validation: `npm run check`, `CONTEXT=deploy-preview npm run build`, `node scripts/check-search.mjs`. Build production context separately for release SEO checks. Performance reports under `docs/seo-performance` describe local simulated lab conditions, not field Core Web Vitals or a live PageSpeed score. The public PSI API returned 429 during this session. Production analytics are not loaded on preview/local hosts.
 
 Rollback: revert this preview commit to d7061d974d0b4f1b12d8546a42eee9fea6d9d5bf and rebuild the same branch. Production remains unchanged until release is explicitly authorized. After any eventual release verify language links, mobile menu, contact links, metadata and the intended build on the canonical live domain; rerun PageSpeed when available.
+
+## Investor location advantages preview — 11 November 2026
+
+`LocationAdvantages.tsx` adds a server-rendered four-language section at
+`#location-advantages` within the existing location area. Four cards connect transport,
+provincial industry, EEC context and whole-parcel planning with business relevance and
+specific evidence needed. The existing strategic discussion remains intact.
+The seller-confirmed map reference and contact destinations are reused. No drive time,
+distance, customer commitment, incentive eligibility or parcel permission is inferred.
+
+Sources checked on 11 November 2026: EECO's “Why Invest in EEC” confirms the three
+provinces; 304 Industrial Park's contact page lists its Chachoengsao location at
+200 Moo 3, Khao Hin Son, Phanom Sarakham. These support regional context only.
+Listing area remains seller information pending titles and survey.
+
+Validation: TypeScript check, preview build and 32-page search validation. This addition
+uses static HTML/CSS with no new browser JavaScript, imagery, dependencies or secrets.
+Preview only pending owner review. Do not merge to `main` without release approval.
+To withdraw, close the preview PR; after an eventual release, revert its commit and
+let existing Netlify CI build the correction.

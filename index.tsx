@@ -5,6 +5,7 @@ import './fonts.css';
 import './styles.css';
 import './readability.css';
 import './atlas.css';
+import './location-advantages.css';
 import './land-studio/studio.css';
 
 const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');
