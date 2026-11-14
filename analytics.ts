@@ -1,6 +1,6 @@
 export function campaignPage(origin: string, pathname: string, search: string) {
   const page = new URL(pathname, origin);
-  const query = new URLSearchParams(search);
+  const query = new URL(search || "", origin).searchParams;
   for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_id']) {
     const value = query.get(key);
     if (value && /^[a-z0-9][a-z0-9_-]{0,79}$/i.test(value) && !/\d{7}/.test(value)) page.searchParams.set(key, value.toLowerCase());
