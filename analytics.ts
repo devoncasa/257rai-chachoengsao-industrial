@@ -1,3 +1,12 @@
+export function campaignPage(origin: string, pathname: string, search: string) {
+  const page = new URL(pathname, origin);
+  const query = new URL(search || "", origin).searchParams;
+  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_id']) {
+    const value = query.get(key);
+    if (value && /^[a-z0-9][a-z0-9_-]{0,79}$/i.test(value) && !/\d{7}/.test(value)) page.searchParams.set(key, value.toLowerCase());
+  }
+  return page.href;
+}
 // Reuse the owner's verified GA4 stream. Review hosts never load the Google tag.
 const measurementId = 'G-YTH1CE6XB4';
 const productionHosts = new Set(['siamplot.com', 'www.siamplot.com']);
@@ -31,7 +40,7 @@ export function initializeAnalytics() {
   window.gtag = function () { window.dataLayer!.push(arguments); };
   window.gtag('js', new Date());
   window.gtag('config', measurementId, {
-    page_location: window.location.origin + window.location.pathname,
+    page_location: campaignPage(window.location.origin, window.location.pathname, window.location.search),
     page_language: pageLanguage(), content_language: pageLanguage(),
     ...(developerQA ? { debug_mode: true } : {}),
     allow_google_signals: false,
@@ -61,3 +70,4 @@ export function initializeAnalytics() {
 }
 if (document.readyState === 'complete') initializeAnalytics();
 else window.addEventListener('load', initializeAnalytics, { once: true });
+
