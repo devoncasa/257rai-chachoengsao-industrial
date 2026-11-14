@@ -20,12 +20,20 @@ function pageLanguage() {
 export function initializeAnalytics() {
   if (!productionHosts.has(window.location.hostname) || analyticsBlocked() ||
       document.getElementById('siamplot-ga4')) return;
+  const qaFlag = new URL(window.location.href).searchParams.get('ga_debug');
+  let developerQA = qaFlag === '1';
+  try {
+    if (qaFlag === '1') window.sessionStorage.setItem('siamplot-ga-debug', '1');
+    else if (qaFlag === '0') window.sessionStorage.removeItem('siamplot-ga-debug');
+    else developerQA = window.sessionStorage.getItem('siamplot-ga-debug') === '1';
+  } catch { /* Current-page QA works even without storage. */ }
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer!.push(arguments); };
   window.gtag('js', new Date());
   window.gtag('config', measurementId, {
     page_location: window.location.origin + window.location.pathname,
-    page_language: pageLanguage(),
+    page_language: pageLanguage(), content_language: pageLanguage(),
+    ...(developerQA ? { debug_mode: true } : {}),
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
   });
@@ -41,11 +49,14 @@ export function initializeAnalytics() {
     const href = target.getAttribute('href') || '';
     const method = href.startsWith('tel:') ? 'phone' : href.startsWith('mailto:') ? 'email' : /^https:\/\/wa\.me\//.test(href) ? 'whatsapp' : null;
     if (!method) return;
-    window.gtag?.('event', 'contact_click', {
+    try { window.gtag?.('event', 'contact_click', {
+      send_to: measurementId,
+      content_language: pageLanguage(),
+      ...(developerQA ? { debug_mode: true } : {}),
       contact_method: method,
       page_language: pageLanguage(),
       transport_type: 'beacon',
-    });
+    }); } catch { /* Analytics must not interrupt contact navigation. */ }
   });
 }
 if (document.readyState === 'complete') initializeAnalytics();

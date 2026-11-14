@@ -214,3 +214,20 @@ Preview builds deliberately use `noindex,follow`. Production context emits `inde
 Validation: `npm run check`, `CONTEXT=deploy-preview npm run build`, `node scripts/check-search.mjs`. Build production context separately for release SEO checks. Performance reports under `docs/seo-performance` describe local simulated lab conditions, not field Core Web Vitals or a live PageSpeed score. The public PSI API returned 429 during this session. Production analytics are not loaded on preview/local hosts.
 
 Rollback: revert this preview commit to d7061d974d0b4f1b12d8546a42eee9fea6d9d5bf and rebuild the same branch. Production remains unchanged until release is explicitly authorized. After any eventual release verify language links, mobile menu, contact links, metadata and the intended build on the canonical live domain; rerun PageSpeed when available.
+
+## Analytics language, privacy and QA
+
+The production-only analytics module keeps the existing GA4 ID and event names.
+It includes content_language alongside page_language and routes contact_click to
+the intended property. Contact clicks are intent, not received leads or purchases.
+Page URLs omit queries/fragments. DNT, Global Privacy Control and ga-disable
+stop collection, including subsequent contact events. No customer contact value
+is copied into event parameters. Initialization is idempotent and analytics
+errors cannot stop contact navigation.
+
+?ga_debug=1 marks this browser tab for developer QA; ?ga_debug=0 clears it.
+Ordinary traffic omits debug_mode. Storage failure does not break the page.
+GA4 custom dimensions and processed filter confirmation require Admin access.
+Run node --test scripts/check-analytics.test.mjs; use the existing build/type checks as well.
+No new environment variables. Roll back by reverting this commit and redeploying
+the same production branch. Tests use a simulated DOM and send no live enquiries.
