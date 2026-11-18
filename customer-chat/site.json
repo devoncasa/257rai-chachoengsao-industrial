@@ -1,0 +1,18 @@
+{
+  "siteId": "siamplot",
+  "brand": "SiamPlot",
+  "locales": [
+    "th",
+    "en",
+    "zh",
+    "ja"
+  ],
+  "defaultLocale": "th",
+  "whatsappUrl": "https://wa.me/66818519922",
+  "contactUrls": {
+    "th": "/#contact",
+    "en": "/en/#contact",
+    "zh": "/zh/#contact",
+    "ja": "/ja/#contact"
+  }
+}

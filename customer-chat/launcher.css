@@ -1,0 +1,24 @@
+#kris-customer-chat{--chat-size:64px;position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:95;width:var(--chat-size);height:var(--chat-size);font-family:inherit;font-size:16px;line-height:1.6;color:#292622;text-align:start;isolation:isolate}
+#kris-customer-chat *,#kris-customer-chat *::before,#kris-customer-chat *::after{box-sizing:border-box}
+#kris-customer-chat .kcc-launcher{display:grid;place-items:center;width:var(--chat-size);height:var(--chat-size);min-height:0;padding:11px;border:1px solid rgba(255,255,255,.76);border-radius:50%;background:rgba(74,68,61,.66);color:#fff;box-shadow:0 5px 22px #24201b32,inset 0 1px 0 #ffffff65;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);cursor:pointer;touch-action:manipulation;transition:background .18s ease,box-shadow .18s ease}
+#kris-customer-chat .kcc-launcher:hover{background:rgba(64,59,54,.82);box-shadow:0 7px 26px #24201b40}
+#kris-customer-chat .kcc-launcher svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1px 1px #00000025);pointer-events:none}
+#kris-customer-chat button:focus-visible,#kris-customer-chat a:focus-visible{outline:3px solid #9b722f;outline-offset:5px}
+#kris-customer-chat .kcc-panel{position:absolute;right:0;bottom:calc(100% + 14px);width:min(350px,calc(100vw - 36px));max-height:min(520px,calc(100dvh - 120px));overflow:auto;overscroll-behavior:contain;border:1px solid #d4c9b9;border-radius:20px;background:rgba(255,254,251,.98);box-shadow:0 14px 54px #211e1933;padding:24px;color:#292622;text-align:start}
+#kris-customer-chat .kcc-panel[hidden]{display:none!important}
+#kris-customer-chat .kcc-top{display:flex;align-items:flex-start;gap:14px;justify-content:space-between;margin-bottom:14px}
+#kris-customer-chat .kcc-brand{display:block;font-size:12px;line-height:1.5;letter-spacing:.02em;color:#6d6253;margin-bottom:5px;overflow-wrap:anywhere}
+#kris-customer-chat .kcc-title{font:600 20px/1.45 inherit;font-family:inherit;font-size:20px;font-weight:600;line-height:1.45;margin:0;color:#292622;letter-spacing:normal}
+#kris-customer-chat .kcc-close{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-height:44px;padding:0;border:1px solid #ded7cd;border-radius:50%;background:#fff;color:#39312a;font:400 26px/1 inherit;font-family:inherit;font-size:26px;line-height:1;cursor:pointer}
+#kris-customer-chat .kcc-copy{margin:0 0 19px;color:#514a41;font-size:15px;line-height:1.8}
+#kris-customer-chat .kcc-links{display:grid;gap:10px}
+#kris-customer-chat .kcc-link{display:flex;justify-content:center;align-items:center;min-height:48px;padding:11px 15px;border:1px solid #cfc4b5;border-radius:12px;background:#fff;text-decoration:none;color:#292622;font-family:inherit;font-size:15px;font-weight:600;line-height:1.6;text-align:center;overflow-wrap:anywhere}
+#kris-customer-chat .kcc-link:first-child{background:#363b31;border-color:#363b31;color:#fff}
+#kris-customer-chat .kcc-link:hover{box-shadow:inset 0 0 0 2px #9b722f}
+#kris-customer-chat.kcc-nudge .kcc-launcher{animation:kcc-invite 1.1s ease-in-out 1}
+@keyframes kcc-invite{0%,100%{transform:translateY(0)}25%{transform:translateY(-6px)}45%{transform:translateY(0)}65%{transform:translateY(-3px)}}
+@media(min-width:768px){#kris-customer-chat{--chat-size:72px;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom))}}
+@media(min-width:1200px){#kris-customer-chat{--chat-size:78px;right:max(26px,env(safe-area-inset-right));bottom:max(26px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){#kris-customer-chat .kcc-launcher{animation:none!important;transition:none}}
+html[data-vlg-motion=calm] #kris-customer-chat .kcc-launcher,html[data-reduced-motion=true] #kris-customer-chat .kcc-launcher{animation:none!important;transition:none}
+@media print{#kris-customer-chat{display:none!important}}

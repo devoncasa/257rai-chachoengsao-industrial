@@ -231,3 +231,9 @@ GA4 custom dimensions and processed filter confirmation require Admin access.
 Run node --test scripts/check-analytics.test.mjs; use the existing build/type checks as well.
 No new environment variables. Roll back by reverting this commit and redeploying
 the same production branch. Tests use a simulated DOM and send no live enquiries.
+
+## Floating customer contact launcher
+
+The build runs `node customer-chat/install.cjs dist` after the existing page generation. The shared same-origin JavaScript and CSS add one white overlapping-bubble button at the physical lower right on customer pages (64 px phone, 72 px tablet, 78 px desktop), including separately generated language and guide pages. The panel uses only the verified destinations in `customer-chat/site.json`, follows the current page language, and supports Escape and keyboard focus. It does not send messages, provide AI replies, collect conversations or trigger owner notifications. No secrets or environment variables are required.
+
+Keep existing build checks, security headers, backend restrictions and production guards. The injector is idempotent and skips owner/admin HTML. To change contact destinations, update `customer-chat/site.json` and rebuild. To roll back, revert only this launcher integration commit and let the current Git CI rebuild; do not restore an older whole-site deployment over other changes.
