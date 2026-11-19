@@ -1,4 +1,4 @@
-/* Customer contact launcher v1, 2026-11-18. No AI, tracking or automatic messages. */
+/* Customer contact launcher v1, 2026-11-18. Conditional cloud chat and direct contact. */
 (function () {
   'use strict';
   var script = document.currentScript;
@@ -64,6 +64,20 @@
     [['M35 24c13 0 24 7 24 17 0 5-3 10-8 13l2 8-11-5c-2 .3-4 .5-7 .5-12 0-22-7-22-16.5S23 24 35 24Z','.9'],['M27 5C13 5 3 13 3 23c0 6 3 11 9 14l-3 10 13-6c2 .3 3 .5 5 .5 14 0 25-8 25-18.5S41 5 27 5Z','.98']].forEach(function (data) { var p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d',data[0]);p.setAttribute('fill','#fff');p.setAttribute('fill-opacity',data[1]);p.setAttribute('stroke','#a6a098');p.setAttribute('stroke-width','1.2');svg.appendChild(p); }); button.appendChild(svg);
     root.appendChild(panel); root.appendChild(button); document.body.appendChild(root);
     var locale = '', isOpen = false, hasInteracted = false;
+
+    var aiReady = false, checkedAt = 0;
+    var aiHub = 'https://kris-portfolio-chatbot.netlify.app/';
+    var aiLabels = {"th": "คุยกับผู้ช่วย AI", "en": "Chat with the AI assistant", "ar": "تحدث مع مساعد الذكاء الاصطناعي", "zh": "与 AI 助手对话", "zh-tw": "與 AI 助手對話", "zh-hant": "與 AI 助手對話", "ja": "AIアシスタントに相談", "fr": "Discuter avec l’assistant IA", "de": "Mit dem KI-Assistenten chatten", "es": "Hablar con el asistente de IA", "hi": "AI सहायक से बात करें", "vi": "Trò chuyện với trợ lý AI", "tr": "Yapay zekâ asistanıyla sohbet edin", "it": "Parla con l’assistente IA", "nl": "Chat met de AI-assistent", "sw": "Zungumza na msaidizi wa AI", "pt": "Falar com o assistente de IA", "ur": "اے آئی معاون سے بات کریں", "bn": "এআই সহকারীর সঙ্গে কথা বলুন", "so": "La hadal kaaliyaha AI", "ha": "Yi hira da mataimakin AI", "tl": "Makipag-usap sa AI assistant", "ru": "Написать ИИ-помощнику", "my": "AI လက်ထောက်နှင့် စကားပြောရန်", "id": "Chat dengan asisten AI", "ko": "AI 도우미와 대화하기"};
+    function checkAiAvailability() {
+      if (Date.now() - checkedAt < 60000) return;
+      checkedAt = Date.now();
+      fetch(aiHub + 'api/chat', {credentials:'omit', referrerPolicy:'no-referrer'})
+        .then(function(response) { return response.ok ? response.json() : null; })
+        .then(function(health) {
+          aiReady = !!(health && health.service === 'portfolio-chat' && health.model_configured === true);
+          updateText();
+        }).catch(function() { if (aiReady) { aiReady = false; updateText(); } });
+    }
     function contactFor(code) {
       var value = config.contactUrls && (config.contactUrls[code] || config.contactUrls[code.split('-')[0]]) || config.contactUrl;
       if (value && config.contactLanguageQuery) { var url = new URL(value, location.href); url.searchParams.set(config.contactLanguageQuery,code); value = url.href; }
@@ -73,6 +87,15 @@
       locale = currentLocale(); var text = words[locale] || words[locale.split('-')[0]] || words.en;
       root.lang = locale; root.dir = /^(ar|ur)(-|$)/.test(locale) ? 'rtl' : 'ltr'; button.setAttribute('aria-label',text[0]); button.title=text[0];title.textContent=text[1];copy.textContent=text[2];close.setAttribute('aria-label',text[6]);
       links.replaceChildren();
+      if (aiReady) {
+        var key = locale.toLowerCase();
+        var chat = el('a','kcc-link',aiLabels[key] || aiLabels[key.split('-')[0]] || aiLabels.en);
+        var chatUrl = new URL(aiHub);
+        chatUrl.searchParams.set('site',config.siteId);
+        chatUrl.searchParams.set('lang',locale);
+        chat.href = chatUrl.href;
+        chat.target = '_blank'; chat.rel = 'noopener noreferrer'; links.appendChild(chat);
+      }
       [[config.whatsappUrl,3],[config.lineUrl,7],[config.fastworkUrl,8],[contactFor(locale),4],[config.phoneUrl,5]].forEach(function (item) {
         var href=safeUrl(item[0]); if(!href)return; var a=el('a','kcc-link',text[item[1]]);a.href=href;
         if(/^https?:/.test(href)&&new URL(href).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer';}
@@ -85,7 +108,7 @@
       if(next===isOpen)return;
       isOpen=next;hasInteracted=true;panel.hidden=!next;button.setAttribute('aria-expanded',String(next));root.classList.remove('kcc-nudge');
       try{sessionStorage.setItem('customer-chat-nudge:'+config.siteId,'dismissed');}catch(_){}
-      if(next){close.focus({preventScroll:true});window.dispatchEvent(new CustomEvent('kris:customer-chat-open',{detail:{siteId:config.siteId,locale:locale,mode:'contact'}}));}
+      if(next){checkAiAvailability();close.focus({preventScroll:true});window.dispatchEvent(new CustomEvent('kris:customer-chat-open',{detail:{siteId:config.siteId,locale:locale,mode:'contact'}}));}
       else if(returnFocus)button.focus({preventScroll:true});
       schedulePosition();
     }
@@ -126,7 +149,8 @@
       started=performance.now();inviteTimer=setTimeout(function(){inviteTimer=0;remaining=0;invite();},remaining);
     }
     document.addEventListener('visibilitychange',countVisibleTime);countVisibleTime();
-    window.KrisCustomerChat={version:'20261118a',mode:'contact',open:function(){setOpen(true,false);},close:function(){setOpen(false,true);}};
+    window.KrisCustomerChat={version:'20261119b',mode:'contact',open:function(){setOpen(true,false);},close:function(){setOpen(false,true);}};
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
+
